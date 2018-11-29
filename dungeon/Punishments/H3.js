@@ -122,11 +122,42 @@ choice=randomInteger(1,2);
 switch (choice) {
 	case 1: 
 
-	sendMessage("Well this is gonna be rather simple.. "); //#DT4
+
 	sendMessage("In a moment you will go to the corner",10); 
 	sendMessage("Naked of course in case you doubted that..") //#DT4
-	sendMessage("In the corner you will "+ random("just be standing with your fingers folded behind your hear","simply be standing","kneel and fold your fingers behind your head","simply be standing and pressing a coin against the wall with your nose arms down"));// #DT4
-	sendMessage("Stay there until you hear my bell, now go!"); // #DT4 
+	sendMessage("In the corner you will "+ random("just be standing with your fingers folded behind your hear","simply be standing","simply be standing and pressing a coin against the wall with your nose arms down"));// #DT4
+	sendMessage("You will Stay there until you hear my bell."); // #DT4 
+	sendMessage("But before you go, we need to make things..... interesting."); // #DT4 
+	  pchoice = randomInteger(1,3);
+		   if((pchoice==1) && (getVar("toyhumbler")==true))
+		   { sendMessage("go get your Humbler, and start putting it on", 18);  }
+	   else
+	   {	 pchoice = randomInteger(1,2);
+			if((pchoice==1) && (getVar("toyparachute")==true))
+			{
+			sendMessage("go get your parachute, and start putting it on", 12);
+			sendMessage("once it's on, attach " + random("1","1.5","2") +" Kg's of weight to it") );
+			}
+			else {		sendMessage("go tie a rope around your %Balls%, and leave a loose end about 30 cm long.", 12);
+			sendMessage("once their nice and tied up, attach " + random("1","1.5","2") +" Kg's of weight to the rope") );
+			}
+	   }
+		response = getInput("are you all done getting gussied up? "); //#DT4 
+		while(true){
+			if(response.containsIgnoreCase("yes", "yep", "yeah", "I did")){
+			sendMessage("%GNMGood%, now go to the corner %slave% and do as you've been instructed");// #DT4 
+		
+			break;	} 
+			else {
+			sendMessage("well hurry the fuck up! "); //#DT4 
+			break;
+		
+
+			}
+			//(Silence)
+
+		}
+			
 	wait(getVar("CornerTimeCounter"));
 	sendMessage("Get back here.."); // 
 	playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
@@ -137,13 +168,13 @@ switch (choice) {
 	changeMeritLow(false);
 	// @Goto(NoFee)
 	//@TempFlag(PunishmentComplete)
-	setVar("PunishmentCompleted",13);
+	setVar("PunishmentCompleted",23);
 	run("Dungeon\Punishment\PunishmentBaseEnd.js");
 	break;
 	
    case 2:
 	//@Flag(RepeatCornerTime) 
-	if (isVar("M3Recursion")){
+	if (isVar("H3Recursion")){
 	sendMessage("Well since we're doing it again I better repeat the instructions.."); //#DT4
 	sendMessage("Now its very simple slut!"); // #DT4
 	}
@@ -151,7 +182,6 @@ switch (choice) {
 	sendMessage("In a moment you'll go to the corner.."); // #DT4
 	sendMessage("While in the corner I want you to be on your toes!"); // #DT4
 	sendMessage("At no point are you allowed to rest down on your heels "); //#DT4
-	sendMessage("At least not while standing there "); //#DT4
 	sendMessage("You'll hear my voice saying 'up' or 'down'"); // #DT4
 	sendMessage("Down means going down in a squat still on toes"); // #DT4
 	sendMessage("Up means standing up on your toes.. "); //#DT4
@@ -160,6 +190,36 @@ switch (choice) {
 	sendMessage("Everytime you hear a command I want you say 'Thank You %DomHonorific%'"); //#DT4
 	sendMessage("Lastly I want you to count everytime your heel strikes the floor or you loose your balance.."); // #DT4
 	sendMessage("If both heels strikes at the same time it counts as two! "); //#DT4
+	sendMessage("But before you go, we need to make things..... interesting."); // #DT4 
+	  pchoice = randomInteger(1,3);
+		   if((pchoice==1) && (getVar("toyhumbler")==true))
+		   { sendMessage("go get your Humbler, and start putting it on", 18);  }
+	   else
+	   {	 pchoice = randomInteger(1,2);
+			if((pchoice==1) && (getVar("toyparachute")==true))
+			{
+			sendMessage("go get your parachute, and start putting it on", 12);
+			sendMessage("once it's on, attach " + random("1","1.5","2") +" Kg's of weight to it") );
+			}
+			else {		sendMessage("go tie a rope around your %Balls%, and leave a loose end about 30 cm long.", 12);
+			sendMessage("once their nice and tied up, attach " + random("1","1.5","2") +" Kg's of weight to the rope") );
+			}
+	   }
+		response = getInput("are you all done getting gussied up? "); //#DT4 
+		while(true){
+			if(response.containsIgnoreCase("yes", "yep", "yeah", "I did")){
+			sendMessage("%GNMGood%, now go to the corner %slave% and do as you've been instructed");// #DT4 
+		
+			break;	} 
+			else {
+			sendMessage("well hurry the fuck up! "); //#DT4 
+			break;
+		
+
+			}
+			//(Silence)
+
+		}
 	sendMessage("I never said this would be easy %GNMLol%"); // #DT4 
 	CornerCommandsGiven = 0 ;
 	sendMessage("Now go to the corner, stand on your toes and don't return before you hear the bell!"); // #DT4
@@ -280,8 +340,8 @@ switch (choice) {
 		while(true){
 		if(response.containsIgnoreCase("repeat","punish'","punishment","yes")) {
 			sendMessage ("Again it is then.. "); //#DT4 
-			setVar("M3Recursion", True);
-			run("dungeon/punishment/M3.js");
+			setVar("H3Recursion", True);
+			run("dungeon/punishment/H3.js");
 			break;
 		}
 		
@@ -322,9 +382,9 @@ switch (choice) {
 	}
 }
 }
-	if(isVar("M3Recursion")) {
-		delVar("M3Recursion");
+	if(isVar("H3Recursion")) {
+		delVar("H3Recursion");
 	}
 	setVar("PunishmentComplete", true);
-	setVar("punishmentCompleted", 13);
+	setVar("punishmentCompleted", 23);
 	run("dungeon/PunishmentBaseEnd.js");

@@ -51,7 +51,7 @@ switch(getVar("Punisher")){
 	break;
 	case 2 :
 	//(Contact1)
-	sendMessage(random("Well well","Oh my","Well") + " %SlaveName" );// #DT4
+	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%" );// #DT4
 	sendMessage(random("I'm absolute sure you're gonna hate this and that makes me love it!","We need to correct your poor behaviour","You need a little discipline","Its about time we did something about your behaviour") );// #DT4
 	if(getVar("SubEndurance")>=8) {
 	PS2=3;}
@@ -170,7 +170,7 @@ switch (choice) {
 	//@CountVar[CornerTimeCounter2]
 	//(CornerTime1)
 	setDate("donetime").addSecond(getVar("CornerTimeCounter"));
-	sendMessage("debug1 here");
+	//sendMessage("debug1 here");
 	while( !(getDate("donetime").hasPassed()) ) {
 		wait(randomInteger(5,25));
 		if(randomInteger(1,100) < 25 )
@@ -203,7 +203,7 @@ switch (choice) {
 	failed2=false;
 	//(Lives)
 	CornerTimeFails=sendInput("Tell me what is the sum of times your heels touched the floor and you losing your balance?"); // #DT4 @InputVar[CornerTimeFails]
-	while (True){
+	while (true){
 		if(!(CornerTimeFails.isInteger())){
 			sendMessage("that's not a number, idiot!");
 			sendMessage("try again.");	

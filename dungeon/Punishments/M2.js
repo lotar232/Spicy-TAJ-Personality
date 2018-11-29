@@ -60,7 +60,7 @@ switch(getVar("Punisher")){
 	pm2=1;
 	break;
 	case 3 :
-	(Contact2)
+	//(Contact2)
 	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%");// #DT4
 	sendMessage(random("Discipline I just love that","You're not gonna like this #GNMGrin","I don't think your #GNMCock will enjoy this","This is fun!"));// #DT4
 
