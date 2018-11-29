@@ -230,25 +230,43 @@ if(answer.containsIgnoreCase("soft")){
 	switch(punish_severity) {
 		
 		case 1:
-		   punishmentchoice = randomInteger(6,6);
+		   punishmentchoice = randomInteger(1,6);
 		   run("dungeon/Punishments/S"+punishmentchoice+".js");
 		break;
 		case 2:
-		   punishmentchoice = randomInteger(2,2);
+		   punishmentchoice = randomInteger(1,6);
 		   run("dungeon/Punishments/M"+punishmentchoice+".js");		
 		break;
 		case 3:
-		   punishmentchoice = randomInteger(7,7);
-		   run("dungeon/Punishments/H"+punishmentchoice+".js");
+		   punishmentchoice = randomInteger(1,3);
+		   switch ( punishmentchoice ) {
+			   case 1:
+		   run("dungeon/Punishments/H1.js");
+		   break;
+			case 2:
+		   run("dungeon/Punishments/H3.js");
+		   break;
+		   	case 3:
+		   run("dungeon/Punishments/H7.js");
+		   break;
+		
+	
+		   }
 		
 		break;
 		case 4:
 		   punishmentchoice = randomInteger(1,5);
-		   if((punishmentchoice==5) && (getVar("toyEnemaKit")==true))
+		   if((punishmentchoice==5) && (getVar("toyenemakit")==true))
 		   { run("dungeon/Punishments/B1.js");}
 	   else
 		   punishmentchoice = randomInteger(1,4);
-		   run("dungeon/Punishments/E"+punishmentchoice+".js");
+			if((punishmentchoice==1) && (getVar("toyshockcollar")==true))
+			{
+			run("dungeon/Punishments/E"+punishmentchoice+".js");
+			}
+			else {punishmentchoice = randomInteger(1,3);
+			run("dungeon/Punishments/E"+punishmentchoice+".js");
+			}
 		break;
 		
 	}
