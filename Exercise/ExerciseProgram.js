@@ -1029,7 +1029,7 @@ function Gif4() {
 
 		playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3"); 
 		sleep(2);
-		sendVirtualAssistantMessage(" Other side now %subName%..",1,true);
+		sendVirtualAssistantMessage(" Other side now %subName%..",10,true);
 		sleep(10);
 		sendVirtualAssistantMessage(" Continue until you hear my bell ",1,true);
 		playAudio("Audio/GNMSounds/Stroking/Metronome/40 bpm.mp3");
@@ -1037,6 +1037,8 @@ function Gif4() {
 		showImage("Images/Spicy/Exercise/Gifs/4.gif");
 		stopAudio();
 
+		playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3"); 
+	
 		sleep(4);
 
 	}
