@@ -119,6 +119,7 @@ while (true) {
 			} 
 			else if (answer.isLike("no")) {
 				sendMessage("Okay I'm glad you know your limit.. "); //#DT4
+				run("dungeon/PunishmentBase.js");
 				break;
 			}else {
 			sendMessage("Yes or no %SlaveName%"); //#DT4

@@ -125,7 +125,7 @@ switch (choice) {
 
 	sendMessage("In a moment you will go to the corner",10); 
 	sendMessage("Naked of course in case you doubted that..") //#DT4
-	sendMessage("In the corner you will "+ random("just be standing with your fingers folded behind your hear","simply be standing","simply be standing and pressing a coin against the wall with your nose arms down"));// #DT4
+	sendMessage("In the corner you will "+ random("just be standing with your fingers folded behind your head","simply be standing","simply be standing and pressing a coin against the wall with your nose arms down"));// #DT4
 	sendMessage("You will Stay there until you hear my bell."); // #DT4 
 	sendMessage("But before you go, we need to make things..... interesting."); // #DT4 
 	  pchoice = randomInteger(1,3);
@@ -136,20 +136,20 @@ switch (choice) {
 			if((pchoice==1) && (getVar("toyparachute")==true))
 			{
 			sendMessage("go get your parachute, and start putting it on", 12);
-			sendMessage("once it's on, attach " + random("1","1.5","2") +" Kg's of weight to it") );
+			sendMessage("once it's on, attach " + random("1","1.5","2") +" Kg's of weight to it" );
 			}
 			else {		sendMessage("go tie a rope around your %Balls%, and leave a loose end about 30 cm long.", 12);
-			sendMessage("once their nice and tied up, attach " + random("1","1.5","2") +" Kg's of weight to the rope") );
+			sendMessage("once their nice and tied up, attach " + random("1","1.5","2") +" Kg's of weight to the rope");
 			}
 	   }
-		response = getInput("are you all done getting gussied up? "); //#DT4 
+		response = sendInput("are you all done getting gussied up? "); //#DT4 
 		while(true){
 			if(response.containsIgnoreCase("yes", "yep", "yeah", "I did")){
 			sendMessage("%GNMGood%, now go to the corner %slave% and do as you've been instructed");// #DT4 
 		
 			break;	} 
 			else {
-			sendMessage("well hurry the fuck up! "); //#DT4 
+			sendMessage("well hurry the fuck up! and then do as you've been instructed %Slave% "); //#DT4 
 			break;
 		
 
@@ -199,13 +199,13 @@ switch (choice) {
 			if((pchoice==1) && (getVar("toyparachute")==true))
 			{
 			sendMessage("go get your parachute, and start putting it on", 12);
-			sendMessage("once it's on, attach " + random("1","1.5","2") +" Kg's of weight to it") );
+			sendMessage("once it's on, attach " + random("1","1.5","2") +" Kg's of weight to it") ;
 			}
 			else {		sendMessage("go tie a rope around your %Balls%, and leave a loose end about 30 cm long.", 12);
-			sendMessage("once their nice and tied up, attach " + random("1","1.5","2") +" Kg's of weight to the rope") );
+			sendMessage("once their nice and tied up, attach " + random("1","1.5","2") +" Kg's of weight to the rope") ;
 			}
 	   }
-		response = getInput("are you all done getting gussied up? "); //#DT4 
+		response = sendInput("are you all done getting gussied up? "); //#DT4 
 		while(true){
 			if(response.containsIgnoreCase("yes", "yep", "yeah", "I did")){
 			sendMessage("%GNMGood%, now go to the corner %slave% and do as you've been instructed");// #DT4 
@@ -230,7 +230,7 @@ switch (choice) {
 	//@CountVar[CornerTimeCounter2]
 	//(CornerTime1)
 	setDate("donetime").addSecond(getVar("CornerTimeCounter"));
-	sendMessage("debug1 here");
+	//sendMessage("debug1 here");
 	while( !(getDate("donetime").hasPassed()) ) {
 		wait(randomInteger(5,25));
 		if(randomInteger(1,100) < 25 )
@@ -239,13 +239,13 @@ switch (choice) {
 			wait(randomInteger(5,25));
 			
 			if(CornerTimeDown){
-				playAudio("GNMSounds/Punishment/Corner/Down/*.mp3");
+				playAudio("audio/GNMSounds/Punishment/Corner/Down/*.mp3");
 				CornerCommandsGiven=CornerCommandsGiven+ 1 ;
 				wait(1);
 				CornerTimeDown=false;
 
 			}else{
-				playAudio("GNMSounds/Punishment/Corner/Up/*.mp3");
+				playAudio("audio/GNMSounds/Punishment/Corner/Up/*.mp3");
 				CornerCommandsGiven=CornerCommandsGiven+ 1 ;
 				wait(1);
 				CornerTimeDown=true;
@@ -301,7 +301,7 @@ switch (choice) {
 	fee=false;
 	if(!Failed2){
 		sendMessage("Now I need you to be honest with me.."); // #DT4
-		response = getInput("Did you remember to say 'thank you %DomHonorific% ' <i>everytime</i> I gave a command? ",8); //#DT4 
+		response = sendInput("Did you remember to say 'thank you %DomHonorific% ' <i>everytime</i> I gave a command? ",8); //#DT4 
 		while(true){
 			if(response.containsIgnoreCase("yes", "yep", "yeah", "I did")){
 			sendMessage("%GNMGood%");// #DT4 
@@ -336,7 +336,7 @@ switch (choice) {
 		sendMessage("Well well I think that was a little too much.."); // #DT4
 		//(Failed2)
 		sendMessage("I'm gonna give you 2 choices since you can't seem to do this right..");// #DT4
-		response= getInput("Either you repeat the punishment or I'll count this punishment as a fail and collect a fee from you..", 20); //#DT4 
+		response= sendInput("Either you repeat the punishment or I'll count this punishment as a fail and collect a fee from you..", 20); //#DT4 
 		while(true){
 		if(response.containsIgnoreCase("repeat","punish'","punishment","yes")) {
 			sendMessage ("Again it is then.. "); //#DT4 
