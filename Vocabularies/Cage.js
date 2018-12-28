@@ -1,4 +1,4 @@
-function CageVocabulary() {
+function cageVocabulary() {
  switch(getVar(VARIABLE_CHASTITY_CAGE_TYPE)) {
  
  case 0:
