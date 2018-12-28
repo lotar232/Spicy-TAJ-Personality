@@ -1,7 +1,7 @@
 
 if(!isVar("PunishmentBaseIntro")){
 	setVar("PunishmentBaseIntro",true);
-	setVar("Punishmentactive",false);
+	setVar("PunishmentActive",false);
 	
 sendDungeonMessage( random("Hello","Welcome","Hi","Greetings","Good to see you")+ " " + random("%SlaveName%","%SubNam%","slave","slave","slave","slave","slave") );
 sendDungeonMessage(" I go by 'Miss A' ");
@@ -46,7 +46,7 @@ if(getVar("PunishmentActive")==true){
 		sendDungeonMessage(" Remember to only choose punishments you can handle.. ",0);
 		break;
 	}else {
-		sendDungeonMessage(" Bug or you couldn't handle it? ",5);
+		answer= sendInput(" Bug or you couldn't handle it? ",5);
 		answer.loop;
 	}
 	if (answer.isTimeout()){
@@ -106,7 +106,7 @@ if(answer.containsIgnoreCase("how many","point","punishment point")){
 		 }
 		sendDungeonMessage( random("Okay then","Lets proceed","lets move forward","Lets continue ")); 
 		playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
-		 run("Punishment/SpankzChoir/SpankzChoirBase.js");
+		 run("dungeon/SpankzChoir/SpankzChoirBase.js");
 		
 	
 }else if(answer.containsIgnoreCase("report","reporting","punish","punished","punishment")){
@@ -244,7 +244,7 @@ if(answer.containsIgnoreCase("soft")){
 		   run("dungeon/Punishments/H1.js");
 		   break;
 			case 2:
-		   run("dungeon/Punishments/H3.js");
+		   run("dungeon/Punishments/H3.js");  run("dungeon/Punishments/H3.js");
 		   break;
 		   	case 3:
 		   run("dungeon/Punishments/H7.js");
