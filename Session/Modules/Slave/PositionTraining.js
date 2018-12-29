@@ -36,6 +36,21 @@ if (position_level <= 15) {
 
 positionTrainingEnd();
 
+function startKneeling() {
+    //TODO: Sound and random
+    sendMessage('Kneel for me %SlaveName%');
+    setVar(VARIABLE_IS_KNEELING, true);
+}
+
+function stopKneeling() {
+    sendMessage('You can stand up %SlaveName%');
+    setVar(VARIABLE_IS_KNEELING, false);
+}
+
+function isKneeling() {
+    return getVar(VARIABLE_IS_KNEELING, false);
+}
+
 function positionWalkthrough() {
     lockImages();
 	sendMessage("Attention");
@@ -109,7 +124,7 @@ function simplePositionTrainingIntro() {
 function simplePositionTrainingSelection(totalPositions) {
 
     simplePositionTrainingIntro();
-    sendMessage("now then...")
+    sendMessage("Now then...")
 
     var simpleTraining = {
         currentTraining_a1 : function () {
@@ -457,7 +472,7 @@ function positionTestPunish(){
     sendMessage("I've awarded you punishment points..");
     setVar(VARIABLE_PUNISHMENT_POINTS, getVar(VARIABLE_PUNISHMENT_POINTS + randomInteger(50,150)));
     sendMessage("Next time I expect more from you!");
-    setVar(VARIABLE_POSITION_LEVEL = position_level - 1);
+    setVar(VARIABLE_POSITION_LEVEL, position_level - 1);
 }
 
 function positionTestReward(){
@@ -767,7 +782,7 @@ function complicatedPositionTrainingSelection(totalPositions) {
             showImage("Images/Spicy/Positions/BentOver2.jpg");
             sendMessage("Head down");
             sendMessage("Stay there until you hear my bell");
-            sendMessage("I want you to count everytime you lose your balance");
+            sendMessage("I want you to count every time you lose your balance");
             //TODO: No More ((If you absolutely can't handle anymore just say 'stop'))
             sendMessage("Get into position %SlaveName%");
             unlockImages();
@@ -782,7 +797,7 @@ function complicatedPositionTrainingSelection(totalPositions) {
             showImage("Images/Spicy/Positions/BentOverOpen2.jpg");
             sendMessage("Head down");
             sendMessage("Stay there until you hear my bell");
-            sendMessage("I want you to count everytime you lose your balance");
+            sendMessage("I want you to count every time you lose your balance");
             //TODO: No More ((If you absolutely can't handle anymore just say 'stop'))
             sendMessage("Get into position %SlaveName%");
             unlockImages();
@@ -856,7 +871,7 @@ function complicatedPositionTrainingSelection(totalPositions) {
             showImage("Images/Spicy/Positions/Judgement1.jpg");
             sendMessage("Stay there until you hear my bell");
             sendMessage("Just so we're clear your heels may not touch the ground..");
-            sendMessage("I want you to count everytime you lose your balance or your heels touch the ground");
+            sendMessage("I want you to count every time you lose your balance or your heels touch the ground");
             //TODO: No More ((If you absolutely can't handle anymore just say 'stop'))
             sendMessage("Get into position %SlaveName%");
             unlockImages();
@@ -958,7 +973,7 @@ function complicatedPositionTrainingSelection(totalPositions) {
             lockImages();
             showImage("Images/Spicy/Positions/Stand1.jpg");
             sendMessage("Stay there until you hear my bell");
-            sendMessage("I want you to count everytime you lose your balance");
+            sendMessage("I want you to count every time you lose your balance");
             //TODO: No More ((If you absolutely can't handle anymore just say 'stop'))
             sendMessage("Get into position %SlaveName%");
             unlockImages();
@@ -972,7 +987,7 @@ function complicatedPositionTrainingSelection(totalPositions) {
             lockImages();
             showImage("Images/Spicy/Positions/StandOpen1.jpg");
             sendMessage("Stay there until you hear my bell");
-            sendMessage("I want you to count everytime you lose your balance");
+            sendMessage("I want you to count every time you lose your balance");
             //TODO: No More ((If you absolutely can't handle anymore just say 'stop'))
             sendMessage("Get into position %SlaveName%");
             unlockImages();

@@ -177,7 +177,7 @@ sendMessage("%GNMGrin%");
 	setVar("PunishmentFailed", true);
 	setVar("PunishmentComplete", true);
 	setVar("punishmentCompleted", 05);
-	run("dungeon/PunishmentBaseEnd.js");
+	run("Dungeon/PunishmentBaseEnd.js");
  } else {
 	
 	sendMessage("Well well you made it! "); //#DT4
@@ -187,6 +187,6 @@ sendMessage("%GNMGrin%");
 
 	setVar("PunishmentComplete", true);
 	setVar("punishmentCompleted", 05);
-	run("dungeon/PunishmentBaseEnd.js");
+	run("Dungeon/PunishmentBaseEnd.js");
 
  }
