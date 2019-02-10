@@ -102,7 +102,7 @@ sendMessage("Not.."); //#DT4
 sendMessage("Enjoy.."); //#DT4
 sendMessage("This.."); //#DT4
 sendMessage("%SlaveName% .."); //#DT4
-sendMessage(random("Fetch","Retrieve","Bring me","Go and get","Go ahead and fetch") +" 4 large rubberbands"); //#DT4
+sendMessage(random("%Fetch%","%Fetch%","%Fetch%","%Fetch%","Retrieve","Bring me","Go and get","Go ahead and fetch") +" 4 large rubberbands"); //#DT4
 sendMessage("Get naked if you're not already"); //#DT4
 sendMessage("Put 1 rubberband around each buttcheek"); //#DT4
 sendMessage("Place the remaining around your mid thigh"); //#DT4

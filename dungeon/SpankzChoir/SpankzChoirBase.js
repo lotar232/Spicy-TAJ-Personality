@@ -67,11 +67,14 @@ if(!isVar("SpankzChoirBaseIntro")){
 }
 //************************************************************************ POST INTRO ****************************************************
 //(FirstSpankChoir) //Start with a check if a previous started spanking session was completed.
-if (!isVar("SpankzChoirSubscription")) {
+sendDungeonMessage("test");
+
+//fixme
+if (getDate("SpankzChoirSubscription")==true) {
 	sendDungeonMessage(" Honey, SpankzChoir is a subscription website... you need to go to the shop to buy a membership. ");
 	}
 	else { if (getDate("SpankzChoirSubscription").hasPassed())
-		{sendDungeonMessage(" Your subscribtion to SpankzChoir has expired");
+		{sendDungeonMessage(" Your subscription to SpankzChoir has expired");
  sendDungeonMessage(" hurry over to the shop to renew it, and get your %GNMAss% back here ");
 		} else{
 			// we have a valid subscription
@@ -79,7 +82,7 @@ if (!isVar("SpankzChoirSubscription")) {
 			
 			if ( getVar("AlexisWon")== true || getVar("AllisonWon")== true ||getVar("GigiWon")== true ||getVar("JeanetteWon")== true ||getVar("KordeliaWon")== true ||getVar("KymWon")== true ||getVar("SadieWon")== true ||getVar("SarahWon")== true )
 				{sendDungeonMessage(" You can't skip a session %SlaveName% ");
-				setVar("SpankzChoirSkipped");
+				setVar("SpankzChoirSkipped", true);
 				if( getVar("AlexisWon")== true )
 				{
 					sendDungeonMessage(" Since you tried to skip a session I'm transfering 20 gold to Alexis "); 
@@ -116,7 +119,7 @@ if (!isVar("SpankzChoirSubscription")) {
 				sendDungeonMessage(" Also I'm awarding you some extra spanking "); 
 				setVar("AuctionStrokes", getVar("AuctionStrokes")+100);
 				sendDungeonMessage(" Enjoy.. ");
-				run("dungeon/SpankzChoir/MxMain.js"); 
+				run("Dungeon/SpankzChoir/MxMain.js"); 
 				//this fixes a bug below???
 				//break;
 					
@@ -126,10 +129,10 @@ if (!isVar("SpankzChoirSubscription")) {
 					{
 						//(AuctionActive) //Checks if sub returns in time, late or early
 						
-						if (getDate(SpankzChoir2).hasPassed())
+						if (getDate("SpankzChoir2").hasPassed())
 						{//slave is late!!!
 						sendDungeonMessage(" You are late %SubName% ");
-						ChangeMeritLow(true);
+						changeMeritLow(true);
 						setVar("AuctionActive",false);
 						setVar("SpankzChoirLate",true);
 						sendDungeonMessage(" The auction accept timer has run out ");
@@ -139,7 +142,7 @@ if (!isVar("SpankzChoirSubscription")) {
 						sendDungeonMessage(" Let me just see who actually won "); 
 						setVar("LateForAuction", true) ;
 						
-						choice= RandomInteger(1,8);
+						choice= randomInteger(1,8);
 
 						switch(choice) {		
 						case 1:
@@ -201,7 +204,7 @@ if (!isVar("SpankzChoirSubscription")) {
 						break;
 						}						
 						}
-						else{ if(!getDate(SpankzChoir1).hasPassed()){
+						else{ if(!getDate("SpankzChoir1").hasPassed()){
 								//slave is early!
 								sendDungeonMessage(" Well it seems you're here too early %SlaveName% ");
 								sendDungeonMessage(" don't return before the auction has completed ");
@@ -216,56 +219,57 @@ if (!isVar("SpankzChoirSubscription")) {
 										switch (Choice) {
 									
 										case 1:
-										sendDungeonMessage(" @RT(The highbidder!,It seems the high bidder,And the winner..,Oh my it seems the highbidder) is Alexis! ");
-										setVar("AlexisWon");
+										sendDungeonMessage( random("The highbidder!","It seems the high bidder","And the winner..","Oh my it seems the highbidder")+" is Alexis! ");
+										setVar("AlexisWon", true);
 										sendDungeonMessage(" I bet she's pleased with get your %GNMAss% %GNMLol% ");
 										sendDungeonMessage(" Setting it up.. "); 
 										run("dungeon/SpankzChoir/MxMain.js"); 
 										break;
 										case 2:
-										sendDungeonMessage(" @RT(The highbidder!,It seems the high bidder,And the winner..,Oh my it seems the highbidder) is Allison! "); 
-										setVar("AllisonWon") ;
+										sendDungeonMessage( random("The highbidder!","It seems the high bidder","And the winner..","Oh my it seems the highbidder")+" is Allison! "); 
+										setVar("AllisonWon",true) ;
 										sendDungeonMessage(" I bet she's pleased with get your %GNMAss% %GNMLol% ");
 										sendDungeonMessage(" Setting it up.. "); 
 										run("dungeon/SpankzChoir/MxMain.js"); 
 										break;
 										case 3:
-										sendDungeonMessage(" @RT(The highbidder!,It seems the high bidder,And the winner..,Oh my it seems the highbidder) is Gigi! "); 
-										setVar("GigiWon");
+										sendDungeonMessage( random("The highbidder!","It seems the high bidder","And the winner..","Oh my it seems the highbidder")+" is Gigi! "); 
+										setVar("GigiWon",true);
 										sendDungeonMessage(" I bet she's pleased with get your %GNMAss% %GNMLol% ");
 										sendDungeonMessage(" Setting it up.. "); 
 										run("dungeon/SpankzChoir/MxMain.js"); 
 										break;
 										case 4:
-										sendDungeonMessage(" @RT(The highbidder!,It seems the high bidder,And the winner..,Oh my it seems the highbidder) is Jeanette! ");
-										setVar("JeanetteWon");
+										sendDungeonMessage(random("The highbidder!","It seems the high bidder","And the winner..","Oh my it seems the highbidder")+" is Jeanette! ");
+										setVar("JeanetteWon",true);
 										sendDungeonMessage(" I bet she's pleased with get your %GNMAss% %GNMLol% ");
 										sendDungeonMessage(" Setting it up.. "); 
 										run("dungeon/SpankzChoir/MxMain.js"); 
 										break;
 										case 5:
-										sendDungeonMessage(" @RT(The highbidder!,It seems the high bidder,And the winner..,Oh my it seems the highbidder) is Kordelia! ");
-										setVar("KordeliaWon");
+										sendDungeonMessage( random("The highbidder!","It seems the high bidder","And the winner..","Oh my it seems the highbidder")+" is Kordelia! ");
+										setVar("KordeliaWon",true);
 										sendDungeonMessage(" I bet she's pleased with get your %GNMAss% %GNMLol% ");
 										sendDungeonMessage(" Setting it up.. "); 
 										run("dungeon/SpankzChoir/MxMain.js"); 
 										break;
 										case 6:
-										sendDungeonMessage(" @RT(The highbidder!,It seems the high bidder,And the winner..,Oh my it seems the highbidder) is Kym! "); 
-										setVar("KymWon");
+										sendDungeonMessage(random("The highbidder!","It seems the high bidder","And the winner..","Oh my it seems the highbidder")+" is Kym! "); 
+										setVar("KymWon",true);
 										sendDungeonMessage(" I bet she's pleased with get your %GNMAss% %GNMLol% ");
-										sendDungeonMessage(" Setting it up.. "); run("dungeon/SpankzChoir/MxMain.js"); 
+										sendDungeonMessage(" Setting it up.. ");
+										run("dungeon/SpankzChoir/MxMain.js"); 
 										break;
 										case 7:
-										sendDungeonMessage(" @RT(The highbidder!,It seems the high bidder,And the winner..,Oh my it seems the highbidder) is Sadie! ");
-										setVar("SadieWon");
+										sendDungeonMessage( random("The highbidder!","It seems the high bidder","And the winner..","Oh my it seems the highbidder")+" is Sadie! ");
+										setVar("SadieWon",true);
 										sendDungeonMessage(" I bet she's pleased with get your %GNMAss% %GNMLol% ");
 										sendDungeonMessage(" Setting it up.. ");
 										run("dungeon/SpankzChoir/MxMain.js"); 
 										break;
 										case 8:
-										sendDungeonMessage(" @RT(The highbidder!,It seems the high bidder,And the winner..,Oh my it seems the highbidder) is Sarah! "); 
-										setVar("SarahWon");
+										sendDungeonMessage(random("The highbidder!","It seems the high bidder","And the winner..","Oh my it seems the highbidder")+" is Sarah! "); 
+										setVar("SarahWon",true);
 										sendDungeonMessage(" I bet she's pleased with get your %GNMAss% %GNMLol% ");
 										sendDungeonMessage(" Setting it up.. ");
 										run("dungeon/SpankzChoir/MxMain.js"); 
@@ -284,18 +288,20 @@ if (!isVar("SpankzChoirSubscription")) {
 
 
 							//lets start an auction!
+							//reset some flags
+							setVar("FirstCornerMx",true);
 
-						sendDungeonMessage(" So tell me %SubName$ ");
-						AuctionStrokes = sendInput(" How many strokes do you wish to put up for auction? "); 
+						sendDungeonMessage(" So tell me %SubName% ");
+						AuctionStroke = sendInput(" How many strokes do you wish to put up for auction? "); 
 						while (true) {
-								if (AuctionStrokes.isInteger()) {
-									const result = AuctionStrokes.getInt();
+								if (AuctionStroke.isInteger()) {
+									 result = AuctionStroke.getInt();
 									if ((result <= 99) || (result >=1201)) {
 										sendMessage(" You didn't provide me with a valid number, choose between 100 and 1200 ");
 										answer.loop();
 									} else {
 										
-											
+										setVar("AuctionStrokes", result);	
 										
 										break;
 									}
@@ -304,7 +310,7 @@ if (!isVar("SpankzChoirSubscription")) {
 									sendDungeonMessage("Like 3");
 									sendDungeonMessage("or 6");
 									sendDungeonMessage("or 100...");
-									AuctionStrokes.loop();
+									AuctionStroke.loop();
 								}
 								setVar("AuctionStrokes", result);
 								
@@ -314,8 +320,8 @@ if (!isVar("SpankzChoirSubscription")) {
 								CornerTimeLimit = sendInput(" What is your limit to the number of times you may be sent to the corner? ");
 								
 								while (true) {
-								if (cornerTimeLimit.isInteger()) {
-									const result = CornerTimeLimit.getInt();
+								if (CornerTimeLimit.isInteger()) {
+									 result = CornerTimeLimit.getInt();
 									if ((result <= 0) || (result >=6)) {
 										sendDungeonMessage("Choose between 1 and 5!");
 										CornerTimeLimit.loop();
@@ -338,7 +344,7 @@ if (!isVar("SpankzChoirSubscription")) {
 								CornerTimeTimeLimit = sendInput(" Choose your time limit per corner-time in minutes ");
 								
 								while (true) {
-								if (cornerTimeTimeLimit.isInteger()) {
+								if (CornerTimeTimeLimit.isInteger()) {
 									const result = CornerTimeTimeLimit.getInt();
 									if ((result <= 4) || (result >=31)) {
 										sendDungeonMessage(" I'm sorry but you have to choose between 5 and 30 ");
@@ -359,16 +365,17 @@ if (!isVar("SpankzChoirSubscription")) {
 								}
 							
 								sendDungeonMessage(" The next questions are yes or no ");
-								
+								//fixme  add support for gagpunishment variable... its got hooks already in base code
 								answer = sendInput(" Would you be okay with faceslapping? ");
 								while (true) {
 								if (answer.isLike("yes")) {
 									sendDungeonMessage(" %GNMGood% ");
 									setVar("SpankChoirFaceSlap", true);
+									break;
 									}
 								 else if (answer.isLike("no")) {
 									sendDungeonMessage("Very well");
-									delVar("SpankChoirFaceSlap");
+									setVar("SpankChoirFaceSlap",false);
 									break;
 								} else {
 									sendMessage(YES_OR_NO);
@@ -381,25 +388,27 @@ if (!isVar("SpankzChoirSubscription")) {
 								if (answer.isLike("yes")) {
 									sendDungeonMessage(" %GNMGood% ");
 									setVar("SpankChoirMouthSoap", true);
+									break;
 									}
 								 else if (answer.isLike("no")) {
 									sendDungeonMessage("Very well");
-									delVar("SpankChoirMouthSoap");
+									setVar("SpankChoirMouthSoap",false);
 									break;
 								} else {
 									sendMessage(YES_OR_NO);
 									answer.loop();
 									}								
 								}
-								answer = sendInput(" Would you be okay with  being caned instead of spanked?  (this requires 2 large rubber bands ");
+								answer = sendInput(" Would you be okay with  being caned instead of spanked?  (this requires 2 large rubber bands) ");
 								while (true) {
 								if (answer.isLike("yes")) {
 									sendDungeonMessage(" %GNMGood% ");
 									setVar("SpankChoirCaning", true);
+									break;
 									}
 								 else if (answer.isLike("no")) {
 									sendDungeonMessage("Very well");
-									delVar("SpankChoirCaning");
+									setVar("SpankChoirCaning",false);
 									break;
 								} else {
 									sendMessage(YES_OR_NO);
@@ -412,10 +421,11 @@ if (!isVar("SpankzChoirSubscription")) {
 								if (answer.isLike("yes")) {
 									sendDungeonMessage(" %GNMGood% ");
 									setVar("SpankChoirSafeword", true);
+									break;
 									}
 								 else if (answer.isLike("no")) {
 									sendDungeonMessage("Very well");
-									delVar("SpankChoirSafeword");
+									setVar("SpankChoirSafeword",false);
 									break;
 								} else {
 									sendMessage(YES_OR_NO);
@@ -428,6 +438,7 @@ if (!isVar("SpankzChoirSubscription")) {
 								if (answer.isLike("yes")) {
 									sendDungeonMessage(" %GNMGood% ");
 									setVar("ExtraStrokesOK", true);
+									break;
 									}
 								 else if (answer.isLike("no")) {
 									sendDungeonMessage("Very well");
@@ -440,9 +451,9 @@ if (!isVar("SpankzChoirSubscription")) {
 								}
 									
 								sendDungeonMessage(" Okay then.. that was it.. ");
-								setDate(SpankzChoir1,  setDate().addDay(2).setHour(0).setSecond(0).setMinute(0));
+								setDate("SpankzChoir1",  setDate().addDay(2).setHour(0).setSecond(0).setMinute(0));
 								sendDungeonMessage(" I'm posting it now, give me a moment.. ");
-								setDate(SpankzChoir2,  setDate().addDay(4).setHour(0).setSecond(0).setMinute(0));
+								setDate("SpankzChoir2",  setDate().addDay(4).setHour(0).setSecond(0).setMinute(0));
 								run("dungeon/SpankzChoir/SetGold.js")
 								sendDungeonMessage(" Please be back after 48 hours but no later than 96 hours "); 
 								setVar("AuctionActive", true);

@@ -116,7 +116,7 @@ sendMessage("So %slaveName% "); //#DT4
 sendMessage("The punishment you're about to be given "); //#DT4
 sendMessage("Might be considered a game to some "); //#DT4
 sendMessage("A mindgame %GNMGrin% "); //#DT4
-sendMessage("I need you to fetch your ballcrusher and put it on so its ready.. ",30); //#DT4 @Wait(30)
+sendMessage("I need you to %fetch% ballcrusher and put it on so its ready.. ",30); //#DT4 @Wait(30)
 
 crusherNotOn=true;
 while(crusherNotOn){

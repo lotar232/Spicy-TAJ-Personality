@@ -268,7 +268,7 @@ switch (choice) {
 			sendMessage("that's not a number, idiot!");
 			sendMessage("try again.");	
 			 answer.loop();}
-		 else if (CornerTimeLife<CornerTimeFails){
+		 else if (getVar("CornerTimeLife")<CornerTimeFails){
 		 //failed to do this correctly
 		 Failed2=true;
 		 break;

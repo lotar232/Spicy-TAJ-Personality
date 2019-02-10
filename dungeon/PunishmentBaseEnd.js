@@ -1,7 +1,7 @@
 //nurse pictures set in special nurse chat function below
 //CallReturn(CR\BackgroundMode\SetNursePictures.txt)
-if (isVar("SpankzChoirComplete") && isVar("SpankChoirSafeword")) {
-
+if (isVar("SpankzChoirComplete") && isVar("SpankChoirSafewordUsed")) {
+//fixme I think there's no actual way to trigger the safeword... so this is dead code
     sendNurseMessage("Well %SlaveName% since you used your safeword");
     sendNurseMessage("You now owe gold...");
     sendNurseMessage("Transferring gold owed...");
@@ -19,6 +19,7 @@ if (isVar("SpankzChoirComplete") && isVar("SpankChoirSafeword")) {
     delVar("SarahWon");
     delVar("SpankzChoirLate");
     delVar("SpankzChoirSafeword");
+	delVar("SpankzChoirComplete");
     //@End
 } else if (isVar("SpankzChoirComplete")) {
     if (isVar("SpankzChoirLate")) {
@@ -65,6 +66,7 @@ if (isVar("SpankzChoirComplete") && isVar("SpankChoirSafeword")) {
         delVar("SarahWon");
         delVar("SpankzChoirLate");
         delVar("SpankzChoirSafeword");
+		delVar("SpankzChoirComplete");
     } else {
         sendNurseMessage(random("Good job", "Well done"));
         sendNurseMessage("%DomHonorific% %DomName% is pleased with the extra gold you earned for her");
@@ -84,7 +86,7 @@ if (isVar("SpankzChoirComplete") && isVar("SpankChoirSafeword")) {
         }
 
         sendNurseMessage("Transferring your gold earned to you now ");
-        addGold(getVar('GoldOwedInTime'));
+        addGold(getVar("GoldOwedInTime"));
         sendNurseMessage("Looking at your account you have " + getGold() + " gold %EmoteHappy% ");
         delVar("GigiWon");
         delVar("AlexisWon");
@@ -96,6 +98,7 @@ if (isVar("SpankzChoirComplete") && isVar("SpankChoirSafeword")) {
         delVar("SarahWon");
         delVar("SpankzChoirLate");
         delVar("SpankzChoirSafeword");
+		delVar("SpankzChoirComplete");
     }
 }
 
@@ -106,7 +109,7 @@ if(isVar("Punisher")) {
     sendMessage("Cya %SlaveName%");
 
 
-    if (!getVar("Punisher" == 1)) {
+    if (!(getVar("Punisher") == 1)) {
         setSender(1);
     }
 

@@ -10,7 +10,7 @@ decider=getVar("AuctionStrokes2")/200;
 switch ( decider){
 	
 	case 0:
-	 @ChangeVar[AuctionStrokes2]=[AuctionStrokes2]/[2]
+	
 	  setVar("AuctionStrokes2",getVar("AuctionStrokes2")/2); 
 	  setVar("GoldOwedLate",getVar("GoldOwedLate")+getVar("AuctionStrokes2")); 
 	 break;
@@ -51,20 +51,21 @@ switch ( decider){
 }
 	
  
-@Flag(SpankChoirCaning)  @ChangeVar[GoldOwedLate]=[GoldOwedLate]+[80]
-@NotFlag(SpankChoirSafeword)  @ChangeVar[GoldOwedLate]=[GoldOwedLate]+[50]
-@Flag(SpankChoirMouthSoap)  @ChangeVar[GoldOwedLate]=[GoldOwedLate]+[140]
-@Flag(SpankChoirFaceSlap)  @ChangeVar[GoldOwedLate]=[GoldOwedLate]+[25]
-(AddCorner)
- setVar[CornerGold]=[10]
- @ChangeVar[CornerGold]=[CornerGold]*[CornertimeLimit]
- @ChangeVar[CornerGold]=[CornerGold]*[CornertimeTimeLimit]
- @ChangeVar[CornerGold]=[CornerGold]/[3]
- @ChangeVar[GoldOwedLate]=[GoldOwedLate]+[CornerGold]
-(Total)
- @ChangeVar[GoldOwedInTime]=[GoldOwedInTime]+[GoldOwedLate]
- @ChangeVar[GoldOwedInTime]=[GoldOwedInTime]/[10]
-@Flag(Personality1)  @ChangeVar[GoldOwedInTime]=[GoldOwedInTime]*[4]
-@Flag(Personality2)  @ChangeVar[GoldOwedInTime]=[GoldOwedInTime]*[3]
-@Flag(Personality3)  @ChangeVar[GoldOwedInTime]=[GoldOwedInTime]*[2]
-@End
+  if(isVar("SpankChoirCaning") && getVar("SpankChoirCaning")==true)
+ {setVar("GoldOwedLate",getVar("GoldOwedLate")+80);}
+ if(isVar("SpankChoirSafeword") && getVar("SpankChoirSafeWord")==false)
+ {setVar("GoldOwedLate",getVar("GoldOwedLate")+50);}
+ if(isVar("SpankChoirMouthSoap") && getVar("SpankChoirMouthSoap")==true)
+ {setVar("GoldOwedLate",getVar("GoldOwedLate")+140);}
+ if(isVar("SpankChoirFaceSlap") && getVar("SpankFaceSlap")==true)
+ {setVar("GoldOwedLate",getVar("GoldOwedLate")+25);}
+
+
+ 
+//(AddCorner)
+ CornerGold=10;
+ setVar("GoldOwedLate",getVar("GoldOwedLate")+((CornerGold*getVar("CornerTimeLimit"))/3));
+ 
+//(Total)
+ setVar("GoldOwedInTime", ((getVar("GoldOwedLate")+getVar("GoldOwedInTime"))/10)*(4 - getVar("personalityStrictness") )  );
+ 
