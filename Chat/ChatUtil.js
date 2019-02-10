@@ -17,9 +17,11 @@ function sendVirtualAssistantMessage(message, wait, skipImage) {
         showImage("Images/Spicy/Assistant/" + ASSISTANT_CURRENT_SET_ID + "/*.jpg");
     }
 
-    if(wait === undefined || wait) {
+    if(wait === undefined ) {
         sleep(1000 + message.length * 50, "MILLISECONDS");
-    }
+    }else
+		{sleep(wait*1000, "MILLISECONDS");
+		}
 }
 
 function sendSystemMessage(message) {
