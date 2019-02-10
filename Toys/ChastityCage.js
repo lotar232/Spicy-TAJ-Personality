@@ -27,6 +27,7 @@ function unlockChastityCage() {
                 sendMessage(random("You've taken way too long to get that %Cage% off...", "You are taking way to long to get that %Cage% off", "It took you too long to get that cage off..."));
                 sendMessage(random("I don't like when you make me wait", "I don't like to wait", "I don't like waiting"));
                 sendMessage(random("I'm giving you punishment points", "I've assigned you some punishment points", "I've increased your number of punishment points"));
+				setVar("Preason_too_slow",true);
                 addPunishmentPoints(100);
                 break;
             } else {
