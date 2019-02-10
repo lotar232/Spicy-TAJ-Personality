@@ -17,6 +17,7 @@
             sendVirtualAssistantMessage("You've been skipping confession day %SlaveName%!");
             sendVirtualAssistantMessage("I've added a healthy dose of punishment points for that!");
             addPunishmentPoints(300);
+			setVar("PReason_skipping_confession",true);
             sendVirtualAssistantMessage("You are expected to report on tuesdays!");
         }
 
@@ -31,16 +32,20 @@
             if (answer.containsIgnoreCase("came, orgasm, cum, cumming")) {
                 sendVirtualAssistantMessage("Cumming without permission...");
                 addPunishmentPoints(400);
+				setVar("Preason_BadCum",true);
             } else if (answer.containsIgnoreCase("ruin", "ruined")) {
                 sendVirtualAssistantMessage("Ruining without permission...");
                 addPunishmentPoints(250);
+				setVar("Preason_BadCum",true);
             } else if (answer.containsIgnoreCase("stroke", "stroking", "touched", "pleasured")) {
                 sendVirtualAssistantMessage("Stroking without permission...");
                 addPunishmentPoints(150);
+				setVar("Preason_BadEdging",true);			
             } else if (answer.containsIgnoreCase("lazy", "sloppy")) {
                 sendVirtualAssistantMessage("Lazy behaviour...");
                 addPunishmentPoints(150);
-            } else if (answer.containsIgnoreCase("unhealthy")) {
+				setVar("Preason_BadFullTime",true);
+            } else if (answer.containsIgnoreCase("unhealthy","food","eating","gorging")) {
                 sendVirtualAssistantMessage("Eating unhealthy...");
                 addPunishmentPoints(150);
             } else {

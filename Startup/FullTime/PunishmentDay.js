@@ -2,7 +2,7 @@
     if (!isVar(VARIABLE_NEXT_PUNISHMENT_DAY)) {
         sendVirtualAssistantMessage("Today it's thursday");
         sendVirtualAssistantMessage("Thursdays are special");
-        sendVirtualAssistantMessage("Thursdays are confession days");
+        sendVirtualAssistantMessage("Thursdays are punishment days");
         sendVirtualAssistantMessage("Since you're full time it is required that you at least launch Tease-AI for a weekly punishment check up");
         sendVirtualAssistantMessage("It's expected that you've brought your level of punishment points sufficiently low");
         sendVirtualAssistantMessage("If you haven't I'm adding more");
@@ -17,6 +17,7 @@
             sendVirtualAssistantMessage("You've been skipping punishment day %SlaveName%!");
             sendVirtualAssistantMessage("I've added a healthy dose of punishment points for that!");
             addPunishmentPoints(300);
+			setVar("PReason_skipping_punishment", true);
             sendVirtualAssistantMessage("You are expected to report on tuesdays!");
         }
 
@@ -30,6 +31,7 @@
             sendVirtualAssistantMessage("So I'm adding more!");
             sendVirtualAssistantMessage("Make sure you report for punishment!");
             addPunishmentPoints(250);
+			setVar("PReason_too_many_points",true);
         }
     }
 }
