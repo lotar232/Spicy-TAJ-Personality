@@ -38,7 +38,7 @@
     playAudio("Audio/Spicy/Starts/Intro/intro13.mp3", true);
     sendMessage("Never forget that...", 0);
     playAudio("Audio/Spicy/Starts/Intro/intro14.mp3", true);
-    sendMessage("Well #SlaveName", 0);
+    sendMessage("Well %SlaveName%", 0);
     playAudio("Audio/Spicy/Starts/Intro/intro15.mp3", true);
     sendMessage("If you thought that you are my sole focus", 0);
     playAudio("Audio/Spicy/Starts/Intro/intro16.mp3", true);
@@ -97,7 +97,7 @@
         sendMessage("You've signed up for full time");
         sendMessage("Normally this would mean that I expect you to launch Tease-AI at least 6 times per week");
         sendMessage("But I would understand it if your life doesn't allow for that");
-        sendMessage("So #SlaveName ");
+        sendMessage("So %SlaveName% ");
         let answer = sendInput("How many times a week do you think I should expect you to use Tease-AI?");
 
         while (true) {
@@ -136,7 +136,7 @@
         while (true) {
             if (answer.isLike("yes")) {
                 sendMessage("Okay then...");
-                answer = sendInput("So many chores should you at the very minimum complete each week?");
+                answer = sendInput("So how many chores should you at the very minimum complete each week?");
 
                 while (true) {
                     if (answer.isInteger()) {
@@ -311,7 +311,7 @@
         sendMessage("Enjoy");
     } else {
         setVar(VARIABLE_CHASTITY_ON, true);
-        sendMessage("I want you to lock up your %Cock% in its %ChastityBelt% %Grin%");
+        sendMessage("I want you to lock up your %Cock% in its %ChastityCage% %Grin%");
         sendMessage("Enjoy slave!");
         sendMessage("See you tomorrow...");
     }
