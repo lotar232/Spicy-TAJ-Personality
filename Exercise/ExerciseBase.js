@@ -1,7 +1,7 @@
 {
     let exercise = true;
 
-    if (isVar("HasExercised")) {
+    if (!isVar("HasExercised")) {
         setVar("HasExercised", true);
         //sendVirtualAssistantMessage("TP2");
         setVar("ExerciseTimes", 0);
@@ -59,7 +59,7 @@
     } else {
         run("Exercise/ExerciseLevel.js");
 
-        if (getDate("LastExercise").after(setDate().addHour(-20))) {
+        if (isVar("LastExercise")&&getDate("LastExercise").after(setDate().addHour(-20))) {
 			//TODO: Format date
             sendVirtualAssistantMessage("You last exercised at" + getDate("LastExercise"));
             sendVirtualAssistantMessage("Which is too recent");
@@ -67,7 +67,7 @@
             exercise = false;
         }
 
-        if ((getDate("ExercisePeriod").before(setDate().addHour(-160)))) {
+        if (isVar("ExercisePeriod")&&(getDate("ExercisePeriod").before(setDate().addHour(-160)))) {
             sendVirtualAssistantMessage("A seven day cycle has ended");
             sendVirtualAssistantMessage("This past week you've spent" + getVar("ExerciseTimes") + " times exercising with me");
             switch (getVar("ExerciseTimes")) {
