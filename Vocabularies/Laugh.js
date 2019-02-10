@@ -1,4 +1,4 @@
-function LaughVocabulary() {
+function laughVocabulary() {
 
 		const answers = [ "laugh","giggle","moan","whimper","LOL!", "HA HA!"  ];
  
