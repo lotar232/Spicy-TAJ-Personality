@@ -471,6 +471,7 @@ function positionTestPunish(){
     sendMessage("I'm sorry %SlaveName% but that was your third wrong answer");
     sendMessage("I've awarded you punishment points..");
     setVar(VARIABLE_PUNISHMENT_POINTS, getVar(VARIABLE_PUNISHMENT_POINTS + randomInteger(50,150)));
+	setVar("Preason_not_degrading",true);
     sendMessage("Next time I expect more from you!");
     setVar(VARIABLE_POSITION_LEVEL, position_level - 1);
 }
