@@ -1,0 +1,164 @@
+@SystemMessage #VANC #VANP Work mode has been activated
+@SystemMessage #VANC #VANP While this mode is active you'll slowly earn merits and gold
+@SystemMessage #VANC #VANP You exit work mode by typing --'exit'-- @CustomMode(exit, Goto, End)
+@SystemMessage #VANC #VANP Do you want to activate small teases while working?
+[yes]@NullResponse @SetFlag(WTeasesActive)
+[no]@NullResponse @DeleteFlag(WTeasesActive)
+@DifferentAnswer @SystemMessage #VANC #VANP #GNMYesOrNo
+@SystemMessage #VANC #VANP Do you want to activate small exercises while working?
+[yes]@NullResponse @SetFlag(WExercisesActive)
+[no]@NullResponse @DeleteFlag(WExercisesActive)
+@DifferentAnswer @SystemMessage #VANC #VANP #GNMYesOrNo
+@FlagOr(WTeasesActive,WExercisesActive) @NullResponse @Goto(Breaks)
+@SystemMessage #VANC #VANP Work hard slave 
+@SystemMessage #VANC #VANP To ensure you work hard you must return whenever you hear my bell
+@SystemMessage #VANC #VANP Fail to return within 20 seconds of hearing it and you will be punished.
+@NullResponse @SetDate(WorkMode, 0 Minutes)
+(Nothing2)
+@ShowImage[\GNMImages\GNMBackground\StudyMode.jpg]
+@NullResponse @Wait(#Random(300,1200))
+@NullResponse @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3]
+@SystemMessage #VANC #VANP Are you there slave? @Timeout(20,Failed)
+[yes]@SystemMessage #VANC #VANP #GNMGood
+@AcceptAnswer @SystemMessage #VANC #VANP #GNMGood
+@NullResponse @Goto(Nothing2) 
+(Breaks)
+@NullResponse @DeleteFlag(WOften)
+@NullResponse @DeleteFlag(WSometimes)
+@NullResponse @DeleteFlag(WRare)
+@NullResponse @DeleteFlag(WRandom)
+@SystemMessage #VANC #VANP How often do you wish these activities to occur
+@SystemMessage #VANC #VANP Often, Sometimes, rare or completely random?
+[often]@NullResponse @SetFlag(WOften)
+[sometimes]@NullResponse @SetFlag(WSometimes)
+[rare]@NullResponse @SetFlag(WRare)
+[random]@NullResponse @SetFlag(WRandom)
+@DifferentAnswer @SystemMessage #VANC #VANP Often, sometimes, rare or random
+@SystemMessage #VANC #VANP Work hard slave
+@SystemMessage #VANC #VANP Return to me whenever you hear my bell
+@SystemMessage #VANC #VANP Fail to return within 20 seconds of hearing it and you will be punished.
+@NullResponse @SetDate(WorkMode, 0 Minutes)
+(SelectX)
+@ShowImage[\GNMImages\GNMBackground\StudyMode.jpg]
+@Flag(WExercisesActive,WTeasesActive) @NullResponse @Goto(Select1)
+@Flag(WTeasesActive) @NullResponse @Goto(Select2)
+@Flag(WExercisesActive) @NullResponse @Goto(Select3)
+@NullResponse @Goto(Nothing2)
+(Select1)
+@Flag(WOften) @NullResponse @Wait(#Random(180,300))
+@Flag(WSometimes) @NullResponse @Wait(#Random(300,900))
+@Flag(WRare) @NullResponse @Wait(#Random(900,1500))
+@Flag(WRandom) @NullResponse @Wait(#Random(180,1500))
+@NullResponse @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3]
+@SystemMessage #VANC #VANP Are you there slave? @Timeout(20,Failed)
+[yes]@SystemMessage #VANC #VANP #GNMGood
+@AcceptAnswer @SystemMessage #VANC #VANP #GNMGood
+@NullResponse @Goto(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23)
+(Select2)
+@Flag(WOften) @NullResponse @Wait(#Random(180,300))
+@Flag(WSometimes) @NullResponse @Wait(#Random(300,900))
+@Flag(WRare) @NullResponse @Wait(#Random(900,1500))
+@Flag(WRandom) @NullResponse @Wait(#Random(180,1500))
+@NullResponse @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3]
+@SystemMessage #VANC #VANP Are you there slave? @Timeout(20,Failed)
+[yes]@SystemMessage #VANC #VANP #GNMGood
+@AcceptAnswer @SystemMessage #VANC #VANP #GNMGood
+@NullResponse @Goto(1,2,3,4,5,6,7,8,9,10,23)
+(Select3)
+@Flag(WOften) @NullResponse @Wait(#Random(180,300))
+@Flag(WSometimes) @NullResponse @Wait(#Random(300,900))
+@Flag(WRare) @NullResponse @Wait(#Random(900,1500))
+@Flag(WRandom) @NullResponse @Wait(#Random(180,1500))
+@NullResponse @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3]
+@SystemMessage #VANC #VANP Are you there slave? @Timeout(20,Failed)
+[yes]@SystemMessage #VANC #VANP #GNMGood
+@AcceptAnswer @SystemMessage #VANC #VANP #GNMGood
+@NullResponse @Goto(11,12,13,14,15,16,17,18,19,20,21,22)
+(1)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\1.txt)
+@NullResponse @Goto(SelectX)
+(2)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\2.txt)
+@NullResponse @Goto(SelectX)
+(3)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\3.txt)
+@NullResponse @Goto(SelectX)
+(4)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\4.txt)
+@NullResponse @Goto(SelectX)
+(5)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\5.txt)
+@NullResponse @Goto(SelectX)
+(6)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\6.txt)
+@NullResponse @Goto(SelectX)
+(7)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\7.txt)
+@NullResponse @Goto(SelectX)
+(8)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\8.txt)
+@NullResponse @Goto(SelectX)
+(9)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\9.txt)
+@NullResponse @Goto(SelectX)
+(10)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\10.txt)
+@NullResponse @Goto(SelectX)
+(11)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\1.txt)
+@NullResponse @Goto(SelectX)
+(12)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\2.txt)
+@NullResponse @Goto(SelectX)
+(13)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\3.txt)
+@NullResponse @Goto(SelectX)
+(14)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\4.txt)
+@NullResponse @Goto(SelectX)
+(15)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\5.txt)
+@NullResponse @Goto(SelectX)
+(16)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\6.txt)
+@NullResponse @Goto(SelectX)
+(17)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\7.txt)
+@NullResponse @Goto(SelectX)
+(18)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\8.txt)
+@NullResponse @Goto(SelectX)
+(19)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\9.txt)
+@NullResponse @Goto(SelectX)
+(20)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\10.txt)
+@NullResponse @Goto(SelectX)
+(21)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\11.txt)
+@NullResponse @Goto(SelectX)
+(22)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Exercises\12.txt)
+@NullResponse @Goto(SelectX)
+(23)
+@NullResponse @CallReturn(CR\BackgroundMode\WorkMode\Teases\11.txt)
+@NullResponse @Goto(SelectX)
+(End)
+@SystemMessage #VANC #VANP Calculating gold and merits earned.. @CustomMode(exit, Normal)
+@NullResponse @SetVar[GoldEarned]=[0]
+@NullResponse @SetVar[GNMMeritsEarned]=[0]
+@NullResponse @ChangeVar[GoldEarned]=[GoldEarned]+[#DateDifference(WorkMode, Minutes)]
+@NullResponse @ChangeVar[GoldEarned]=[GoldEarned]/[4]
+@NullResponse @ChangeVar[GNMMeritsEarned]=[GNMMeritsEarned]+[#DateDifference(WorkMode, Minutes)]
+@NullResponse @ChangeVar[GNMMeritsEarned]=[GNMMeritsEarned]/[2]
+@Flag(StudyMode) @NullResponse @ChangeVar[StudyHours]=[StudyHours]/[#DateDifference(WorkMode, Seconds)]
+@SystemMessage #VANC #VANP You've earned @ShowVar[GoldEarned] gold @ChangeVar[GNMGold]=[GNMGold]+[GoldEarned]
+@SystemMessage #VANC #VANP And @ShowVar[GNMMeritsEarned] merits @ChangeVar[GNMMerits]=[GNMMerits]+[GNMMeritsEarned]
+@SystemMessage #VANC #VANP Good job slave
+@End
+(Failed)
+@SystemMessage #VANC #VANP You've failed to report within proper timeframe @CustomMode(exit, Normal)
+@SystemMessage #VANC #VANP You've lost all earned gold and merits @ChangeVar[GNMPPoints]=[GNMPPoints]+[100]
+@SystemMessage #VANC #VANP And you are awarded 100 punishment points for cheating @Goto(End2)
+(End2)
+@End

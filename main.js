@@ -1,4 +1,4 @@
-showImage("Images/Spicy/Grounding/BlackBase.jpg");
+showImage("Images/Spicy/Punishment/Grounding/BlackBase.jpg");
 run("Variables.js");
 run("Utils/SoundUtils.js");
 run("Chat/ChatUtil.js");
@@ -49,7 +49,7 @@ showImage("Images/Spicy/Intro/SpicyGif*.gif", 7);
 //TODO: Academy
 
 if(isFullTime()) {
-    run("Startup/FullTime/FullTimeCheckup.js");
+    run("Startup/FullTime/FullTimeCheck.js");
 }
 
 //run("Session/StartSession.js");
