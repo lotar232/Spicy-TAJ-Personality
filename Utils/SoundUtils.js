@@ -1,5 +1,5 @@
 
 function playBellSound() {
-        playSound("Audio/Spicy/SpecialSounds/Bell.mp3");
+        playSound("Audio/GNMSounds/SpecialSounds/Bell.mp3");
 
 }
