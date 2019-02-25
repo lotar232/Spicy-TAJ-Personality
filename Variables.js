@@ -54,7 +54,7 @@ const VARIABLE_BALL_CRUSHER_MAX_TWISTS = "ballCrusherMaxTwists";
 //Modules
 const VARIABLE_POSITION_TRAINING_STARTED = "positionTrainingStarted";
 const VARIABLE_POSITION_LEVEL = "positionLevel";
-
+       setVar(VARIABLE_POSITION_LEVEL, 1);
 const VARIABLE_STROKE_TRAINING_ACTIVE = "strokeTrainingActive";
 const VARIABLE_STROKE_TRAININGS_DONE = "strokeTrainingsDone";
 const VARIABLE_STROKE_TRAINING_LEVEL = "strokeTrainingLevel";
@@ -80,8 +80,10 @@ const VARIABLE_SOFT_COCK_LENGTH = "softCockLength";
 const VARIABLE_SECONDS_TO_GET_SOFT = "secondsToGetSoft";
 
 const VARIABLE_ASS_LEVEL = "assLevel";
+setVar(VARIABLE_ASS_LEVEL,20);
 
 const VARIABLE_BLOWJOB_LEVEL = "blowjobLevel";
+setVar(VARIABLE_BLOWJOB_LEVEL,20);
 
 //Stats
 const VARIABLE_SESSION_COUNTER = "sessionCounter";
