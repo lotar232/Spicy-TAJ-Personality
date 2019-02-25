@@ -27,7 +27,7 @@ function stopStrokingMessage() {
     sendMessage(answers[randomInteger(0, answers.length - 1)], 0);
 
     if(randomInteger(0, 5) > 0) {
-        playSound("Audio/Spicy/Stroking/StopStroking/*.mp3");
+        playSound("Audio/GNMSounds/Stroking/StopStroking/*.mp3");
     }
 }
 

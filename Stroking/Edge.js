@@ -27,7 +27,7 @@ function startEdging(holdSeconds) {
 
     sendMessage(answers[randomInteger(0, answers.length - 1)], 0);
 
-    if(randomInteger(0, 3) == 2) playSound("Audio/Spicy/Stroking/Edge/*.mp3");
+    if(randomInteger(0, 3) == 2) playSound("Audio/GNMSounds/Stroking/Edge/*.mp3");
 
     addEdge();
     setDate(VARIABLE_EDGE_STARTED_DATE);

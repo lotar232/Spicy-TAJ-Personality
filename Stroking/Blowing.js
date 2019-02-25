@@ -78,7 +78,7 @@ function startBlowToy(toy) {
             }
 
             //Increase chance if we didn't just play with the tip
-            if (isChance(50) && tip || !tip && isChance(80)) {
+            if (isChance(50) && (target== "tip") || !(target=="tip") && isChance(80)) {
                 sendMessage("So now...");
                 //TODO: Duration based on mood
                 sendMessage("Start licking up and down the whole " + toy, randomInteger(10, 20));
@@ -151,34 +151,34 @@ function startNormalBlowjobModule() {
         switch (randomInteger(0, 6)) {
             case 0:
                 sendMessage(random("Light sucks", "Stick with the beat!", "Keep the beat", "Light sucking to the beat", "Suck lightly to the beat", "Light sucking - only the cockhead..."));
-                if (isChance(50)) playSound("Audio\\Spicy\\Modules\\BJTraining\\BJLightSucksVaried\\12345_1min.mp3", true);
-                else playSound("Audio\\Spicy\\Modules\\BJTraining\\BJLightSucksVaried\\123123_1min.mp3", true);
+                if (isChance(50)) playSound("Audio/GNMSounds/Modules/BJTraining/BJLightSucksVaried/12345_1min.mp3", true);
+                else playSound("Audio/GNMSounds/Modules/BJTraining/BJLightSucksVaried/123123_1min.mp3", true);
                 break;
             case 1:
                 sendMessage(random("Light sucks", "Stick with the beat!", "Keep the beat", "Light sucking to the beat", "Suck lightly to the beat", "Light sucking - only the cockhead..."));
-                if (isChance(50) && getBlowjobLevel() >= 15) playSound("Audio\\Spicy\\Modules\\BJTraining\\BJLightSucks\\MediumSuck1min.mp3", true);
-                else playSound("Audio\\Spicy\\Modules\\BJTraining\\BJLightSucks\\MediumSuck15sec.mp3", true);
+                if (isChance(50) && getBlowjobLevel() >= 15) playSound("Audio/GNMSounds/Modules/BJTraining/BJLightSucks/MediumSuck1min.mp3", true);
+                else playSound("Audio/GNMSounds/Modules/BJTraining/BJLightSucks/MediumSuck15sec.mp3", true);
                 break;
             case 2:
                 sendMessage(random("Swirl your tongue", "Swirl that tongue around", "Swirl your tongue around that cockhead!", "Use the tongue!"));
                 //TODO: Might be too long and I renamed the folder from BJTounge to BJTongue
-                playSound("Audio\\Spicy\\Modules\\BJTraining\\BJTongueExercise\\*.mp3", true);
+                playSound("Audio/GNMSounds/Modules/BJTraining/BJTongueExercise/*.mp3", true);
                 break;
             case 3:
                 sendMessage(random("Stroke it", "Stroke the dildo", "Stroke that dick", "Stroke that cock", "Stroke that huge dildo", "Stroke it!", "Stroke stroke stroke!"));
 
-                playSound("Audio\\Spicy\\Modules\\BJTraining\\BJHandStroking\\*.mp3");
+                playSound("Audio/GNMSounds/Modules/BJTraining/BJHandStroking/*.mp3");
                 sleep(4);
                 stopAudio();
 
-                playSound("Audio\\Spicy\\Stroking\\Metronome2\\*.mp3");
+                playSound("Audio/GNMSounds/Stroking/Metronome2/*.mp3");
                 sleep(20);
                 stopAudio();
                 break;
             case 4:
                 sendMessage(random("Suck fast!", "Fast sucking!", "Suck it fast", "Suck it swiftly", "Suck it fast!", "Make sure you suck it fast!"));
 
-                playSound("Audio\\Spicy\\Modules\\BJTraining\\BJFastSucking\\FastSuck1min.mp3");
+                playSound("Audio/GNMSounds/Modules/BJTraining/BJFastSucking/FastSuck1min.mp3");
                 break;
         }
     }
