@@ -1,0 +1,62 @@
+@NotFlag(HotSaucePlay) @NullResponse @CallReturn(CR\Modules\Alternative\*.txt)
+@NotFlag(HotSaucePlay) @NullResponse @Goto(End2)
+#Fetch hot-sauce, icy-hot, tiger balm, toothpaste or similar #GNMGrin #DT @Goto(a,b)
+(a) \\Condom
+Do you have a condom at hand? #GNMGrin #DT
+[yes]#GNMGood #DT
+[no]You should always have one around #GNMEmoteSad #DT @ChangeVar[AskedCondom]=[AskedCondom]+[1] @Goto(NoCondom) 
+@DifferentAnswer #GNMYesOrNo #DT
+And while you're at it a condom #DT @Wait(20) @TempFlag(CondomOn)
+@RT(Depending on how brave you are apply some of it to the condom,Put some of it into the condom,Put a generous amount inside the condom) #DT
+@RT(Put the condom on,Then put the condom on,Then when you are ready put the condom on) #DT @Wait(10)
+@NullResponse @Goto(NextStep)
+(NoCondom)
+@Variable[AskedCondom]>[1] @Goto(PunishNoCondom)
+It is very unlikely that you will really need them #DT
+I mean who wants to fuck you #SlaveName ? #GNMLol #DT
+@Flag(HasChastity) Especially because you are locked up all the time #SlaveName #GNMGrin #DT
+However I want you to have condoms around for my pleasure #DT 
+Make sure to have some next time you are talking to me #DT @Goto(ApplyPenis)
+(PunishNoCondom)
+@Flag(gdAskingPersonality) I already asked you to have condoms around several times #GNMEmoteSad #MeritChangeNMedium #DT
+@Flag(gdAskingPersonality) And you want to make your Mistress happy, don't you? #GNMGrin #DT @Goto(ApplyPenis)
+I already told you to have condoms around @SetVar[AskedCondom] times #SlaveName #MeritChangeNMedium #DT
+@RT(Disobedience does not amuse me,I don't like to repeat myself,I don't like it when you disobey me) #DT @SetFlag(Preason_not_degrading)
+You know this means more punishment points for you #DT @ChangeVar[GNMPPoints]=[GNMPPoints]+[100]
+(ApplyPenis)
+Well then.. #DT
+@RT(Depending on how brave you are apply some of it to your,Put some of it onto your,Put a generous amount onto your) #GNMCock instead #GNMGrin #DT
+(NextStep)
+@Flag(PainUpdate3) @NullResponse @Goto(Corner,Stroking,SlideShow,Video)
+@NullResponse @Goto(Corner,SlideShow)
+(b) \\Balls
+@NullResponse @Wait(15)
+@RT(Apply some to those #GNMBalls,Apply some of it to your #GNMBalls) #DT
+@RT(Massage it into them,Give them a nice rubbing,Really try to rub - massage it into your #GNMBalls) #GNMGrin #DT @Wait(10) @Goto(Corner,Stroking,SlideShow,Video)
+(Corner)
+@NullResponse @CallReturn(CR\Modules\LinkModules\GoToCorner.txt)
+@NullResponse @Wait(#Random(240,300))
+Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3]
+@NullResponse @Goto(End)
+(Stroking)
+I'm putting on a slideshow #DT
+You may stroke slowly to it! #DT @SetVar[SlideShow]=[0] @Goto(Slideshow2)
+(SlideShow)
+I'm putting on a slideshow, just sit there and enjoy it #GNMGrin #DT @SetVar[SlideShow]=[0]
+(Slideshow2)
+@NullResponse @ShowImage @ChangeVar[SlideShow]=[SlideShow]+[1] @If[SlideShow]>=[240]Then(End) @Wait(3) @Chance2(Slideshow Interrupt) @Goto(Slideshow2)
+(Slideshow Interrupt)
+@RT(Let's hope it doesn't burn too hot, Let's hope you can maintain the pain, Keep going..., Now those blue #GNMBalls will ache even worse, Apply some to your dick too #GNMLol) @ShowImage @ChangeVar[SlideShow]=[SlideShow]+[1] @Goto(Slideshow2)
+(Video)
+I'm putting on a video for you @RT(and no touching,just watch it,you may stroke slowly - no edging of course..) #DT
+@NullResponse @PlayVideo
+@NullResponse @Goto(End)
+(End)
+#GNMLol #DT
+Can't say I don't love this #GNMLol #DT
+@Flag(CondomOn) You can remove the condom #DT @DeleteFlag(CondomOn)
+Don't clean your #GNMCock or #GNMBalls though #DT
+Even though we are done here it will follow you through the session #GNMGrin #DT
+Let's get on #DT
+(End2)
+@End

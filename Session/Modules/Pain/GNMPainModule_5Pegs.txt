@@ -1,0 +1,41 @@
+#SlaveName #DT
+I have a great activity for us #DT
+(SmallParts)
+@NullResponse @SetVar[PegModules]=[0] @CallReturn(CR\ToysOn\GNMPegsOn.txt)
+(SmallPartSelect)
+@Variable[PegModules]>=[1] @NullResponse @Goto(EndSmallPart)
+@NullResponse @ChangeVar[PegModules]=[PegModules]+[1]
+@NullResponse @Goto(a,b)
+(a) \\Linewriting with pegs
+Keep the pegs there while you do a small assignment #DT
+(a2)
+@NullResponse @WritingTask(#WritingTask1)
+@NullResponse @Goto(SmallPartSelect)
+(Failed Writing Task)
+... #DT #MeritChangeNMedium
+Let's try again shall we.. #DT @Goto(a2)
+(b)
+@NullResponse @CallReturn(CR\Modules\LinkModules\GoToCorner.txt)
+@NullResponse @Wait(#Random(240,300))
+Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3]
+@NullResponse @Goto(SmallPartSelect)
+(c)
+(d) \\Peg session2
+(e) \\Peg session3
+@End
+(EndSmallPart)
+@Variable[SubPain]<[7] @NullResponse @Goto(End)
+(RipOff)
+#SlaveName #DT
+Rip the pegs off! #DT
+Do it! #DT
+Rip them off! #DT @Wait(15)
+#GNMLol #DT @CallReturn(CR\ToysOn\GNMPegsOn.txt,ResetVars)
+@NullResponse @Goto(End2)
+(End)
+You can remove the pegs now #SlaveName #DT @CallReturn(CR\ToysOn\GNMPegsOn.txt,ResetVars)
+@End
+(End2)
+Well I just wanted a tad of fun #GNMLol #DT
+@End
+@Flag(PainUpdate3) @NullResponse @Goto(a,b)

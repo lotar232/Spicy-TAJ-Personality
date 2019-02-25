@@ -1,0 +1,307 @@
+@NotFlag(ElectroPlay) @NullResponse @CallReturn(CR\Modules\Alternative\*.txt)
+@NotFlag(ElectroPlay) @NullResponse @Goto(End2)
+@NullResponse @CheckFlag(PainModule4First) @SetFlag(PainModule4First)
+@NullResponse @CallReturn(CR\ElectroIntro.txt)
+(PainModule4First)
+#SlaveName #DT
+Lets have some fun #GNMGrin #DT @RapidCodeOn
+@Flag(VPleased) @Variable[Happy]>[Angry] @NullResponse @TempFlag(NSession)
+@Flag(VPleased) @Variable[Happy]<=[Angry] @NullResponse @TempFlag(PSession)
+@Flag(Pleased) @Variable[Happy]>[Angry] @NullResponse @TempFlag(NSession)
+@Flag(Pleased) @Variable[Happy]<=[Angry] @NullResponse @TempFlag(PSession)
+@Flag(Neutral) @Variable[Happy]>[Angry] @NullResponse @TempFlag(NSession)
+@Flag(Neutral) @Variable[Happy]<=[Angry] @NullResponse @TempFlag(PSession)
+@Flag(Annoyed) @NullResponse @TempFlag(PSession)
+@Flag(VAnnoyed) @NullResponse @TempFlag(PSession)
+@Flag(ElectroPads,ElectroPlug,ElectroPenisStraps) @NullResponse @Goto(a,b,c,d)
+@Flag(ElectroPads,ElectroPenisStraps) @NullResponse @Goto(a,b,c)
+@Flag(ElectroPads,ElectroPlug) @NullResponse @Goto(a,b,c,d)
+@Flag(ElectroPenisStraps,ElectroPlug) @NullResponse @Goto(a,b,c,d)
+@Flag(ElectroPads) @NullResponse @Goto(a,b,d)
+@Flag(ElectroPenisStraps) @NullResponse @Goto(a,b,d)
+@Flag(ElectroPlug) @NullResponse @Goto(d)
+(a) \\Ball
+@Flag(NSession) @Variable[ElectroModes]=[1] @NullResponse @Goto(aN1)
+@Flag(NSession) @Variable[ElectroModes]=[2] @NullResponse @Goto(aN1,aN2)
+@Flag(NSession) @Variable[ElectroModes]=[3] @NullResponse @Goto(aN1,aN2,aN3)
+@Flag(PSession) @Variable[ElectroModes]=[1] @NullResponse @Goto(aP1)
+@Flag(PSession) @Variable[ElectroModes]=[2] @NullResponse @Goto(aP1,aP2)
+@Flag(PSession) @Variable[ElectroModes]=[3] @NullResponse @Goto(aP1,aP2,aP3)
+(aN1)
+@FlagOr(Mode1Both,Mode1Pleasure) @NullResponse @TempFlag(ENice) @Goto(aMode1)
+@NullResponse @TempFlag(EPain) @Goto(aMode1)
+(aN2)
+@FlagOr(Mode2Both,Mode2Pleasure) @NullResponse @TempFlag(ENice) @Goto(aMode2)
+@NullResponse @TempFlag(EPain) @Goto(aMode2)
+(aN3)
+@FlagOr(Mode2Both,Mode2Pleasure) @NullResponse @TempFlag(ENice) @Goto(aMode3)
+@NullResponse @TempFlag(EPain) @Goto(aMode3)
+(aP1)
+@FlagOr(Mode1Both,Mode1Punishment) @NullResponse @TempFlag(EPain) @Goto(aMode1)
+@NullResponse @TempFlag(ENice) @Goto(aMode1)
+(aP2)
+@FlagOr(Mode2Both,Mode2Punishment) @NullResponse @TempFlag(EPain) @Goto(aMode2)
+@NullResponse @TempFlag(ENice) @Goto(aMode2)
+(aP3)
+@FlagOr(Mode2Both,Mode2Punishment) @NullResponse @TempFlag(EPain) @Goto(aMode3)
+@NullResponse @TempFlag(ENice) @Goto(aMode3)
+(b) \\Penis
+@Flag(NSession) @Variable[ElectroModes]=[1] @NullResponse @Goto(bN1)
+@Flag(NSession) @Variable[ElectroModes]=[2] @NullResponse @Goto(bN1,bN2)
+@Flag(NSession) @Variable[ElectroModes]=[3] @NullResponse @Goto(bN1,bN2,bN3)
+@Flag(PSession) @Variable[ElectroModes]=[1] @NullResponse @Goto(bP1)
+@Flag(PSession) @Variable[ElectroModes]=[2] @NullResponse @Goto(bP1,bP2)
+@Flag(PSession) @Variable[ElectroModes]=[3] @NullResponse @Goto(bP1,bP2,bP3)
+(bN1)
+@FlagOr(Mode1Both,Mode1Pleasure) @NullResponse @TempFlag(ENice) @Goto(bMode1)
+@NullResponse @TempFlag(EPain) @Goto(bMode1)
+(bN2)
+@FlagOr(Mode2Both,Mode2Pleasure) @NullResponse @TempFlag(ENice) @Goto(bMode2)
+@NullResponse @TempFlag(EPain) @Goto(bMode2)
+(bN3)
+@FlagOr(Mode2Both,Mode2Pleasure) @NullResponse @TempFlag(ENice) @Goto(bMode3)
+@NullResponse @TempFlag(EPain) @Goto(bMode3)
+(bP1)
+@FlagOr(Mode1Both,Mode1Punishment) @NullResponse @TempFlag(EPain) @Goto(bMode1)
+@NullResponse @TempFlag(ENice) @Goto(bMode1)
+(bP2)
+@FlagOr(Mode2Both,Mode2Punishment) @NullResponse @TempFlag(EPain) @Goto(bMode2)
+@NullResponse @TempFlag(ENice) @Goto(bMode2)
+(bP3)
+@FlagOr(Mode2Both,Mode2Punishment) @NullResponse @TempFlag(EPain) @Goto(bMode3)
+@NullResponse @TempFlag(ENice) @Goto(bMode3)
+(c) \\Mix
+@Flag(NSession) @Variable[ElectroModes]=[1] @NullResponse @Goto(cN1)
+@Flag(NSession) @Variable[ElectroModes]=[2] @NullResponse @Goto(cN1,cN2)
+@Flag(NSession) @Variable[ElectroModes]=[3] @NullResponse @Goto(cN1,cN2,cN3)
+@Flag(PSession) @Variable[ElectroModes]=[1] @NullResponse @Goto(cP1)
+@Flag(PSession) @Variable[ElectroModes]=[2] @NullResponse @Goto(cP1,cP2)
+@Flag(PSession) @Variable[ElectroModes]=[3] @NullResponse @Goto(cP1,cP2,cP3)
+(cN1)
+@FlagOr(Mode1Both,Mode1Pleasure) @NullResponse @TempFlag(ENice) @Goto(cMode1)
+@NullResponse @TempFlag(EPain) @Goto(cMode1)
+(cN2)
+@FlagOr(Mode2Both,Mode2Pleasure) @NullResponse @TempFlag(ENice) @Goto(cMode2)
+@NullResponse @TempFlag(EPain) @Goto(cMode2)
+(cN3)
+@FlagOr(Mode2Both,Mode2Pleasure) @NullResponse @TempFlag(ENice) @Goto(cMode3)
+@NullResponse @TempFlag(EPain) @Goto(cMode3)
+(cP1)
+@FlagOr(Mode1Both,Mode1Punishment) @NullResponse @TempFlag(EPain) @Goto(cMode1)
+@NullResponse @TempFlag(ENice) @Goto(cMode1)
+(cP2)
+@FlagOr(Mode2Both,Mode2Punishment) @NullResponse @TempFlag(EPain) @Goto(cMode2)
+@NullResponse @TempFlag(ENice) @Goto(cMode2)
+(cP3)
+@FlagOr(Mode2Both,Mode2Punishment) @NullResponse @TempFlag(EPain) @Goto(cMode3)
+@NullResponse @TempFlag(ENice) @Goto(cMode3)
+(d) \\plug
+@Flag(NSession) @Variable[ElectroModes]=[1] @NullResponse @Goto(dN1)
+@Flag(NSession) @Variable[ElectroModes]=[2] @NullResponse @Goto(dN1,dN2)
+@Flag(NSession) @Variable[ElectroModes]=[3] @NullResponse @Goto(dN1,dN2,dN3)
+@Flag(PSession) @Variable[ElectroModes]=[1] @NullResponse @Goto(dP1)
+@Flag(PSession) @Variable[ElectroModes]=[2] @NullResponse @Goto(dP1,dP2)
+@Flag(PSession) @Variable[ElectroModes]=[3] @NullResponse @Goto(dP1,dP2,dP3)
+(dN1)
+@FlagOr(Mode1Both,Mode1Pleasure) @NullResponse @TempFlag(ENice) @Goto(dMode1)
+@NullResponse @TempFlag(EPain) @Goto(dMode1)
+(dN2)
+@FlagOr(Mode2Both,Mode2Pleasure) @NullResponse @TempFlag(ENice) @Goto(dMode2)
+@NullResponse @TempFlag(EPain) @Goto(dMode2)
+(dN3)
+@FlagOr(Mode2Both,Mode2Pleasure) @NullResponse @TempFlag(ENice) @Goto(dMode3)
+@NullResponse @TempFlag(EPain) @Goto(dMode3)
+(dP1)
+@FlagOr(Mode1Both,Mode1Punishment) @NullResponse @TempFlag(EPain) @Goto(dMode1)
+@NullResponse @TempFlag(ENice) @Goto(dMode1)
+(dP2)
+@FlagOr(Mode2Both,Mode2Punishment) @NullResponse @TempFlag(EPain) @Goto(dMode2)
+@NullResponse @TempFlag(ENice) @Goto(dMode2)
+(dP3)
+@FlagOr(Mode2Both,Mode2Punishment) @NullResponse @TempFlag(EPain) @Goto(dMode3)
+@NullResponse @TempFlag(ENice) @Goto(dMode3)
+(aMode1) \\Ball
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+@Flag(ElectroPads) And two pads #DT @Wait(20) @Goto(Continue1)
+And your penis straps #DT @Wait(20)
+(Continue1)
+@RT(Next I need you to apply one to each ball,Apply them to your balls,Put them on your #GNMBalls) #DT 
+@RT(We're going to have some fun with them,This should prove to be fun) #DT @Wait(15)
+Turn your stimulator on and go with mode 1 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(aMode2)
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+@Flag(ElectroPads) And two pads #DT @Wait(20) @Goto(Continue2)
+And your penis straps #DT @Wait(20)
+(Continue2)
+@RT(Next I need you to apply one to each ball,Apply them to your balls,Put them on your #GNMBalls) #DT 
+@RT(We're going to have some fun with them,This should prove to be fun) #DT @Wait(15)
+Turn your stimulator on and go with mode 2 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(aMode3)
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+And two pads #DT @Wait(20)@Flag(ElectroPads) And two pads #DT @Wait(20) @Goto(Continue3)
+And your penis straps #DT @Wait(20)
+(Continue3)
+@RT(Next I need you to apply one to each ball,Apply them to your balls,Put them on your #GNMBalls) #DT 
+@RT(We're going to have some fun with them,This should prove to be fun) #DT @Wait(15)
+Turn your stimulator on and go with mode 3 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(bMode1) \\penis
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+@Flag(ElectroPenisStraps) And the penis straps #DT @Wait(20) @Goto(Continue4)
+And two pads #DT @Wait(20)
+(Continue4)
+@RT(Next I need you to apply them,Now you're going to apply them to your penis) #DT 
+@RT(One at the base,One at the base of your penis) #DT
+@RT(The other one should be placed <i>on</i> your cock head,The other one placed right below your cockhead) #DT
+@RT(We're going to have some fun with them,This should prove to be fun) #DT @Wait(15)
+Turn your stimulator on and go with mode 1 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(bMode2)
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+@Flag(ElectroPenisStraps) And the penis straps #DT @Wait(20) @Goto(Continue5)
+And two pads #DT @Wait(20)
+(Continue5)
+@RT(Next I need you to apply them,Now you're going to apply them to your penis) #DT 
+@RT(One at the base,One at the base of your penis) #DT
+@RT(The other one should be placed <i>on</i> your cock head,The other one placed right below your cockhead) #DT
+@RT(We're going to have some fun with them,This should prove to be fun) #DT @Wait(15)
+Turn your stimulator on and go with mode 2 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(bMode3)
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+@Flag(ElectroPenisStraps) And the penis straps #DT @Wait(20) @Goto(Continue6)
+And two pads #DT @Wait(20)
+(Continue6)
+@RT(Next I need you to apply them,Now you're going to apply them to your penis) #DT 
+@RT(One at the base,One at the base of your penis) #DT
+@RT(The other one should be placed <i>on</i> your cock head,The other one placed right below your cockhead) #DT
+@RT(We're going to have some fun with them,This should prove to be fun) #DT @Wait(15)
+Turn your stimulator on and go with mode 3 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(cMode1) \\Mix
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+@Flag(ElectroPenisStraps) And the penis straps #DT @Wait(20) @Goto(Continue7)
+And two pads #DT @Wait(20)
+(Continue7)
+@RT(One should be attached to your balls,On of them should be applied to your balls) #DT
+@RT(The other one should be placed <i>on</i> your cock head,The other one placed right below your cockhead) #DT
+@RT(We're going to have some fun with them,This should prove to be fun) #DT @Wait(15)
+Turn your stimulator on and go with mode 1 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(cMode2)
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+@Flag(ElectroPenisStraps) And the penis straps #DT @Wait(20) @Goto(Continue8)
+And two pads #DT @Wait(20)
+(Continue8)
+@RT(One should be attached to your balls,On of them should be applied to your balls) #DT
+@RT(The other one should be placed <i>on</i> your cock head,The other one placed right below your cockhead) #DT
+@RT(We're going to have some fun with them,This should prove to be fun) #DT @Wait(15)
+Turn your stimulator on and go with mode 2 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(cMode3)
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+@Flag(ElectroPenisStraps) And the penis straps #DT @Wait(20) @Goto(Continue9)
+And two pads #DT @Wait(20)
+(Continue9)
+@RT(One should be attached to your balls,On of them should be applied to your balls) #DT
+@RT(The other one should be placed <i>on</i> your cock head,The other one placed right below your cockhead) #DT
+@RT(We're going to have some fun with them,This should prove to be fun) #DT @Wait(15)
+Turn your stimulator on and go with mode 3 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(dMode1) \\plug
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+And the electro-plug #DT @Wait(20)
+@RT(Insert the plug,Insert that big plug into your tight ass), take your time.. #DT @Wait(25)
+#GNMReady #DT
+[yes]#GNMGood #DT
+[no]Well hurry then! #DT @Wait(30)
+@AcceptAnswer #GNMGood #DT
+Turn your stimulator on and go with mode 1 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(dMode2)
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+And the electro-plug #DT @Wait(20)
+@RT(Insert the plug,Insert that big plug into your tight ass), take your time.. #DT @Wait(25)
+#GNMReady #DT
+[yes]#GNMGood #DT
+[no]Well hurry then! #DT @Wait(30)
+@AcceptAnswer #GNMGood #DT
+Turn your stimulator on and go with mode 2 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(dMode3)
+@NullResponse @RapidCodeOff
+#Fetch stimulator #DT
+And the electro-plug #DT @Wait(20)
+@RT(Insert the plug,Insert that big plug into your tight ass), take your time.. #DT @Wait(25)
+#GNMReady #DT
+[yes]#GNMGood #DT
+[no]Well hurry then! #DT @Wait(30)
+@AcceptAnswer #GNMGood #DT
+Turn your stimulator on and go with mode 3 #DT 
+@Flag(ENice) Turn the level up but stay below level @ShowVar[ElectroPain] #GNMGrin #DT @Goto(Slideshow,Video)
+@Flag(EPain) Turn the level up and set it to a level higher than level @ShowVar[ElectroPain] #GNMEmoteHappy #DT 
+@Flag(PainUpdate2) @NullResponse @Goto(Slideshow,Video)
+@NullResponse @Goto(Slideshow)
+(Slideshow)
+Now I'm putting on a slideshow for you #DT @SetVar[Slideshow]=[0]
+Enjoy! #DT
+(Image)
+@NullResponse @ShowImage @ChangeVar[Slideshow]=[Slideshow]+[1] @If[Slideshow]>[30]Then(End) @Wait(10,20) @Goto(Image)
+(Video)
+I have a video you can enjoy while being electrified #DT
+@NullResponse @PlayVideo[\GNM_Videos\BackgroundMode\Chores\Choreb8\C.mp4]
+@NullResponse @Goto(End)
+(End)
+You can remove the gear now #GNMGrin #DT @DeleteFlag(ENice)
+@NullResponse @DeleteFlag(EPain)
+@NullResponse @DeleteFlag(NSession)
+@NullResponse @DeleteFlag(PSession)
+@End
+(End2)
+@End

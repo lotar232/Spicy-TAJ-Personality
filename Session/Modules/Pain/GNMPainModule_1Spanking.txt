@@ -1,0 +1,92 @@
+@RT(I want to spank you #SlaveName,#SlaveName I'm going to spank you!) #DT 
+#GNMGrin #DT
+(Again)
+@RT(I feel like you deserve it!,Nothing would make me happier!,Simple because I want too..,I think it would make me feel good!) #DT @TempFlag(Busy) @RapidCodeOn @SetVar[Strikes]=[0]
+@Flag(PainUpdate1) @Variable[SubPain]>=[10] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(300,800)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+@Flag(PainUpdate1) @Variable[SubPain]>=[9] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(250,650)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+@Flag(PainUpdate1) @Variable[SubPain]>=[8] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(225,500)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+@Variable[SubPain]>=[7] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(200,400)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+@Variable[SubPain]>=[6] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(175,350)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+@Variable[SubPain]>=[5] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(150,300)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+@Variable[SubPain]>=[4] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(125,250)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+@Variable[SubPain]>=[3] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(100,200)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+@Variable[SubPain]>=[2] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(75,150)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+@Variable[SubPain]>=[1] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(50,100)] @SetVar[SpankingCount]=[0] @Goto(Continue)
+(Continue)
+@Flag(PainUpdate1) @NullResponse @RapidCodeOff @Chance80(a) @Goto(b)
+@NullResponse @RapidCodeOff @Chance80(a)
+(a)
+#Fetch #ChooseSpankingImplement #DT @Wait(10) @Chance10(c) @Goto(Count)
+(b)
+@NullResponse @ChangeVar[Strikes]=[Strikes]/[3]
+Go and find 2 large rubber bands #DT
+Place 1 around each thigh #DT
+@Variable[SubPain]>=[7] Proceed to move it up around each buttock.. #DT @Wait(10) @Chance10(c) @Goto(Count2)
+Proceed to move it up around each buttock.. #DT @Wait(10) @Goto(Count2)
+(c)
+Now I'm gonna show you a spanking video #DT
+Whenever you see the sub getting struck #DT
+So will you, alternating cheek to cheek #DT
+Enjoy! #DT
+@NullResponse @PlayVideo[\GNM_Videos\BackgroundMode\Punishment\Spanking\*.mp4]
+@NullResponse @Goto(End)
+(Count)
+@NullResponse @If[Strikes]<=[0]Then(Test)
+@Variable[Strikes]>[40] @NullResponse @Goto(l1,l2,l3,l4,l5,h1,h2,h3,h4,h5)
+@Variable[Strikes]>[30] @NullResponse @Goto(l1,l2,l3,l4,h1,h2,h3,h4)
+@Variable[Strikes]>[20] @NullResponse @Goto(l1,l2,l3,h1,h2,h3)
+@Variable[Strikes]>[10] @NullResponse @Goto(l1,l2,h1,h2)
+(l1)
+#SpankPlacingLeft10 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[10] @Goto(Count)
+(l2)
+#SpankPlacingLeft20 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[20] @Goto(Count)
+(l3)
+#SpankPlacingLeft30 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[30] @Goto(Count)
+(l4)
+#SpankPlacingLeft40 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[40] @Goto(Count)
+(l5)
+#SpankPlacingLeft50 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[50] @Goto(Count)
+(h1)
+#SpankPlacingRight10 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[10] @Goto(Count)
+(h2)
+#SpankPlacingRight20 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[20] @Goto(Count)
+(h3)
+#SpankPlacingRight30 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[30] @Goto(Count)
+(h4)
+#SpankPlacingRight40 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[40] @Goto(Count)
+(h5)
+#SpankPlacingRight50 #DT 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[50] @Goto(Count)
+(Count2)
+@NullResponse @If[Strikes]<=[0]Then(Test)
+@Variable[Strikes]>[20] @NullResponse @Goto(C1,C2)
+@Variable[Strikes]>[10] @NullResponse @Goto(C1)
+(C1)
+@RT(Right!,Left!) #DT @PlayAudio[\GNMSounds\Punishment\SpankingTask\10Strikes\Spank10.mp3] @Wait(18) 
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[18]
+@NullResponse @ChangeVar[SpankingCount]=[SpankingCount]+[18] @Goto(Count2)
+(C2)
+@RT(Right!,Left!) #DT @PlayAudio[\GNMSounds\Punishment\SpankingTask\20Strikes\Spank20.mp3] @Wait(18)
+@NullResponse @ChangeVar[Strikes]=[Strikes]-[20]
+@NullResponse @ChangeVar[SpankingCount]=[SpankingCount]+[20] @Goto(Count2)
+(Test)
+Now #SlaveName #DT
+How many times were you just spanked? #DT @InputVar[Guess]
+@Variable[Guess]<=[0] Your answer doesn't make any sense.. #DT @Goto(Test)
+@Variable[Guess]=[SpankingCount] Correct! #DT #MeritChangePMedium @Goto(End)
+@Variable[Guess]<>[SpankingCount] Wrong! #DT #MeritChangeNMedium
+@Variable[Angry]>[23] I guess we have to repeat it! #GNMLol #DT @Goto(Again)
+I feel like you deserve some extra spanking #DT
+But maybe another day.. #DT
+(End)
+@RT(This felt good!,God I love spanking you!,#GNMGrin I had fun!) @DeleteFlag(Busy) #DT
+@End

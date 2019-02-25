@@ -1,0 +1,118 @@
+@NotFlag(ParachutePlay) @NullResponse @CallReturn(CR\Modules\Alternative\*.txt)
+@NotFlag(ParachutePlay) @NullResponse @Goto(End2)
+#SlaveName #DT
+#Fetch parachute #DT
+We're going to have some fun with it! #DT @Wait(15)
+Attach it while you're at it #GNMLol #DT @Wait(15) 
+@Flag(PainUpdate2) @NullResponse @Goto(a,b)
+@NullResponse @Goto(a)
+(a) \\ attach weight
+@Flag(PainUpdate2) @Variable[SubPainTolerance]>=[10] Attach @RT(1.5 kg's,2 kg's,2.5 kg's,3 kg's) to the parachute #DT @Goto(c,d,e)
+@Flag(PainUpdate2) @Variable[SubPainTolerance]>[7] Attach @RT(1 kg's,1.5 kg's,2 kg's,2.5 kg's) to the parachute #DT @Goto(c,d,e)
+@Flag(PainUpdate2) @Variable[SubPainTolerance]>[4] Attach @RT(0.5 kg's,1 kg's,1.5 kg's,2 kg's) to the parachute #DT @Goto(c,d,e)
+@Flag(PainUpdate2) @Variable[SubPainTolerance]>=[1] Attach @RT(0.5 kg's,1 kg's,1.5 kg's) to the parachute #DT @Goto(c,d,e)
+@Variable[SubPainTolerance]>=[10] Attach @RT(1.5 kg's,2 kg's,2.5 kg's,3 kg's) to the parachute #DT @Goto(c,d)
+@Variable[SubPainTolerance]>[7] Attach @RT(1 kg's,1.5 kg's,2 kg's,2.5 kg's) to the parachute #DT @Goto(c,d)
+@Variable[SubPainTolerance]>[4] Attach @RT(0.5 kg's,1 kg's,1.5 kg's,2 kg's) to the parachute #DT @Goto(c,d)
+@Variable[SubPainTolerance]>=[1] Attach @RT(0.5 kg's,1 kg's,1.5 kg's) to the parachute #DT @Goto(c,d)
+(b) \\ fetch a lock
+Also fetch a lock with the keys #GNMGrin #DT @Wait(20) @Goto(f,g)
+(c) \\Corner
+You need patience for this one.. #DT
+Basicly I want you to go to the corner #DT
+Stand there hands above your head and let the weight do it's work #GNMGrin #DT
+If you are ever mine, you can expect to stand like that whenever I don't have a need for you #DT
+And your chores are complete.. #DT
+Go to the corner #DT
+Hands above your head and wait for my bell.. #DT
+@Flag(Personality1) @NullResponse @Wait(#Random(250,1100))
+@Flag(Personality2) @NullResponse @Wait(#Random(450,1300))
+@Flag(Personality3) @NullResponse @Wait(#Random(700,1800))
+Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Goto(End)
+(d) \\Squat
+I think it's time for some exercise! #GNMLol #DT
+You're going to squat for me.. #DT
+You'll hear 3 commands #DT
+Down - get down into a squat and stay down.. #DT
+Up - you may stand and relax #DT
+And on your toes - Stand on your toes, keep your balance.. #DT @SetVar[Timer]=[0]
+If you're squating and hear "on your toes", then stand on your toes but stay down in the squat! #DT @ChangeVar[Timer]=[Timer]+[#Random(90,150)]
+Now hands above your head! #DT
+Get ready! #DT
+(Base)
+@NullResponse @Chance10(Toes) @Goto(Down)
+(Down)
+@NullResponse @PlayAudio[\GNMSounds\Punishment\Corner\Down\*.mp3] @ChangeVar[Timer]=[Timer]-[1] @If[Timer]<=[0]Then(End3) @Wait(#Random(5,15)) @Goto(Up,Toes)
+(Up)
+@NullResponse @PlayAudio[\GNMSounds\Punishment\Corner\Up\*.mp3] @ChangeVar[Timer]=[Timer]-[1] @If[Timer]<=[0]Then(End3) @Wait(#Random(5,15)) @Goto(Toes,Down)
+(Toes)
+@NullResponse @PlayAudio[\GNMSounds\Punishment\Corner\OnYourToes.mp3] @ChangeVar[Timer]=[Timer]-[1] @If[Timer]<=[0]Then(End3) @Wait(#Random(5,15)) @Goto(Down)
+(End3)
+Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Goto(End)
+(e) \\Bottle tilting
+Get me a water bottle, preferably 1.5 L one #GNMGrin #DT
+Fill it up! #DT @Wait(30)
+We're gonna play a game! #GNMLol #DT
+You are to use whatever is at the end of your parachute and tilt the water bottle! #DT
+Hands above at all times except when you are to raise the water bottle #GNMGrin #DT
+The objective is to tilt it as many times as possible #DT
+You also need to count the number of times #DT
+Just for the fun of it #GNMLol #DT @Wait(15)
+Stop and return to me when you hear my bell #DT
+Are you ready to start? #DT
+[yes]#GNMGood #DT
+[no]Hurry up then! #DT @Wait(30)
+@DifferentAnswer #GNMYesOrNo #DT
+Okay.. #DT
+Begin! #DT
+@NullResponse @Wait(#Random(130,360))
+Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3]
+How many times did you manage to tilt the water bottle? #DT @InputVar[WaterBottle]
+@Variable[WaterBottle]<[60]Hmm I expected more #DT #MeritChangeNMedium
+@Variable[WaterBottle]>=[60]#GNMGood #DT #MeritChangePLow
+@NullResponse @Goto(End)
+(f) \\Bent over
+I have a fun little play for us #DT
+It will require your patience! #DT
+Now read these instructions carefully! #DT
+I want you to somehow be tied up in manner.. #DT
+Where the parachute chain goes up behind you #DT
+Forcing you to bend over and stand on your toes to prevent yourself from pulling it #DT
+I recommend somehow securing the chain to a door handle or something of similar height #DT
+I want you to stand in this position until you hear my bell #DT
+Now in 60 seconds you'll hear my bell meaning I've started the timer #DT
+The second time you hear my bell is when I want you back with me #DT
+Begin! #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Wait(60)
+@Flag(Personality1) @NullResponse @Wait(#Random(130,360))
+@Flag(Personality2) @NullResponse @Wait(#Random(200,450))
+@Flag(Personality3) @NullResponse @Wait(#Random(300,600))
+Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Wait(20)
+#GNMGrin #DT
+This was fantastic! #DT @Goto(End)
+(g) \\Pulled up
+I want you to sit on your office chair and pull the lever so it goes down to it's lowest #DT
+Place the key for the lock in the opposite part of your room or perhaps even further away #GNMGrin #DT @Wait(10)
+Next I want you down on the floor on your back #DT
+Lock the parachute to the office chair #DT
+It should locked high enough so you have to lift your ass a little from the floor #DT
+Next you are to pull the lever so the chair goes to it's highest setting #DT
+Then stay in this position until you hear my bell #DT
+When you hear my bell you may begin and make your way towards the key #DT
+Not a moment before! #DT
+This is gonna get tough! Make me proud and stay patient! #DT
+Begin! #DT
+@Flag(Personality1) @NullResponse @Wait(#Random(130,360))
+@Flag(Personality2) @NullResponse @Wait(#Random(200,450))
+@Flag(Personality3) @NullResponse @Wait(#Random(300,600))
+Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Wait(20)
+Are you with me again? #DT
+[yes]#GNMGood  #DT
+@AcceptAnswer #GNMGood #DT
+This was hot! #GNMGrin #DT
+(End)
+Remove the parachute #DT @DeleteFlag(Busy)
+We're done with it.. #DT @Wait(25)
+@End
+(End2)
+@NullResponse @DeleteFlag(Busy)
+@End

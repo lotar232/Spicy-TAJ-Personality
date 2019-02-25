@@ -1,0 +1,161 @@
+@NotFlag(BallCrusherPlay,ChastityIsOn) @NullResponse @CallReturn(CR\Modules\Alternative\*.txt)
+@NotFlag(BallCrusherPlay) @NullResponse @CallReturn(CR\Modules\Alternative_Chastity\*.txt)
+@NotFlag(BallCrusherPlay) @NullResponse @Goto(End2)
+#SlaveName @RT(I want to have a bit of fun with your #GNMBalls,Lets play a bit with those #GNMBalls) #DT
+#Fetch ball crusher #DT
+And attach it #GNMGrin #DT
+#GNMReady #DT
+[yes]#GNMGood #DT
+[no]Hurry up! #DT @Wait(20)
+@DifferentAnswer #GNMYesOrNo #DT
+Now.. #DT
+I need you to tigthen the screws so that it applies pressure to your #GNMBalls #DT
+Stop twisting them right before it would start to hurt #DT @Wait(20)
+@NullResponse @CheckFlag(PainModule2First) @SetFlag(PainModule2First)
+Since this is the first we <i>play</i> with your #GNMBalls like this #DT
+We need to determine your treshhold #DT
+That point where you can't absolutely stand even another single twist! #DT
+Now for some terms #DT
+Half a twist means to tigthen all the screws a half round #DT
+A full twist means to tigthen all the screws a full round! #DT
+As simple as that.. #DT
+Now for this next exercise #DT
+You're going to twist them 1 full round each 15 seconds #DT
+I want you to make me proud! #DT
+Endure the pain! #DT @SetVar[MaxTwist]=[0]
+Say stop when you reach the limit! #DT @CustomMode(stop, Goto, EndIni)
+(Twist)
+Twist it.. #DT @ShowImage @ChangeVar[MaxTwist]=[MaxTwist]+[2] @Wait(15) @Goto(Twist)
+(EndIni)
+@NullResponse @CustomMode(ModeText, Normal)
+@Variable[MaxTwist]>[40] You did extremely well! #DT #MeritChangePHigh @Goto(Continue1)
+@Variable[MaxTwist]>[35] You did great! #DT #MeritChangePMedium @Goto(Continue1)
+@Variable[MaxTwist]>[30] You did alright! #DT #MeritChangePLow @Goto(Continue1)
+@Variable[MaxTwist]>[20] Well I suppose you wasn't terrible.. #DT @Goto(Continue1)
+@Variable[MaxTwist]>[15] Already done! Bvarh.. #DT #MeritChangeNLow @Goto(Continue1)
+@Variable[MaxTwist]>[10] Omg you have got to be kidding me.. #DT #MeritChangeNMedium @Goto(Continue1)
+@Variable[MaxTwist]<=[10] Wauv.. that was awfull! #DT #MeritChangeNHigh @Goto(Continue1)
+(Continue1)
+Well now that we have that part sorted out #DT @SetVar[TwistRecord]=[0]
+You may relieve the pressure on your #GNMBalls #DT @ChangeVar[TwistRecord]=[TwistRecord]+[MaxTwist]
+Make sure that tension is still applied #DT
+It just shouldn't be painful #GNMGrin #DT
+(PainModule2First)
+@Flag(PainUpdate1) #SlaveName #DT @Goto(Rubber,Slideshow,Game)
+#SlaveName #DT @Goto(Rubber,Slideshow)
+(Rubber)
+This is going to hurt.. #DT
+I want you to fetch a large rubberband #DT
+Put the rubberband around the ball crusher #DT
+At this point it shouldn't add to the pressure #DT
+At least not too much #DT
+Now before we play with the rubberband #DT
+We need to tigthen that ball crusher #DT
+I'm gonna give you a slideshow #DT
+With every new picture you are to twist the screws once #DT
+I will continue until we reach your highscore.. #DT @SetVar[MaxTwist]=[0] @TempFlag(Busy)
+(Slideshow1)
+@NullResponse @ShowImage @ChangeVar[MaxTwist]=[MaxTwist]+[2] @If[MaxTwist]>=[TwistRecord]Then(Continue2) @Wait(#Random(9,15)) @Goto(Slideshow1)
+(Continue2)
+Good! #DT
+Stand up #SlaveName #DT
+In a moment you will pull that rubberband back as far as you can #DT
+Aim for the center of your #GNMBalls #DT
+And release #GNMGrin #DT @SetVar[Strikes]=[0]
+@Variable[SubPain]>=[10] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(20,30)] @Chance25(ATadMore) @Goto(Rubber2)
+@Variable[SubPain]=[9] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(18,27)] @Chance20(ATadMore) @Goto(Rubber2)
+@Variable[SubPain]=[8] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(16,24)] @Chance15(ATadMore) @Goto(Rubber2)
+@Variable[SubPain]=[7] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(14,21)] @Chance10(ATadMore) @Goto(Rubber2)
+@Variable[SubPain]=[6] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(12,18)] @Chance05(ATadMore) @Goto(Rubber2)
+@Variable[SubPain]=[5] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(10,16)] @Goto(Rubber2)
+@Variable[SubPain]=[4] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(8,14)] @Goto(Rubber2)
+@Variable[SubPain]=[3] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(6,12)] @Goto(Rubber2)
+@Variable[SubPain]=[2] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(4,10)] @Goto(Rubber2)
+@Variable[SubPain]=[1] @NullResponse @ChangeVar[Strikes]=[Strikes]+[#Random(2,8)] @Goto(Rubber2)
+(ATadMore)
+Just for me! #DT
+Give the ball crusher @RT(half a twist,a full twist,two full twists) #DT
+#GNMGrin #DT
+(Rubber2)
+Once again #SlaveName #DT
+I'm gonna put on a slideshow #DT
+When the picture changes you will pull the rubberband back #DT
+When it changes again you release it #GNMGrin #DT @TempFlag(Busy)
+(Slideshow2)
+@NullResponse @ShowImage @Wait(#Random(5,15))
+@NullResponse @ShowImage @ChangeVar[Strikes]=[Strikes]-[1] @If[Strikes]<=[0]Then(End) @Wait(#Random(5,15)) @Goto(Slideshow2)
+(Slideshow)
+I'm gonna show you a slideshow #DT
+Each time the picture chages you are to twist half a round #DT
+Rather simple.. #DT
+When you can't take anymore simply say stop #DT
+If you break your highscore you earn 100 gold #DT
+If you reach your highscore nothing happens #DT
+If you perform well below your highscore I'm gonna be rather disappointed #DT
+And you probably don't want to do that #GNMGrin #DT @TempFlag(Busy)
+Enjoy! @SetVar[MaxTwist]=[0] @CustomMode(stop, Goto, Stop2)
+(Slideshow3)
+@NullResponse @ShowImage @ChangeVar[MaxTwist]=[MaxTwist]+[1] @Wait(#Random(5,15)) @Goto(Slideshow3)
+(Stop2)
+@RT(You look like someone under pressure,You seem almost pressurized!,Feeling a bit of tension?,) #GNMLol #DT @CustomMode(ModeText,Normal)
+@Variable[MaxTwist]>[TwistRecord] We have a new record! #DT @Goto(NewRecord)
+@Variable[MaxTwist]=[TwistRecord] You matched your old record! #DT #GNMGrin @Goto(End)
+@Variable[MaxTwist]<[TwistRecord] Well you did less than your record.. #DT @ChangeVar[MaxTwist]=[MaxTwist]-[TwistRecord]
+@Variable[MaxTwist]>[-4] @NullResponse @Goto(Close)
+In fact you weren't even close! #DT #MeritChangeNHigh @DeleteFlag(Busy)
+I need you to try much harder! #DT
+You can relieve the pressure now #DT
+@End
+(Close)
+But at least you came close to it #DT
+So I'm still somewhat content about your performance #DT
+But try harder next time #DT @Goto(End)
+(NewRecord)
+Meaning you've earned 100 gold! #DT @ChangeVar[GNMGold]=[GNMGold]+[100] @SetVar[TwistRecord]=[0]
+I'm impressed by your effort! #DT @ChangeVar[TwistRecord]=[TwistRecord]+[MaxTwist] @Goto(End)
+(Game)
+I have a small game for us! #DT
+It's a guessing game! #DT
+You have to say either "boobs, butt or hentai" #DT
+I'll then show you a picture #DT
+Guess wrong and you have to tigthen it a full round #DT
+Guess right and you can loosen it half a round #DT
+When you've made 10 right guesses the game is over! #DT
+If you absolutely can't take another twist just say stop #DT @CustomMode(stop, Goto, Stop3)
+It's a simple game.. #DT
+(Choose)
+Boobs, butt or hentai? #DT
+[boob,boobs,breasts,breast] @NullResponse @TempFlag(Boobs) @Goto(Boobs,Butt,Hentai)
+[butt,ass] @NullResponse @TempFlag(Butt) @Goto(Boobs,Butt,Hentai)
+[hentai] @NullResponse @TempFlag(hentai) @Goto(Boobs,Butt,Hentai)
+@DifferentAnswer Boobs, butt or hentai? #DT
+(Boobs)
+@Flag(Boobs) @DeleteFlag(Boobs) @ShowBoobsImage @RT(Correct,Right on,Oh my yes!,You got it!,You got it right,Right,That is correct..) @Wait(2) @ChangeVar[Correct]=[Correct]+[1] @If[Correct]>=[10]Then(End3) @Goto(Choose)
+@Flag(Butt) @DeleteFlag(Butt) @ShowBoobsImage @RT(Not really boobs,Nope,Not,Incorrect,Wrong,Not right,Lol Nope,Lol no,Grin.. No) @Wait(2) @Goto(Choose)
+@Flag(Hentai) @DeleteFlag(Hentai) @ShowBoobsImage @RT(Not really boobs,Nope,Not,Incorrect,Wrong,Not right,Lol Nope,Lol no,Grin.. No) @Wait(2) @Goto(Choose)
+(Butt)
+@Flag(Boobs) @DeleteFlag(Boobs) @ShowButtImage @RT(Not really a butt,Nope,Not,Incorrect,Wrong,Not right,Lol Nope,Lol no,Grin.. No) @Wait(2) @Goto(Choose)
+@Flag(Butt) @DeleteFlag(Butt) @ShowButtImage @RT(Correct,Right on,Oh my yes!,You got it!,You got it right,Right,That is correct..) @Wait(2) @ChangeVar[Correct]=[Correct]+[1] @If[Correct]>=[10]Then(End3) @Goto(Choose)
+@Flag(Hentai) @DeleteFlag(Hentai) @ShowButtImage @RT(Not really a butt,Nope,Not,Incorrect,Wrong,Not right,Lol Nope,Lol no,Grin.. No) @Wait(2) @Goto(Choose)
+(Hentai)
+@Flag(Boobs) @DeleteFlag(Boobs) @ShowHentaiImage @RT(Not really hentai,Nope,Not,Incorrect,Wrong,Not right,Lol Nope,Lol no,Grin.. No) @Wait(2) @Goto(Choose)
+@Flag(Butt) @DeleteFlag(Butt) @ShowHentaiImage @RT(Not really hentai,Nope,Not,Incorrect,Wrong,Not right,Lol Nope,Lol no,Grin.. No) @Wait(2) @Goto(Choose)
+@Flag(Hentai) @DeleteFlag(Hentai) @ShowHentaiImage @RT(Correct,Right on,Oh my yes!,You got it!,You got it right,Right,That is correct..) @Wait(2) @ChangeVar[Correct]=[Correct]+[1] @If[Correct]>=[10]Then(End3) @Goto(Choose)
+(Stop3)
+... #DT @CustomMode(ModeText, Normal) #MeritChangeNHigh @DeleteFlag(Busy)
+Well I'm not sure what to say right now.. #DT
+Remove the ball crusher #DT @Wait(25)
+@End
+(End)
+You can relieve the pressure now #DT @DeleteFlag(Busy)
+Remove the ball crusher #DT @Wait(25)
+This was extremely hot! #DT
+@End
+(End2)
+@NullResponse @DeleteFlag(Busy)
+@End
+(End3)
+You can relieve the pressure now #DT @DeleteFlag(Busy)
+Remove the ball crusher #DT @Wait(25)
+@RT(I hope they aren't dead!,I really hope those #GNMBalls aren't dead,You should probably take a look at those #GNMBalls #GNMLol) #DT
+@End
