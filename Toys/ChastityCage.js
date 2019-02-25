@@ -7,7 +7,9 @@ function unlockChastityCage() {
     sendMessage("%SlaveName%");
     lockImages();
     showImage("Images/Spicy/Chastity/ChastityOff/*.{jpg,png,gif}");
-    if(randomInteger(0, 2) == 2) playSound("Audio/Spicy/Chastity/ChastityOff/*.mp3");
+    if(randomInteger(0, 2) == 2) {
+		playSound("Audio/GNMSounds/Chastity/PutChastityOff/*.mp3");
+	}
     sendMessage(random("Remove your %ChastityCage%", "Get your %ChastityCage% off", "Remove the %ChastityCage% at once", "Hurry up and remove the %ChastityCage%", "Be quick and get your %ChastityCage% off"));
 
     let timeout = randomInteger(20, 50);
@@ -64,7 +66,7 @@ function lockChastityCage() {
     sendMessage("%SlaveName%");
     lockImages();
     showImage("Images/Spicy/Chastity/ChastityOn/*.{jpg,png,gif}");
-    if(randomInteger(0, 2) == 2) playSound("Audio/Spicy/Chastity/ChastityOn/*.mp3");
+    if(randomInteger(0, 2) == 2) playSound("Audio/GNMSounds/Chastity/ChastityOn/*.mp3");
 
     sendMessage(random("Put on your %Cage%", "Get your %Cage% on", "Put on the %Cage% at once", "Hurry up and get the %Cage% back on", "Be quick and get your %Cage% back on", "Lock your %Cock% up"));
 
