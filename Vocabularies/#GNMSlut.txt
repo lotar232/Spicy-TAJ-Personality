@@ -1,0 +1,26 @@
+@NotFlag(BlockSounds) slut @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) girl @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) horny girl @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3]  
+@NotFlag(BlockSounds) horny slut @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) cock loving slut @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) cock loving girl @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) cum craving slut @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) cum craving girl @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) little girl @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) little slut @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) horny little slut @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) horny little girl @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@NotFlag(BlockSounds) slutty girl @PlayAudio[/GNMSounds/Humiliation/Slut/*.mp3] 
+@Flag(BlockSounds) slut 
+@Flag(BlockSounds) girl 
+@Flag(BlockSounds) horny girl  
+@Flag(BlockSounds) horny slut 
+@Flag(BlockSounds) cock loving slut 
+@Flag(BlockSounds) cock loving girl 
+@Flag(BlockSounds) cum craving slut 
+@Flag(BlockSounds) cum craving girl 
+@Flag(BlockSounds) little girl 
+@Flag(BlockSounds) little slut 
+@Flag(BlockSounds) horny little slut 
+@Flag(BlockSounds) horny little girl 
+@Flag(BlockSounds) slutty girl 

@@ -1,0 +1,2 @@
+function ballsVocabulary() {
+    const answers = ["ass","arse","butt","behind","rear"," booty"," heinie","bottom","derriere","disgusting ass","worthless ass","saggy ass","crappy ass","bitch ass"]

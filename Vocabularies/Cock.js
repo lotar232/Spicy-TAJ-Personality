@@ -15,7 +15,7 @@ function cockVocabulary() {
     }
 
     if(randomInteger(1, 4) == 2) {
-        playSound("Audio/Spicy/Humiliation/SmallDick/*.mp3");
+        playSound("Audio/GNMSounds/Humiliation/SmallDick/*.mp3");
     }
 
     return answer + answers[randomInteger(0, answers.length - 1)];
