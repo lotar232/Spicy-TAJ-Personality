@@ -1,0 +1,4 @@
+@SystemMessage #VANC #VANP #SlaveName stand up and shake your body
+@SystemMessage #VANC #VANP shake your arms, your legs, your torso and your head @Wait(10)
+@SystemMessage #VANC #VANP @RT(That was it ,Done!,Stop,Just stop,Stop #GNMSlut,Stop #SlaveName), @RT(just return to whatever you we're doing,return to your businuss,thank you for a little attention)
+@End

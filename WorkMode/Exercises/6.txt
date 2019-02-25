@@ -1,0 +1,4 @@
+@SystemMessage #VANC #VANP #GNMSlut just take a 5 minutes break, look around yourself
+@SystemMessage #VANC #VANP Is there something you can clean or perhaps something else to improve.
+@SystemMessage #VANC #VANP 5 minutes! Then you return to whatever you were doing.. @Wait(300) 
+@End

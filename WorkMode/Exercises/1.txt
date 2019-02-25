@@ -1,0 +1,3 @@
+@SystemMessage #VANC #VANP #SlaveName right now you're gonna do @RT(20,30,40) push ups with a @RT(narrow,wide,normal,normal,normal) stand
+@SystemMessage #VANC #VANP When you're done just return to whatever you were doing..
+@End

@@ -1,0 +1,10 @@
+@SystemMessage #VANC Get into the Cum Fuck Me position @ShowImage[GNMImages\Positions\CFM4.*]
+@SystemMessage #VANC #VANP Hold it until you hear my bell again.. @Goto(Wait1)
+(Wait1)
+@NullResponse @Wait(10) @Chance93(Wait1)
+@NullResponse @Wait(10)
+@NullResponse @Wait(10)
+@NullResponse @Wait(10)
+@NullResponse @Wait(10) @PlayAudio[GNMSounds\SpecialSounds\Bell.mp3]
+@SystemMessage #VANC #VANP @RT(That was it ,Done!,Stop,Just stop,Stop #GNMSlut,Stop #SlaveName), @RT(just return to whatever you we're doing,return to your business,thank you for a little attention)
+@End

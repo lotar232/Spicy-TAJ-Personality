@@ -1,0 +1,11 @@
+@NullResponse @Goto(1,2)
+(1)
+@SystemMessage #VANC #VANP #SlaveName just close your eyes for 2 minutes
+@SystemMessage #VANC #VANP Just 2 simple minutes @Wait(120)
+@SystemMessage #VANC #VANP @RT(That was it ,Done!,Stop,Just stop,Stop #GNMSlut,Stop #SlaveName), @RT(just return to whatever you we're doing,return to your businuss,thank you for a little attention) 
+@End
+(2)
+@SystemMessage #VANC #VANP #SlaveName put on a piece of classical music
+@SystemMessage #VANC #VANP Just listen to it and let it calm your mind
+@SystemMessage #VANC #VANP When you're done just return to whatever you were doing.. @Wait(120) 
+@End

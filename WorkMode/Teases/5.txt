@@ -1,0 +1,16 @@
+@NotFlag(ChastityIsOn) @NullResponse @Goto(Other)
+@SystemMessage #VANC #VANP @RT(Carress your #GNMCock a little,Touch your cage a little,Get a good feel of the cage,Touch yourself,Feel yourself up)
+@SystemMessage #VANC #VANP @RT(Lets see if you can make it hard in that cage..,Lets see if we can the tiny girl fight for freedom,Lets see if you can make the sad tiny penis desperate for freedom) @Wait(15)
+@SystemMessage #VANC #VANP @RT(Is it hard yet,Is it hard,Is it as hard as a caged cock can be)?
+[no]@SystemMessage #VANC #VANP @RT(Lets hope its not dead #GNMLol,Tired I suppose,Maybe its finally understanding that its worthless,Maybe it knows i'm tricking it!)
+[yes]@SystemMessage #VANC #VANP #GNMGood #GNMLol
+@DifferentAnswer @SystemMessage #VANC #VANP #GNMYesOrNo
+@NullResponse @Wait(10)
+@SystemMessage #VANC #VANP @RT(That was it ,Done!,Stop,Just stop,Stop #GNMSlut,Stop #SlaveName), @RT(just return to whatever you we're doing,return to your business,thank you for a little attention)
+@End
+(Other)
+@SystemMessage #VANC #VANP @RT(Touch your cock a little,Feel your dick,Reach for your dick) @Wait(10)
+@SystemMessage #VANC #VANP Stroke it just 10 times
+@SystemMessage #VANC #VANP #GNMGrin
+@SystemMessage #VANC #VANP @RT(That was it ,Done!,Stop,Just stop,Stop #GNMSlut,Stop #SlaveName), @RT(just return to whatever you we're doing,return to your business,thank you for a little attention)
+@End

@@ -1,0 +1,10 @@
+@SystemMessage #VANC #VANP @RT(Lets rattle your #GNMCock a little, Lets make your #GNMCock jump a little, Lets see if we can awaken the imprisoned princess,Lets play a little,I have something fun for you #GNMEmoteHappy )
+@SystemMessage #VANC #VANP @RT(Just watch this little slideshow while you fondle your #GNMBalls #GNMLol,Fondle your #GNMBalls while you watch this magnificent girl!,Just hang back and watch this sexy slut!)
+(SlideShow1)
+@NullResponse @ShowImage[\GNMImages\SelfHumiliation\*.jpg] @Chance90(SlideShow1)
+@NullResponse @ShowImage[\GNMImages\SelfHumiliation\*.jpg]
+@NullResponse @ShowImage[\GNMImages\SelfHumiliation\*.jpg]
+@NullResponse @ShowImage[\GNMImages\SelfHumiliation\*.jpg]
+@SystemMessage #VANC #VANP @RT(#SlaveName, You look sooo hot!,Those pictures are soo hot,I would love to share these pictures with your friends!) #GNMGrin
+@SystemMessage #VANC #VANP @RT(That was it ,Done!,Stop,Just stop,Stop #GNMSlut,Stop #SlaveName), @RT(just return to whatever you we're doing,return to your business,thank you for a little attention)
+@End
