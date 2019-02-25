@@ -1,0 +1,206 @@
+@Variable[CleaningKinky]>=[#Random(2,11)] @NullResponse @Goto(Toys)
+@End
+(Toys)
+@SystemMessage #VANC #VANP @RT(Grin..,Okay!,Hmm..,Hehe,#GNMGrin)
+(Choose)
+@NullResponse @Goto(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
+(1)
+@SystemMessage #VANC #VANP I want you to tie your hands together and tie your feet together 
+@SystemMessage #VANC #VANP Not completely though..
+@SystemMessage #VANC #VANP Make it so that there is a @RT(10,15) cm string length giving you a little mobility #GNMLol
+@SystemMessage #VANC #VANP I am generous #DomHonorific .. @Wait(20)
+@SystemMessage #VANC #VANP Are you done tying yourself?
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP Yes or no?
+@SystemMessage #VANC #VANP I've added a little extra time for you to clean due to your predicament #GNMGrin @Goto(End)
+(2)
+@SystemMessage #VANC I want you to put @RT(1 peg,2 pegs) on each nipple @ShowImage[\GNMImages\Toys\Pegs.jpg] 
+@SystemMessage #VANC If you feel courageous you can add a little weight to them #GNMGrin @ShowImage[\GNMImages\Toys\Pegs.jpg] @Wait(20)
+@SystemMessage #VANC Are you done placing the pegs? @ShowImage[\GNMImages\Toys\Pegs.jpg]
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP I've removed a little time from the clock 
+@SystemMessage #VANC #VANP I expect that you might clean a little faster due to your predicament #GNMGrin
+@SystemMessage #VANC #VANP Just a few minutes
+@SystemMessage #VANC #VANP No more than 5 #GNMLol
+@SystemMessage #VANC #VANP Remember to remove them after you're done cleaning #GNMGrin @Goto(End)
+(3)
+@SystemMessage #VANC I want you to put @RT(1 peg,2 pegs) on each of your thighs @ShowImage[\GNMImages\Toys\Pegs.jpg]
+@SystemMessage #VANC I want them pointing inward @ShowImage[\GNMImages\Toys\Pegs.jpg]
+@SystemMessage #VANC In a manner that they force you to walk with your legs spread @ShowImage[\GNMImages\Toys\Pegs.jpg]
+@SystemMessage #VANC And so they might hit each other each time you take a step.. @ShowImage[\GNMImages\Toys\Pegs.jpg] @Wait(20)
+@SystemMessage #VANC #VANP Step carefully #GNMLol
+@SystemMessage #VANC #VANP Are you done placing the pegs?
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP Remember to remove them after you're done cleaning #GNMGrin @Goto(End)
+(4)
+@NullResponse @CheckFlag(ParachutePlay) @Goto(Choose)
+(ParachutePlay)
+@SystemMessage #VANC I want you to attach your parachute on to your #GNMBalls @ShowImage[\GNMImages\Toys\Parachute.jpg]
+@SystemMessage #VANC Feel free to impress me by adding weights #GNMGrin @ShowImage[\GNMImages\Toys\Parachute.jpg] @Wait(#Random(20,30))
+@SystemMessage #VANC Are you done attaching the parachute? @ShowImage[\GNMImages\Toys\Parachute.jpg]
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP Remember to remove it after you're done cleaning #GNMGrin @Goto(End)
+(5)
+@NullResponse @CheckFlag(CollarPlay) @Goto(Choose)
+(CollarPlay)
+@SystemMessage #VANC #VANP If you have it I want you to handcuff yourself, if not be "creative".. 
+@SystemMessage #VANC Then I want you to put on your collar @ShowImage[\GNMImages\Toys\Collar.jpg]
+@SystemMessage #VANC Tie a robe from the handcuffs to the collar @ShowImage[\GNMImages\Toys\Collar.jpg]
+@SystemMessage #VANC It shouldn't be more than 30-40 cm's long #GNMGrin @ShowImage[\GNMImages\Toys\Collar.jpg] @Wait(40)
+@SystemMessage #VANC Are you done tying yourself up nicely? @ShowImage[\GNMImages\Toys\Collar.jpg]
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP Remember to remove it after you're done cleaning #GNMGrin @Goto(End)
+(6)
+@SystemMessage #VANC #VANP If you have it I want you to handcuff yourself, if not be "creative"..
+@SystemMessage #VANC Then I want you to put 2 pegs onto your #GNMBalls @ShowImage[\GNMImages\Toys\Pegs.jpg]
+@SystemMessage #VANC Tie a robe from the handcuffs to the pegs @ShowImage[\GNMImages\Toys\Pegs.jpg]
+@SystemMessage #VANC It shouldn't be more than 30-40 cm's long #GNMGrin @ShowImage[\GNMImages\Toys\Pegs.jpg] @Wait(40)
+@SystemMessage #VANC Are you done tying yourself up nicely? @ShowImage[\GNMImages\Toys\Pegs.jpg]
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP Remember to remove it after you're done cleaning #GNMGrin @Goto(End)
+(7)
+@NullResponse @CheckFlag(GNMToyLingerieBasic) @Goto(Choose)
+(GNMToyLingerieBasic)
+@SystemMessage #VANC #VANP Lets do a little dress up
+@SystemMessage #VANC I want you in these @ShowImage[\GNMImages\Toys\Lingerie\Panties\*.jpg] @Wait(10)
+@SystemMessage #VANC And wearing this @ShowImage[\GNMImages\Toys\Lingerie\Bra\*.jpg] @Wait(10)
+@SystemMessage #VANC #VANP Don't wear anything else #GNMGrin @Wait(15)
+@SystemMessage #VANC #VANP Are you done "slutting" yourself?
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP Yes or no?
+@SystemMessage #VANC #VANP Remember to remove it after you're done cleaning #GNMGrin @Goto(End)
+(8)
+@NullResponse @CheckFlag(GNMToyLingerieAdvanced) @Goto(Choose)
+(GNMToyLingerieAdvanced)
+@SystemMessage #VANC #VANP Let's do a little dress up
+@SystemMessage #VANC I want you wearing @ShowImage[\GNMImages\Toys\Lingerie\GarterBelt\*.jpg] @Wait(15)
+@SystemMessage #VANC And of course you have to also wear these @ShowImage[\GNMImages\Toys\Lingerie\Stockings\*.jpg] @Wait(15)
+@SystemMessage #VANC #VANP Don't wear anything else #GNMGrin @Wait(15)
+@SystemMessage #VANC #VANP Are you done "slutting" yourself?
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP Yes or no?
+@SystemMessage #VANC #VANP Remember to remove it after you're done cleaning #GNMGrin @Goto(End)
+(9)
+@NullResponse @CheckFlag(GagPlay) @Goto(Choose)
+(GagPlay)
+@SystemMessage #VANC #VANP Let's shut you up!
+@SystemMessage #VANC Find your gag and put it on tight! @ShowImage[\GNMImages\Toys\Gag.jpg] @Wait(20)
+@SystemMessage #VANC I can't hear you, does that mean you're gagged? @ShowImage[\GNMImages\Toys\Gag.jpg]
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP Yes or no?
+@SystemMessage #VANC #VANP Remember to remove it after you're done cleaning #GNMGrin @Goto(End)
+(10)
+@NullResponse @CheckFlag(ButtPlugPlay) @Goto(Choose)
+(ButtPlugPlay)
+@SystemMessage #VANC #VANP Lets fill you a little
+@SystemMessage #VANC Find your #ButtPlug @ShowImage[\GNMImages\Toys\ButtPlugs.jpg]
+@SystemMessage #VANC Lube it up by sucking on it.. @Wait(60) @ShowImage[\GNMImages\Toys\ButtPlugs.jpg]
+@SystemMessage #VANC Now stick it up your #GNMAss @Wait(30) @ShowImage[\GNMImages\Toys\ButtPlugs.jpg]
+@SystemMessage #VANC Are you done filling that nasty #GNMAss?? @ShowImage[\GNMImages\Toys\ButtPlugs.jpg]
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP Remember to remove it after you're done cleaning #GNMGrin @Goto(End)
+(11)
+@SystemMessage #VANC Place #Random(4,8) pegs on your #GNMBalls @ShowImage[\GNMImages\Toys\Pegs.jpg] @Wait(30)
+@SystemMessage #VANC Are you done? @ShowImage[\GNMImages\Toys\Pegs.jpg]
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP Remember to remove them after you're done cleaning #GNMGrin @Goto(End)
+(12)
+@SystemMessage #VANC #VANP While cleaning today I want you to stay on all fours 
+@SystemMessage #VANC #VANP You are ONLY allowed to stand up if you need to reach something high..
+@SystemMessage #VANC #VANP I've added extra time since this must slow you down.. @Goto(End)
+(13)
+@SystemMessage #VANC #VANP While cleaning today I want you to stay on all fours
+@SystemMessage #VANC #VANP And..
+@SystemMessage #VANC #VANP To complicated it further I want you to tie your balls to your big toes #GNMGrin @Wait(40)
+@SystemMessage #VANC #VANP Are you done tying them nuts up?
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP I've added extra time
+@SystemMessage #VANC #VANP Remember to the remove robe after you're done cleaning #GNMGrin @Goto(End)
+(14)
+@Flag(CollarPlay) @NullRespose @Goto(CollarPlay2) 
+@NullResponse @Goto(Choose)
+(CollarPlay2)
+@SystemMessage #VANC #VANP This is gonna be a little complicated #GNMLol
+@SystemMessage #VANC #VANP But it should prove fun to watch!
+@SystemMessage #VANC #VANP I want you wearing your collar with a leash attached @ShowImage[\GNMImages\Toys\Collar.jpg]
+@SystemMessage #VANC #VANP The leash shouldn't be any longer than 2m @ShowImage[\GNMImages\Toys\Collar.jpg]
+@SystemMessage #VANC #VANP During your cleaning today I want you to tie that leash to different objects @ShowImage[\GNMImages\Toys\Collar.jpg]
+@SystemMessage #VANC #VANP Could be a door handle, a tableleg or something similar
+@SystemMessage #VANC #VANP I want you to carry a timer with you
+@SystemMessage #VANC #VANP You are only allowed to relocate the leash every 5'th minute! @Wait(20)
+@SystemMessage #VANC #VANP Understood?
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Then reread it.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP I've added extra time
+@SystemMessage #VANC #VANP Remember to the remove the collar after you're done cleaning #GNMGrin @Goto(End)
+(15)
+@SystemMessage #VANC #VANP This is simple..
+@SystemMessage #VANC #VANP While cleaning today
+@SystemMessage #VANC #VANP You're gonna hear a bell once in a while
+@SystemMessage #VANC #VANP Everytime you hear it I want you go the corner and stay there until you hear the bell a second time..
+@SystemMessage #VANC #VANP Hands behind your head and legs spread.. @TempFlag(BellGame1) @Goto(End)
+(16)
+@SystemMessage #VANC #VANP While cleaning today I want you naked
+@SystemMessage #VANC #VANP If your #Home isn't warm this should help you work faster #GNMGrin @Wait(10) @Goto(End)
+(17)
+@NullResponse @CheckFlag(ChastityIsOn)
+@SystemMessage #VANC #VANP While cleaning today I want you naked and wearing your #ChastityCage
+@SystemMessage #VANC #VANP If your #Home isn't warm this should help you work faster #GNMGrin @Wait(10)
+@SystemMessage #VANC #VANP Remember to remove the cage when you're done cleaning @Goto(End)
+(ChastityIsOn)
+@SystemMessage #VANC #VANP While cleaning today I want you naked and wearing your #ChastityCage
+@SystemMessage #VANC #VANP If your #Home isn't warm this should help you work faster #GNMGrin @Wait(10) @Goto(End)
+(18)
+@Flag(CollarPlay) @NullRespose @Goto(CollarPlay3) 
+@NullResponse @Goto(Choose)
+(CollarPlay3)
+@SystemMessage #VANC #VANP This is gonna get a little complicated #GNMLol 
+@SystemMessage #VANC #VANP But it should prove fun to watch! 
+@SystemMessage #VANC I want you wearing your collar with a leash attached @ShowImage[\GNMImages\Toys\Collar.jpg]
+@SystemMessage #VANC The leash shouldn't be any longer than 2m @ShowImage[\GNMImages\Toys\Collar.jpg]
+@SystemMessage #VANC During the cleaning today I want you to tie that leash to a cup filled with sugar @ShowImage[\GNMImages\Toys\Collar.jpg]
+@SystemMessage #VANC #VANP You aren't allowed to move the cup around with your hands
+@SystemMessage #VANC #VANP Use your lower arms or something else #GNMGrin
+@SystemMessage #VANC #VANP Move carefully #GNMGrin @Wait(15)
+@SystemMessage #VANC #VANP Understood?
+[yes]@SystemMessage #VANC #VANP #GNMGood
+[no]@SystemMessage #VANC #VANP Then reread it.. @Wait(20)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+@SystemMessage #VANC #VANP I've added extra time
+@SystemMessage #VANC #VANP Remember to the remove the collar after you're done cleaning #GNMGrin @Goto(End)
+(19)
+@SystemMessage #VANC #VANP Before cleaning today I want you to drink 1L of water
+@SystemMessage #VANC #VANP You aren't allowed to pee starting now before you're done cleaning @Wait(60)
+@SystemMessage #VANC #VANP Are you done drinking?
+[yes]@SystemMessage #VANC #VANP #GNMGood @Goto(End)
+[no]@SystemMessage #VANC #VANP Hurry then.. @Wait(60) @Goto(End)
+@DifferentAnswer @SystemMessage #VANC #VANP yes or no?
+(20)
+@SystemMessage #VANC #VANP This is simple.. 
+@SystemMessage #VANC #VANP While cleaning today
+@SystemMessage #VANC #VANP You're gonna hear a bell once in a while
+@SystemMessage #VANC #VANP Everytime you hear it I want you to come to this computer
+@SystemMessage #VANC #VANP And retype the sentence you see @TempFlag(BellGame2) @Goto(End)
+(End)
+@End
