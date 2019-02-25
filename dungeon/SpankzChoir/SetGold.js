@@ -1,5 +1,5 @@
 
-if(getvar("extrastrokesOK")==true)
+if(getVar("extrastrokesOK")==true)
 	{run(dungeon/SpankzChoir/ExtraStrokes.js);}
 setVar("GoldOwedInTime",0);
  setVar("GoldOwedLate",0);

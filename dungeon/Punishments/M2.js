@@ -176,4 +176,4 @@ break;
 
  setVar("PunishmentComplete", true);
  setVar("PunishmentCompleted", 12);
- run("Punishment/PunishmentBaseEnd.js");
+ run("Dungeon/PunishmentBaseEnd.js");

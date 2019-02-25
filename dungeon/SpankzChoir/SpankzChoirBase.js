@@ -67,7 +67,7 @@ if(!isVar("SpankzChoirBaseIntro")){
 }
 //************************************************************************ POST INTRO ****************************************************
 //(FirstSpankChoir) //Start with a check if a previous started spanking session was completed.
-sendDungeonMessage("test");
+sendDungeonMessage("t");
 
 //fixme
 if (getDate("SpankzChoirSubscription")==true) {
@@ -140,7 +140,6 @@ if (getDate("SpankzChoirSubscription")==true) {
 						sendDungeonMessage(" Exactly how much we'll deal with after.. ");
 						//(HighBidder1)
 						sendDungeonMessage(" Let me just see who actually won "); 
-						setVar("LateForAuction", true) ;
 						
 						choice= randomInteger(1,8);
 

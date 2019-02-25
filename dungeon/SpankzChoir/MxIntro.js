@@ -143,6 +143,7 @@ if (!doneend)
 			MXmessage(" I am to give you her regards ");
 			setVar("PReason_spankzchoir_late", true);
 			addPunishmentPoints(200);
+			setVar("SpankzChoirSkipped", false);
 			MXmessage(" Oh and also a lot of punishment points %GNMGrin% "); 
 			//#MeritChangeNHigh
 			changeMeritHigh(true);
@@ -150,10 +151,15 @@ if (!doneend)
 			//@End
 	 }else if (isVar("SpankzChoirLate") && getVar("SpankzChoirLate")==true) {
 		 //	(SpankzChoirLate)
+		 	setVar("PReason_spankzchoir_late", true);
 			MXmessage(" Awww late for your auction huh? ");
 			MXmessage(" Well don't worry! ");
-			MXmessage(" You still get spanked %GNMLol% ");
+			MXmessage(" You still get spanked  ");
 			MXmessage(" You just don't get paid! %GNMEmoteHappy% ");
+			MXmessage(" on the plus side... ");	
+			MXmessage(" you did earn a few punishment points. %GNMLol%");	
+			addPunishmentPoints(50);
+			setVar("SpankzChoirLate", false);
 			//@End
 		 
 	 } else{

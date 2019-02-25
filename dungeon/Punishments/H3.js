@@ -169,7 +169,7 @@ switch (choice) {
 	// @Goto(NoFee)
 	//@TempFlag(PunishmentComplete)
 	setVar("PunishmentCompleted",23);
-	run("Dungeon\Punishment\PunishmentBaseEnd.js");
+	run("Dungeon/PunishmentBaseEnd.js");
 	break;
 	
    case 2:
@@ -226,7 +226,7 @@ switch (choice) {
 	 CornerTimeDown = true;
 	 wait(5);
 	//(CornerTime2)
-	playAudio("audio/GNMSounds/Punishment/Corner/OnYourToes.mp3"); 
+	playAudio("Audio/GNMSounds/Punishment/Corner/OnYourToes.mp3"); 
 	//@CountVar[CornerTimeCounter2]
 	//(CornerTime1)
 	setDate("donetime").addSecond(getVar("CornerTimeCounter"));
@@ -260,30 +260,33 @@ switch (choice) {
 	playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
 	sendMessage("Apparently you made it.."); //#DT4
 	sendMessage("Now.."); //#DT4
-	failed2=false;
+	Failed2=false;
 	//(Lives)
-	CornerTimeFails=sendInput("Tell me what is the sum of times your heels touched the floor and you losing your balance?"); // #DT4 @InputVar[CornerTimeFails]
+	answer=sendInput("Tell me what is the sum of times your heels touched the floor and you losing your balance?"); // #DT4 @InputVar[CornerTimeFails]
 	while (true){
-		if(!(CornerTimeFails.isInteger())){
+		if(!(answer.isInteger())){
 			sendMessage("that's not a number, idiot!");
 			sendMessage("try again.");	
 			 answer.loop();}
-		 else if (getVar("CornerTimeLife")<CornerTimeFails){
-		 //failed to do this correctly
-		 Failed2=true;
-		 break;
-		 }else {sendMessage("%GNMGood% ");
-		 break;
-		 }
+		 else{ CornerTimeFails=answer.getInt();
+			 if (getVar("CornerTimeLife")<CornerTimeFails){
+			 //failed to do this correctly
+			 Failed2=true;
+			 break;
+			 }else {sendMessage("%GNMGood% ");
+				 break;
+				}
+			}
 		 
 	}
-		Cornercommands=sendInput("How many commands where you given?"); // #DT4 
+		answer=sendInput("How many commands where you given?"); // #DT4 
 	while (!Failed2){
-		if(!(Cornercommands.isInteger())){
+		if(!(answer.isInteger())){
 			sendMessage("that's not a number, idiot!");
 			sendMessage("try again.");	
 			 answer.loop();}
-		 else if (Cornercommands==CornerCommandsGiven){
+		 else{Cornercommands = answer.getInt();
+			 if (Cornercommands==CornerCommandsGiven){
 		 //thats correct
 		 sendMessage("%GNMGood% that was correct.. "); //#DT4
 		 break;
@@ -293,7 +296,7 @@ switch (choice) {
 			Failed2=true;
 			break;
 		 }
-		 
+	} 
 	}
 
 	
