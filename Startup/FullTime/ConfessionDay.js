@@ -9,10 +9,16 @@
         sendVirtualAssistantMessage("So choose whatever you believe to be most severe");
         sendVirtualAssistantMessage("Whether that is cumming without permission");
         sendVirtualAssistantMessage("Or some other violation of the rules");
+		//setDate(VARIABLE_NEXT_CONFESSION_DAY, setDate().addDay(7).setHour(0).setMinute(0).setSecond(0));
     }
 
 //Only continue if we haven't check this today
     if (!isVar(VARIABLE_NEXT_CONFESSION_DAY) || getDate(VARIABLE_NEXT_CONFESSION_DAY).hasPassed()) {
+		if (!isVar(VARIABLE_NEXT_CONFESSION_DAY)) {
+			setDate(VARIABLE_NEXT_CONFESSION_DAY, setDate());
+
+			}
+		
         if (!getDate(VARIABLE_NEXT_CONFESSION_DAY).sameDay(setDate())) {
             sendVirtualAssistantMessage("You've been skipping confession day %SlaveName%!");
             sendVirtualAssistantMessage("I've added a healthy dose of punishment points for that!");
@@ -22,7 +28,7 @@
         }
 
         //Set the date to the next tuesday
-        setDate(VARIABLE_NEXT_CONFESSION_DAY, setDate(VARIABLE_NEXT_CONFESSION_DAY).addDay(7).setHour(0).setMinute(0).setSecond(0));
+        setDate(VARIABLE_NEXT_CONFESSION_DAY, setDate().addDay(7).setHour(0).setMinute(0).setSecond(0));
 
         sendVirtualAssistantMessage("Now slave tell me...");
         sendVirtualAssistantMessage("Confess!", false);

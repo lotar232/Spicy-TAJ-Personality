@@ -522,6 +522,10 @@
     askForToyUsage("Gag", domChose);
     sendVirtualAssistantMessage(random("Okay then...", "Next...", "Let's see...", "Moving on..."));
     askForToy("Girlfriend");
+	      if(getVar("toyGirlfriend")==true)  
+		  {sendVirtualAssistantMessage("So tell me the name of your girlfriend", false);
+			setVar("girlfriendname", createInput().getAnswer());
+		  }
 	showImage("Images/Spicy/Toys/LingerieSet*.jpg",3);
     askForToy("Basic Lingerie");
 	showImage("Images/Spicy/Toys/LingerieSet2*.jpg",3);	

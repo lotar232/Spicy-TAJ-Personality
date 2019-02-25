@@ -50,32 +50,41 @@ sendMessage("the day is "+ date.getDay());
             }
 
             if (doWeekCheck) {
+				
+				 sendVirtualAssistantMessage(" Its time for your weekly full time check up.");
+				sendVirtualAssistantMessage(" it looks like this week you served "+ getVar(VARIABLE_WEEKLY_SLAVE_VISITS)+" times." );
                 if (getVar(VARIABLE_WEEKLY_SLAVE_VISITS) < getVar(VARIABLE_MIN_WEEKLY_VISITS)) {
                     sendVirtualAssistantMessage(random("You have been skipping days", "You have been skulking", "I think you missed a few sessions") + " %SlaveName%");
                     sendVirtualAssistantMessage(random("I don't accept that!", "Which is not accepted", "Which isn't tolerated"));
                     sendVirtualAssistantMessage(random("You are the property of", "You belong to", "You are owned by") + " Mistress %domName%");
-                    sendVirtualAssistantMessage(random("And are thus expected to serve!", "So you have to serve", "So she demands that you serve her"));
+                    sendVirtualAssistantMessage(random("And are thus expected to serve!", "So you have to serve", "So she demands that you serve her")+ " the " +getVar(VARIABLE_MIN_WEEKLY_VISITS)+" times a week you agreed to" );
                     sendVirtualAssistantMessage(random("I'm giving you punishment points", "I'm assigning you punishment point", "I have to give you punishment points"));
                     addPunishmentPoints(200);
 					setVar("Preason_BadFullTime",true);
-                }
+                }else {
+					 sendVirtualAssistantMessage( random("You have been attending to your Mistress as required","You have been a devoted sub") +" "+ random("%GNMSlut%","%SlaveName%","Slave","Slave","Slave"));
+					 sendVirtualAssistantMessage(" I have a little treat for you! ");
+					 sendVirtualAssistantMessage(" Transferring gold.. ");
+					addGold(randomInteger(30,100));
+				}
 
                 setVar(VARIABLE_WEEKLY_SLAVE_VISITS, 0);
                 sendVirtualAssistantMessage("Let's see if you've been doing your chores like a good slave!");
-
-                if (getVar(VARIABLE_WEEKLY_CHORES_COMPLETED) < getVar(VARIABLE_MIN_WEEKLY_CHORES)) {
-                    sendVirtualAssistantMessage("Bad boy!", "Bad girl!", "Bad slut!", "Bad dog!", "Bad slave!", "Bad sissy!");
+//fixme... somehow NAN check causes a crash here?  uninitialized Var's?
+                if (isVar(VARIABLE_WEEKLY_CHORES_COMPLETED) && (getVar(VARIABLE_WEEKLY_CHORES_COMPLETED) < getVar(VARIABLE_MIN_WEEKLY_CHORES))) {
+                    sendVirtualAssistantMessage(random("Bad boy!", "Bad girl!", "Bad slut!", "Bad dog!", "Bad slave!", "Bad sissy!"));
                     sendVirtualAssistantMessage("Bad behaviour is punished!");
                     sendVirtualAssistantMessage("I just assigned you punishment points!");
                     sendVirtualAssistantMessage("Do your chores!");
                     addPunishmentPoints(200);
 					setVar("Preason_BadChores",true);
                 } else {
-                    sendVirtualAssistantMessage("Good boy!", "You have!", "Good little slut", "Good girl", "Good sissy", "Good slave");
+                    sendVirtualAssistantMessage(random("Good boy!", "You have!", "Good little slut", "Good girl", "Good sissy", "Good slave"));
                     sendVirtualAssistantMessage("Good behaviour is rewarded!");
                     sendVirtualAssistantMessage("Transferring gold...");
                     addGold(randomInteger(50, 200));
                 }
+				   setVar(VARIABLE_WEEKLY_CHORES_COMPLETED, 0);
 
                 //TODO: Study and athlete mode
             }
@@ -108,6 +117,7 @@ sendMessage("the day is "+ date.getDay());
         }
     } else if (!isVar(VARIABLE_NEXT_WEEK_CHECK)&&(getVar(VARIABLE_SLAVE_TYPE)==1)) {
 			setVar(VARIABLE_WEEKLY_SLAVE_VISITS, 0);
+			setVar(VARIABLE_WEEKLY_CHORES_COMPLETED, 0);
 			setDate(VARIABLE_LAST_ROUTINE_CHECK, setDate());
 			setDate(VARIABLE_NEXT_WEEK_CHECK, setDate().addDay(7).setHour(0).setSecond(0).setMinute(0));
 			sendVirtualAssistantMessage("slave its time we got your weekly training schedule started!");
