@@ -8,11 +8,13 @@
         let lobbyAnswer = createInput("Session", "Chores", "Dungeon", "Settings", "Shop", "Fitness", "Exercise", "Study", "House Rules", "Pin Board", "End");
         while (true) {
             if (lobbyAnswer.containsIgnoreCase("session", "domme")) {
-                startSession();
-                lobbyAnswer.clearOptions();
+ 				   lobbyAnswer.clearOptions();
+				   startSession();
+ 
                 break;
             } else if (lobbyAnswer.containsIgnoreCase("chore", "clean", "dust", "wipe", "wash")) {
-                sendVirtualAssistantMessage("This is not supported yet!");
+				lobbyAnswer.clearOptions();
+                 run("Chores/ChoreBase.js");
                 break;
             } else if (lobbyAnswer.containsIgnoreCase("dungeon", "spanking", "spankzchoir", "selfbondage", "pain", "torture", "chamber", "punish")) {
                 // sendVirtualAssistantMessage("This is not supported yet!");
@@ -59,7 +61,7 @@
             } else {
                 sendVirtualAssistantMessage("You have the following options %SlaveName%");
                 sendVirtualAssistantMessage("Request a session with your Mistress");
-                //sendVirtualAssistantMessage("Request a chore");
+                sendVirtualAssistantMessage("Request a chore");
                 sendVirtualAssistantMessage("Enter the dungeon");
                 sendVirtualAssistantMessage("Check settings");
                 //sendVirtualAssistantMessage("Enter the shop");
