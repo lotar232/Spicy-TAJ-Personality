@@ -21,7 +21,7 @@ function random() {
 function waitForDone() {
 	answer = createInput("done");
 		while(true){
-		if(answer.containsIgnoreCase("ready","ok","yes","done","go")) {
+		if(answer.containsIgnoreCase("ready","ok","yes","done","go","on")) {
 
 			break;
 			}
@@ -58,15 +58,15 @@ function waitForDone2(delay) {
 	response = createInput(delay+randomInteger(1,3),"done");
 	while(true){
 		if(response.containsIgnoreCase("ready","ok","yes","done","finshed")) {
-			sendVirtualAssistantMessage(" %GNMGood% !"); //#EnemaChat
+			sendVirtualAssistantMessage(" %GNMGood% !"); 
 			break;
 			}
 		 if (response.isTimeout()){
-			 sendVirtualAssistantMessage(random(" I'm Waiting %Slave%!","Hurry up bitch","C'mon %slut% lets go!","%domHonorific% %Domname% expects you to be faster than that")); //#EnemaChat	
+			 sendVirtualAssistantMessage(random(" I'm Waiting %Slave%!","Hurry up bitch","C'mon %slut% lets go!","%domHonorific% %Domname% expects you to be faster than that")); 
 				response.loop();
 				 }
 			else
-					 sendVirtualAssistantMessage(" silly %Slave%, what the fuck does mean..  are you ready?"); //#EnemaChat
+					 sendVirtualAssistantMessage(" silly %Slave%, what the fuck does mean..  are you ready?"); 
 				response.loop();
 		}
 }
