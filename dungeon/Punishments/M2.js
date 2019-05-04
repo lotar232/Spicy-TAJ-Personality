@@ -74,7 +74,7 @@ switch(getVar("Punisher")){
 
 	break;
 	case 4 :
-	(Contact3)
+	//(Contact3)
 	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%");// #DT4
 	sendMessage(random("Discipline can never be cruel enough","Discipline is all about being cruel","Discipline is about showing no mercy!","No mercy for the bad ones.."));// #DT4
 

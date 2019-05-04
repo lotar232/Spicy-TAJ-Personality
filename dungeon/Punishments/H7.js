@@ -167,7 +167,7 @@ sendMessage (" Today you will be given "+caningNumber + " strikes %SlaveName%");
 
 	sendMessage(random("Left thigh..","Right thigh..","Left Cheek..","Right Cheek.."),randomInteger(1,2)); //#DT4 @Wait(#Random(1,2))
 	sendMessage("Pull back!", randomInteger(1,3)); //#DT4
-	variation = randomInteger(1,50);
+	variation = randomInteger(1,40);
 	switch(variation) {
 		case 1:
 		sendMessage("you can pull it further back than that %slaveName%", randomInteger(1,2)); //#DT4

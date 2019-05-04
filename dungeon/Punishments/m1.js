@@ -216,6 +216,6 @@ sendMessage ("Then you have a long way to go to redeem yourself.. ");
 }
 
 
-	
-	setVar("punishmentCompleted", 11);
-	run("dungeon/PunishmentBaseEnd.js");
+	/// hoping this fixes double nurse bug
+	//setVar("punishmentCompleted", 11);
+//	run("dungeon/PunishmentBaseEnd.js");
