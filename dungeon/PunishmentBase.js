@@ -182,9 +182,12 @@ if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 	sendDungeonMessage(" First lets see who will be handling your punishment..",3);
 
 	setVar("Punisher",1);
-	if(isVar("Glitter1Bought")) {setVar("Punisher",randomInteger(1,2));}
-	if(isVar("Glitter2Bought")) {setVar("Punisher",randomInteger(1,3));}
-	if(isVar("Glitter3Bought")) {setVar("Punisher",randomInteger(1,4));}
+	if(isVar("Glitter1Bought")) 
+		{setVar("Punisher",randomInteger(1,2));}
+	if(isVar("Glitter2Bought")) 
+		{setVar("Punisher",randomInteger(1,3));}
+	if(isVar("Glitter3Bought")) 
+		{setVar("Punisher",randomInteger(1,4));}
 
 	switch (getVar("Punisher")) {
 		case 1:
@@ -272,12 +275,13 @@ if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 			break;
 			case 4:
 			//fixme impliment other extreeme punishments
-			   punishmentchoice = randomInteger(5,5);
+			   punishmentchoice = randomInteger(4,4);
 			   if((punishmentchoice==5) && (getVar("toyenemakit")==true))
 			   { run("dungeon/Punishments/B1.js");}
 		   else
-			   punishmentchoice = randomInteger(1,4);
-				if((punishmentchoice==1) && (getVar("toyshockcollar")==true))
+			   //fixme un stick this
+			   punishmentchoice = randomInteger(4,4);
+				if((punishmentchoice==4) && (getVar("toyshockcollar")==true))
 				{
 				run("dungeon/Punishments/E"+punishmentchoice+".js");
 				}
