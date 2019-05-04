@@ -11,7 +11,7 @@ if(!isVar("FirstassignedChoreRun")){
      answer=createInput()
     while (true) {
         if (answer.isInteger()) {
-            const id = answer.getInt();
+            const id = answer.getInteger();
             if (id > 10) {
                 sendVirtualAssistantMessage("You can't choose a number higher than 10. 1- 10?");
                 answer.loop();
@@ -34,11 +34,13 @@ if(!isVar("FirstassignedChoreRun")){
 	sendVirtualAssistantMessage(" So %SlaveName%, tell me what you're assignment is?"); 
 	ChoreThatWasAssigned= createInput();
 	 setVar("ChoreLog", getVar("ChoreLog")+" <> "+ChoreThatWasAssigned);
-	sendVirtualAssistantMessage("and In minutes, how long did %DomHonorific% %DomName% give you to complete this mission? %GNMlol% ");
+	looping=true;
+	sendVirtualAssistantMessage("and In minutes, how long did %DomHonorific% %DomName% give you to complete this mission? %GNMlol% ",0);
 	answer=createInput();
-    while (true) {
+    while (looping==true) {
         if (answer.isInteger()) {
-             cleaningTimeTemp = answer.getInt();
+             cleaningTimeTemp = answer.getInteger();
+			 looping=false;
 			 break;
             
         } else {
@@ -52,7 +54,7 @@ if(!isVar("FirstassignedChoreRun")){
 	sendVirtualAssistantMessage("%GNMReady% Slave? cleaning time ="+cleaningTimeTemp);
 	waitForDone();
 	
-	if(getVar("AssignedChoreKinky") <=randomInteger(2,11) ){
+	if(getVar("AssignedChoreKinky") <=randomInteger(0,10) ){
 	sendVirtualAssistantMessage("Okay then ");
 	sendVirtualAssistantMessage("You can go ahead and start with the Task for %DomHonorific% %DomName%.. ");
 	sendVirtualAssistantMessage("When you're done return to me and say 'done' ", 15);
@@ -428,7 +430,7 @@ if(!isVar("FirstassignedChoreRun")){
    }
 
 
-
+setVar("ChoreActive",false);
  setVar(VARIABLE_WEEKLY_CHORES_COMPLETED, getVar(VARIABLE_WEEKLY_CHORES_COMPLETED)+1);
  
 

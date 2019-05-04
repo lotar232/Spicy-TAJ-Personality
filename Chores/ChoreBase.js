@@ -18,8 +18,8 @@ if(isVar("ChoreActive") &&getVar("ChoreActive")==true)
 
 	sendVirtualAssistantMessage(" I already gave you a chore..");
 	sendVirtualAssistantMessage(" You haven't completed it yet..");
-	 run("Chores\ChoreNotComplete.js");
-
+	 run("Chores/ChoreNotComplete.js");
+// fixme  append chore not complete with call back function to 2 part chores
 		
 	}
 		
@@ -56,7 +56,7 @@ if(isVar("ChoreActive") &&getVar("ChoreActive")==true)
 		//(assignedorpick)
 		doassigned=false;
 		if((isVar("AssignedChores") && getVar("AssignedChores")==true) &&(getVar("doingchores")==true)){
-			sendVirtualAssistantMessage(" Do you have a chore already chosen by %DomHonorific% %DomName% or should I PICK one for you?"); 
+			sendVirtualAssistantMessage(" Do you have a chore already chosen by %DomHonorific% %DomName% or should I PICK one for you?",0); 
 			showImage("Images/Spicy/GNMBackground/TrashBin.*");
 			answer=createInput("Assigned by Mistress", "please pick one");
 			while (true) {
@@ -92,7 +92,7 @@ if(isVar("ChoreActive") &&getVar("ChoreActive")==true)
 
 				chorepicked=false;
 				/////hackme start
-				run("Chores/secondaryChores/ChoreAlt1.js");
+				run("Chores/secondaryChores/ChoreAlt2.js");
 				chorepicked=true;
 				////hackme end
 				
