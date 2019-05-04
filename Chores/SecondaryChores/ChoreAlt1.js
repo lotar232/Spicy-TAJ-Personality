@@ -210,6 +210,7 @@ function c()
         wait(120);
     }
     sendVirtualAssistantMessage(" Let me reward that %GNMGrin% %GoldMedium%");
+	        setVar("GNMGold", getVar("GNMGold", 0) + 25);
     delVar("ChoreAlt1c");
 	changeMeritLow(false);
     End();
@@ -286,7 +287,7 @@ function d2()
 {
     sendVirtualAssistantMessage(" Write and tell me whats rule nr. 2?");
       response = createInput(); 
-	if(response.contains("i must always be respectful and humble."))
+	if(response.contains("I must always be respectful and humble."))
 		{sendVirtualAssistantMessage("%GNMGood%");
 			changeMeritLow(false);
 		Endd();
@@ -501,7 +502,7 @@ function fContinued()
     else if (answer0.isLike("no"))
     {
         sendVirtualAssistantMessage(" Well don\'t return here before you do!");
-        run("Interrupt/GNMBackgroundBase");
+        run("Assistant/AssistantLobby.js");
     }
     sendVirtualAssistantMessage(" I transfered the gold to you");
     delVar("ChoreActive");

@@ -5,12 +5,22 @@
 (Choose)
 @SystemMessage #VANC #VANP I have a nice quiet mind drilling task for you.. 
 @SystemMessage #VANC #VANP But the question is wether you want an easy, medium, hard or crazy one?
-@SystemMessage #VANC #VANP Easy gives you 15 gold, medium 30, hard 50 and crazy gives you 100 gold.. @SetFlag(ChoreActive)
-[easy]@SystemMessage #VANC #VANP Okay then.. @SetFlag(ChoreWritingTaskEasy) @Goto(1,2,3,4,5,6,7,8,9,10)
-[medium]@SystemMessage #VANC #VANP Okay then.. @SetFlag(ChoreWritingTaskMedium) @Goto(11,12,13,14,15,16,17,18,19,20)
-[hard]@SystemMessage #VANC #VANP Okay then.. @SetFlag(ChoreWritingTaskHard) @Goto(21,22,23,24,25,26,27,28,29,30)
-[crazy]@SystemMessage #VANC #VANP Okay then.. @SetFlag(ChoreWritingTaskCrazy) @Goto(31,32,33,34,35,36,37,38,39,40)
-@DifferentAnswer @SystemMessage #VANC #VANP Easy, medium, hard or crazy?
+@SystemMessage #VANC #VANP Easy gives you 15 gold, medium 30, hard 50 and crazy gives you 100 gold..
+ @SetFlag(ChoreActive)
+[easy]@SystemMessage #VANC #VANP Okay then.. 
+@SetFlag(ChoreWritingTaskEasy)
+ @Goto(1,2,3,4,5,6,7,8,9,10)
+[medium]@SystemMessage #VANC #VANP Okay then..
+ @SetFlag(ChoreWritingTaskMedium)
+ @Goto(11,12,13,14,15,16,17,18,19,20)
+[hard]@SystemMessage #VANC #VANP Okay then.. 
+@SetFlag(ChoreWritingTaskHard) 
+@Goto(21,22,23,24,25,26,27,28,29,30)
+[crazy]@SystemMessage #VANC #VANP Okay then.. 
+@SetFlag(ChoreWritingTaskCrazy) 
+@Goto(31,32,33,34,35,36,37,38,39,40)
+@DifferentAnswer 
+@SystemMessage #VANC #VANP Easy, medium, hard or crazy?
 (ChoreWritingTaskEasy)
 @SystemMessage #VANC #VANP Well it seems you failed to manage the last chore I gave you...
 @SystemMessage #VANC #VANP But trust me..

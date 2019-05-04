@@ -84,7 +84,7 @@ function Choose()
         return;
         break;
     }
-    ChoreAlt2a();
+   
 }
 function ChoreAlt2a()
 {
@@ -93,7 +93,7 @@ function ChoreAlt2a()
    sendVirtualAssistantMessage(" You\'re not getting out of this chore before you complete it!");
     aContinued();
     return;
-    ChoreAlt2b();
+ 
 }
 function ChoreAlt2b()
 {
@@ -102,7 +102,7 @@ function ChoreAlt2b()
    sendVirtualAssistantMessage(" You\'re not getting out of this chore before you complete it!");
     bContinued();
     return;
-    ChoreAlt2c();
+ 
 }
 function ChoreAlt2c()
 {
@@ -111,7 +111,7 @@ function ChoreAlt2c()
    sendVirtualAssistantMessage(" You\'re not getting out of this chore before you complete it!");
     cContinued();
     return;
-    ChoreAlt2d();
+   
 }
 function ChoreAlt2d()
 {
@@ -120,7 +120,7 @@ function ChoreAlt2d()
    sendVirtualAssistantMessage(" You\'re not getting out of this chore before you complete it!");
     dContinued();
     return;
-    ChoreAlt2f();
+   
 }
 function ChoreAlt2f()
 {
@@ -129,7 +129,7 @@ function ChoreAlt2f()
    sendVirtualAssistantMessage(" You\'re not getting out of this chore before you complete it!");
     fContinued();
     return;
-    ChoreAlt2g();
+  
 }
 function ChoreAlt2g()
 {
@@ -138,7 +138,7 @@ function ChoreAlt2g()
    sendVirtualAssistantMessage(" You\'re not getting out of this chore before you complete it!");
     gContinued();
     return;
-    ChoreAlt2h();
+   
 }
 function ChoreAlt2h()
 {
@@ -147,7 +147,7 @@ function ChoreAlt2h()
    sendVirtualAssistantMessage(" You\'re not getting out of this chore before you complete it!");
     hContinued();
     return;
-    ChoreAlt2i();
+  
 }
 function ChoreAlt2i()
 {
@@ -156,7 +156,7 @@ function ChoreAlt2i()
    sendVirtualAssistantMessage(" You\'re not getting out of this chore before you complete it!");
     iContinued();
     return;
-    a();
+  
 }
 function a()
 {
@@ -185,10 +185,12 @@ function Donea()
    sendVirtualAssistantMessage(" %GNMGood%");
     delVar("ChoreAlt2a");
     //--Command:CustomMode(ModeText,Normal)
-   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% %GoldLow% %MeritChangePLow%");
+   sendVirtualAssistantMessage(" Let me reward that %GNMGrin%");
+   changeMeritLow(false);
+   rewardGoldLow();
     End();
     return;
-    b();
+   
 }
 function b()
 {
@@ -226,51 +228,55 @@ function bContinued()
         return;
         break;
     }
-    b1();
+  
 }
 function b1()
 {
-    sendVirtualAssistantMessage(" And take the bad bitch position",2,true);showImage("/GNMImages/Positions/BadBitch2.jpg"); sleep(10); Bellb();
-    b2();
+    sendVirtualAssistantMessage(" And take the bad bitch position",2,true);showImage("Images/Spicy/Positions/BadBitch2.jpg"); sleep(10); Bellb();
+   
 }
 function b2()
 {
-    sendVirtualAssistantMessage(" And take the bent over position",2,true); showImage("/GNMImages/Positions/BentOver3.jpg"); sleep(10); Bellb();
-    b3();
+    sendVirtualAssistantMessage(" And take the bent over position",2,true); showImage("Images/Spicy/Positions/BentOver3.jpg"); sleep(10); Bellb();
+   
 }
 function b3()
 {
-    sendVirtualAssistantMessage(" And take the box position",2,true); showImage("/GNMImages/Positions/Box1.jpg"); sleep(10); Bellb();
-    b4();
+    sendVirtualAssistantMessage(" And take the box position",2,true); showImage("Images/Spicy/Positions/Box1.jpg"); sleep(10); Bellb();
+   
 }
 function b4()
 {
-    sendVirtualAssistantMessage(" And take the Attention position",2,true); showImage("/GNMImages/Positions/Attention1.jpg"); sleep(10); Bellb();
-    b5();
+    sendVirtualAssistantMessage(" And take the Attention position",2,true); showImage("Images/Spicy/Positions/Attention1.jpg"); sleep(10); Bellb();
+
 }
 function b5()
 {
-    sendVirtualAssistantMessage(" And take the stand position",2,true); showImage("/GNMImages/Positions/Stand2.jpg"); sleep(10); Bellb();
-    b6();
+    sendVirtualAssistantMessage(" And take the stand position",2,true); showImage("Images/Spicy/Positions/Stand2.jpg"); sleep(10); Bellb();
+  
 }
 function b6()
 {
-    sendVirtualAssistantMessage(" And take the stand open position",2,true); showImage("/GNMImages/Positions/StandOpen1.jpg"); sleep(10); Bellb();
-    Bellb();
+    sendVirtualAssistantMessage(" And take the stand open position",2,true);
+	showImage("Images/Spicy/Positions/StandOpen1.jpg"); 
+	sleep(10);
+	Bellb();
+ 
 }
 function Bellb()
 {
    sendVirtualAssistantMessage(" Wait for the bell");
     wait(randomInt(200, 500));
     sendVirtualAssistantMessage(" Get back here.. ");
-	playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
+	playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
    sendVirtualAssistantMessage(" Position and corner training in one package");
     delVar("ChoreAlt2b");
-    CMessage("%MeritChangePLow%");
-   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% %GoldMedium%");
+    changeMeritLow(false);
+   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% ");
+   rewardGoldMedium();
     End();
     return;
-    cContinued();
+  
 }
 function cContinued()
 {
@@ -349,87 +355,91 @@ function c()
         return;
         break;
     }
-    c1();
+   
 }
 function c1()
 {
-    sendVirtualAssistantMessage(" Remember position 1 is called the Bad Bitch",2,true); showImage("/GNMImages/Positions/BadBitch2.jpg"); cTimer();
-    c2();
+    sendVirtualAssistantMessage(" Remember position 1 is called the Bad Bitch",2,true); showImage("Images/Spicy/Positions/BadBitch2.jpg"); cTimer();
+    
 }
 function c2()
 {
-    sendVirtualAssistantMessage(" Remember position 2 is called the Bent Over",2,true); showImage("/GNMImages/Positions/BentOver1.jpg"); cTimer();
-    c3();
+    sendVirtualAssistantMessage(" Remember position 2 is called the Bent Over",2,true); showImage("Images/Spicy/Positions/BentOver1.jpg"); cTimer();
+   
 }
 function c3()
 {
-    sendVirtualAssistantMessage(" Remember position 3 is called the Bent Over Open",2,true);  showImage("/GNMImages/Positions/BentOverOpen2.jpg"); cTimer();
-    c4();
+    sendVirtualAssistantMessage(" Remember position 3 is called the Bent Over Open",2,true);  
+	showImage("Images/Spicy/Positions/BentOverOpen2.jpg");
+	cTimer();
+    
 }
 function c4()
 {
-    sendVirtualAssistantMessage(" Remember position 4 is called the Box",2,true);  showImage("/GNMImages/Positions/Box1.jpg"); cTimer();
-    c5();
+    sendVirtualAssistantMessage(" Remember position 4 is called the Box",2,true);
+	showImage("Images/Spicy/Positions/Box1.jpg"); 
+	cTimer();
+  
 }
 function c5()
 {
-    sendVirtualAssistantMessage(" Remember position 5 is called the Come Fuck Me",2,true);  showImage("/GNMImages/Positions/CFM1.jpg"); cTimer();
-    c6();
+    sendVirtualAssistantMessage(" Remember position 5 is called the Come Fuck Me",2,true);  showImage("Images/Spicy/Positions/CFM1.jpg"); cTimer();
+  
 }
 function c6()
 {
-    sendVirtualAssistantMessage(" Remember position 6 is called the Dog ",2,true); showImage("/GNMImages/Positions/Dog1.jpg"); cTimer();
-    c7();
+    sendVirtualAssistantMessage(" Remember position 6 is called the Dog ",2,true); showImage("Images/Spicy/Positions/Dog1.jpg"); cTimer();
+    
 }
 function c7()
 {
-    sendVirtualAssistantMessage(" Remember position 7 is called the Attention",2,true);  showImage("/GNMImages/Positions/Attention1.jpg"); cTimer();
-    c8();
+    sendVirtualAssistantMessage(" Remember position 7 is called the Attention",2,true);  showImage("Images/Spicy/Positions/Attention1.jpg"); cTimer();
+  
 }
 function c8()
 {
-     sendVirtualAssistantMessage(" Remember position 8 is called Listen",2,true);  showImage("/GNMImages/Positions/Listen1.jpg"); cTimer();
-    c9();
+     sendVirtualAssistantMessage(" Remember position 8 is called Listen",2,true);  showImage("Images/Spicy/Positions/Listen1.jpg"); cTimer();
+   
 }
 function c9()
 {
-     sendVirtualAssistantMessage(" Remember position 9 is called the Kneel",2,true);  showImage("/GNMImages/Positions/Kneel1.jpg"); cTimer();
-    c10();
+     sendVirtualAssistantMessage(" Remember position 9 is called the Kneel",2,true);  showImage("Images/Spicy/Positions/Kneel1.jpg"); cTimer();
+    
 }
 function c10()
 {
-     sendVirtualAssistantMessage(" Remember position 10 is called the Punishment",2,true);  showImage("/GNMImages/Positions/Punishment1.jpg"); cTimer();
-    c11();
+     sendVirtualAssistantMessage(" Remember position 10 is called the Punishment",2,true);  showImage("Images/Spicy/Positions/Punishment1.jpg"); cTimer();
+   
 }
 function c11()
 {
-     sendVirtualAssistantMessage(" Remember position 11 is called the Slut",2,true);  showImage("/GNMImages/Positions/Slut1.jpg"); cTimer();
-    c12();
+     sendVirtualAssistantMessage(" Remember position 11 is called the Slut",2,true);  showImage("Images/Spicy/Positions/Slut1.jpg"); cTimer();
+    
 }
 function c12()
 {
-     sendVirtualAssistantMessage(" Remember position 12 is called the Spanking",2,true);  showImage("/GNMImages/Positions/Spanking1.jpg"); cTimer();
-    c13();
+     sendVirtualAssistantMessage(" Remember position 12 is called the Spanking",2,true);  showImage("Images/Spicy/Positions/Spanking1.jpg"); cTimer();
+ 
 }
 function c13()
 {
-     sendVirtualAssistantMessage(" Remember position 13 is called Judgement",2,true);  showImage("/GNMImages/Positions/Judgement1.jpg"); cTimer();
-    c14();
+     sendVirtualAssistantMessage(" Remember position 13 is called Judgement",2,true);  showImage("Images/Spicy/Positions/Judgement1.jpg"); cTimer();
+   
 }
 function c14()
 {
-     sendVirtualAssistantMessage(" Remember position 14 is called the Stand",2,true);  showImage("/GNMImages/Positions/Stand1.jpg"); cTimer();
-    c15();
+     sendVirtualAssistantMessage(" Remember position 14 is called the Stand",2,true);  showImage("Images/Spicy/Positions/Stand1.jpg"); cTimer();
+    
 }
 function c15()
 {
-     sendVirtualAssistantMessage(" Remember position 15 is called the Stand Open",2,true);  showImage("/GNMImages/Positions/StandOpen1.jpg"); cTimer();
-    c16();
+     sendVirtualAssistantMessage(" Remember position 15 is called the Stand Open",2,true);  showImage("Images/Spicy/Positions/StandOpen1.jpg"); cTimer();
+   
 }
 function c16()
 {
-     sendVirtualAssistantMessage(" Remember position 16 is called the Worship",2,true);  showImage("/GNMImages/Positions/Worship1.jpg"); cTimer();
-    cTimer();
+     sendVirtualAssistantMessage(" Remember position 16 is called the Worship",2,true);  showImage("Images/Spicy/Positions/Worship1.jpg"); cTimer();
+   
 }
 function cTimer()
 {
@@ -438,11 +448,12 @@ function cTimer()
     unlockImages();
      sendVirtualAssistantMessage(" Good boy"); 
 	 changeMeritLow(false);
-	 playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
-   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% %GoldMedium%");
+	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% ");
+    rewardGoldMedium();
     End();
     return;
-    dContinued();
+    
 }
 function dContinued()
 {
@@ -461,20 +472,14 @@ function d()
    sendVirtualAssistantMessage(" Find a porn that DOESN\'T turn you on!");
    sendVirtualAssistantMessage(" I want you to watch " + randomInt(2, 5) + "minutes of it!");
    sendVirtualAssistantMessage(" When you\'re done, just tell me");
-    --Command:CustomMode(done,Goto,Doned)
-    wait(999999);
-    Doned();
-}
-function Doned()
-{
+	waitForDone();
    sendVirtualAssistantMessage(" %GNMGood%");
     delVar("ChoreAlt2d");
-    --Command:CustomMode(ModeText,Normal)
-    CMessage("%MeritChangePMedium%");
+    changeMeritmedium(false);
    sendVirtualAssistantMessage(" Let me reward that %GNMGrin% %GoldLow%");
     End();
     return;
-    e();
+   
 }
 function e()
 {
@@ -493,7 +498,7 @@ function e()
     }
     Choose();
     return;
-    PublicHumActive();
+   
 }
 function PublicHumActive()
 {
@@ -517,7 +522,7 @@ function PublicHumActive()
        sendVirtualAssistantMessage(" Well then what I had in mind won\'t work..");
         setVar("ChoreAlt2eNoGood", true);
     }
-    ChoreAlt2eGood();
+   // ChoreAlt2eGood();
 }
 function ChoreAlt2eGood()
 {
@@ -549,7 +554,7 @@ function ChoreAlt2eGood()
         return;
         break;
     }
-    e1();
+   
 }
 function e1()
 {
@@ -575,7 +580,7 @@ function e1()
         NoDeal();
         return;
     }
-    e2();
+ 
 }
 function e2()
 {
@@ -601,7 +606,7 @@ function e2()
         NoDeal();
         return;
     }
-    e3();
+
 }
 function e3()
 {
@@ -622,7 +627,7 @@ function e3()
         NoDeal();
         return;
     }
-    e4();
+
 }
 function e4()
 {
@@ -648,7 +653,7 @@ function e4()
         NoDeal();
         return;
     }
-    e5();
+
 }
 function e5()
 {
@@ -674,7 +679,7 @@ function e5()
         NoDeal();
         return;
     }
-    e6();
+ 
 }
 function e6()
 {
@@ -695,7 +700,7 @@ function e6()
         NoDeal();
         return;
     }
-    MirrorNaked100();
+   
 }
 function MirrorNaked100()
 {
@@ -706,7 +711,7 @@ function MirrorNaked100()
     wait(300);
     End1();
     return;
-    MirrorNaked150();
+  
 }
 function MirrorNaked150()
 {
@@ -717,7 +722,7 @@ function MirrorNaked150()
     wait(300);
     End1();
     return;
-    MirrorNaked200();
+    
 }
 function MirrorNaked200()
 {
@@ -728,7 +733,7 @@ function MirrorNaked200()
     wait(300);
     End1();
     return;
-    MirrorLingerie100();
+   
 }
 function MirrorLingerie100()
 {
@@ -739,7 +744,7 @@ function MirrorLingerie100()
     wait(300);
     End2();
     return;
-    MirrorLingerie150();
+  
 }
 function MirrorLingerie150()
 {
@@ -750,7 +755,7 @@ function MirrorLingerie150()
     wait(300);
     End2();
     return;
-    MirrorLingerie200();
+   
 }
 function MirrorLingerie200()
 {
@@ -761,38 +766,38 @@ function MirrorLingerie200()
     wait(300);
     End2();
     return;
-    End1();
+  
 }
 function End1()
 {
      sendVirtualAssistantMessage(" Get back here ");
 	 changeMeritLow(false);
-	 playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
-	 @Goto(Donee)
-    End2();
+	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+	 Donee();
+ 
 }
 function End2()
 {
      sendVirtualAssistantMessage(" Get back here");
-	 playAudio("/GNMSounds/SpecialSounds/Bell.mp3"); 
+	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3"); 
    sendVirtualAssistantMessage(" Remove your lingerie ");
   	 changeMeritMedium(false);
     wait(60);
     Donee();
     return;
-    NoDeal();
+  
 }
 function NoDeal()
 {
    sendVirtualAssistantMessage(" Too bad you won\'t make a deal with me..");
     return;
-    Donee();
+   // Donee();
 }
 function Donee()
 {
     End();
     return;
-    fContinued();
+  
 }
 function fContinued()
 {
@@ -803,47 +808,71 @@ function f()
     setVar("ChoreAlt2f", true);
    sendVirtualAssistantMessage(" " + random("You\'re gonna spend some time on the floor", "Let\'s make you spend some time on the floor"));
     setVar("ChoreActive", true);
-    --UNINTERPRETED LINE:@SystemMessage #VANC In just a moment you'll be in the worship position showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@SystemMessage #VANC While in the worship position I want you to repeat the follow sentence over and over.. showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(f1,f2,f3)
-    f1();
+    sendVirtualAssistantMessage("In just a moment you'll be in the worship position ");
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+    sendVirtualAssistantMessage(" While in the worship position I want you to repeat the follow sentence over and over.. ");
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
+	jump=randomInteger(1,3);
+	switch (jump) {
+	case 1:
+		f1();
+	break;
+	case 2:
+		f2();
+	break;
+	case 3:
+		f3();
+	break;
+	}
+	
+   
 }
 function f1()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "I edge in the honor of the Goddess" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(Timef)
-    f2();
+   sendVirtualAssistantMessage( "I edge in the honor of the Goddess" );
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+	Timef();
+  
 }
 function f2()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "My cock and pleasure is the property of the Goddess" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(Timef)
-    f3();
+   sendVirtualAssistantMessage( "My cock and pleasure is the property of the Goddess");
+   showImage("Images/Spicy/Positions/Worship1.jpg");
+   Timef();
+
 }
 function f3()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "My pleasure is a reward given to me by the Goddess" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(Timef)
-    Timef();
+       sendVirtualAssistantMessage( "My pleasure is a reward given to me by the Goddess");
+	   showImage("Images/Spicy/Positions/Worship1.jpg"); 
+       Timef();
 }
 function Timef()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC @RT(Repeat your mantra until you hear the bell,You will repeat the mantra until you hear the bell) showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@SystemMessage #VANC Get into the worship position and begin.. showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@NullResponse showImage("/GNMImages/Positions/Worship1.jpg"); @Wait(2#Random(200,400))
-    Bellc();
+       sendVirtualAssistantMessage(  random("Repeat your mantra until you hear the bell","You will repeat the mantra until you hear the bell") );
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+       sendVirtualAssistantMessage( " Get into the worship position and begin.. ");
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+    showImage("Images/Spicy/Positions/Worship1.jpg"); 
+	sleep(randomInteger(200,400));
+   Bellc();
 }
 function Bellc()
 {
-     sendVirtualAssistantMessage(" Get back up %SlaveNam% ");
-	 playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
+     sendVirtualAssistantMessage(" Get back up %SlaveName% ");
+	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
     Donec();
 }
 function Donec()
 {
    sendVirtualAssistantMessage(" " + random("Moving on", "Let\'s continue"));
     delVar("ChoreAlt2f");
-    CMessage("%MeritChangePLow%");
-   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% %GoldLow%");
+    changeMeritLow(false);
+   sendVirtualAssistantMessage(" Let me reward that %GNMGrin%");
+   rewardGoldLow();
     End();
     return;
-    gContinued();
+   
 }
 function gContinued()
 {
@@ -854,43 +883,66 @@ function g()
     setVar("ChoreAlt2g", true);
    sendVirtualAssistantMessage(" " + random("You\'re gonna spend some time on the floor", "Let\'s make you spend some time on the floor"));
     setVar("ChoreActive", true);
-    --UNINTERPRETED LINE:@SystemMessage #VANC In just a moment you'll be in the worship position showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@SystemMessage #VANC While in the worship position I want you to repeat the follow sentence over and over.. showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(g1,g2,g3)
-    g1();
+    sendVirtualAssistantMessage(" In just a moment you'll be in the worship position ");
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+    sendVirtualAssistantMessage(" While in the worship position I want you to repeat the follow sentence over and over..");
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
+	
+		jump=randomInteger(1,3);
+	switch (jump) {
+	case 1:
+		g1();
+	break;
+	case 2:
+		g2();
+	break;
+	case 3:
+		g3();
+	break;
+	}
+	
 }
 function g1()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "My cock exists to be denied any pleasure in honor of the Divinity" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(Timeg)
-    g2();
+       sendVirtualAssistantMessage("My cock exists to be denied any pleasure in honor of the Divinity");
+	   showImage("Images/Spicy/Positions/Worship1.jpg");
+	   Timeg();
 }
 function g2()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "My cock is encased in steel to honor the Divinity" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(Timeg)
-    g3();
+    sendVirtualAssistantMessage("My cock is encased in steel to honor the Divinity");
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
+	Timeg();
+
 }
 function g3()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "I exist to suffer denial and to honor the Divinity" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(Timeg)
+    sendVirtualAssistantMessage("I exist to suffer denial and to honor the Divinity");
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
     Timeg();
 }
 function Timeg()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC @RT(Repeat your mantra until you hear the bell,You will repeat the mantra until you hear the bell) showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@SystemMessage #VANC Get into the worship position and begin.. showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@NullResponse showImage("/GNMImages/Positions/Worship1.jpg"); @Wait(2#Random(200,400))
+    sendVirtualAssistantMessage(random("Repeat your mantra until you hear the bell","You will repeat the mantra until you hear the bell")); showImage("Images/Spicy/Positions/Worship1.jpg");
+    sendVirtualAssistantMessage(" Get into the worship position and begin.. ",2,true);
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+   showImage("Images/Spicy/Positions/Worship1.jpg");
+	sleep(randomInteger(200,400));
     Bellg();
 }
 function Bellg()
 {
-     sendVirtualAssistantMessage(" Get back up %SlaveName%"); playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
+     sendVirtualAssistantMessage(" Get back up %SlaveName%"); 
+	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
     Doneg();
 }
 function Doneg()
 {
    sendVirtualAssistantMessage(" " + random("Moving on", "Let\'s continue"));
     delVar("ChoreAlt2g");
-    CMessage("%MeritChangePLow%");
-   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% %GoldMedium%");
+    changeMeritLow(false);
+   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% ");
+    rewardGoldMedium();
     End();
     return;
     hContinued();
@@ -904,43 +956,67 @@ function h()
     setVar("ChoreAlt2h", true);
    sendVirtualAssistantMessage(" " + random("You\'re gonna spend some time on the floor", "Let\'s make you spend some time on the floor"));
     setVar("ChoreActive", true);
-    --UNINTERPRETED LINE:@SystemMessage #VANC In just a moment you'll be in the worship position showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@SystemMessage #VANC While in the worship position I want you to repeat the follow sentence over and over.. showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(h1,h2,h3)
-    h1();
+    sendVirtualAssistantMessage(" In just a moment you'll be in the worship position");
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+    sendVirtualAssistantMessage(" While in the worship position I want you to repeat the follow sentence over and over..");
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
+   
+	jump=randomInteger(1,3);
+	switch (jump) {
+	case 1:
+		h1();
+	break;
+	case 2:
+		h2();
+	break;
+	case 3:
+		h3();
+	break;
+	}
+	
 }
 function h1()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "I serve the mistress of pain, I worship the Devil" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(Timeh)
-    h2();
+    sendVirtualAssistantMessage("I serve the mistress of pain, I worship the Devil");
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+	Timeh();
+ 
 }
 function h2()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "My body is the focus of the Devil, I live to suffer in her name" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(Timeh)
-    h3();
+    sendVirtualAssistantMessage("My body is the focus of the Devil, I live to suffer in her name");
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
+	Timeh();
+ 
 }
 function h3()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "I faithfully worship the Devil and offer her my body" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(Timeh)
+    sendVirtualAssistantMessage("I faithfully worship the Devil and offer her my body");
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
     Timeh();
 }
 function Timeh()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC @RT(Repeat your mantra until you hear the bell,You will repeat the mantra until you hear the bell) showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@SystemMessage #VANC Get into the worship position and begin.. showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@NullResponse showImage("/GNMImages/Positions/Worship1.jpg"); @Wait(#Random(200,400))
+    sendVirtualAssistantMessage( random("Repeat your mantra until you hear the bell","You will repeat the mantra until you hear the bell")); showImage("Images/Spicy/Positions/Worship1.jpg");
+    sendVirtualAssistantMessage("Get into the worship position and begin.. ");
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+     showImage("Images/Spicy/Positions/Worship1.jpg");
+	 sleep(randomInteger(200,400));
     Bellh();
 }
 function Bellh()
 {
-     sendVirtualAssistantMessage(" Get back up #SlaveName playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
+     sendVirtualAssistantMessage(" Get back up %SlaveName%");
+	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
     Done6();
 }
 function Done6()
 {
    sendVirtualAssistantMessage(" " + random("Moving on", "Let\'s continue"));
     delVar("ChoreAlt2h");
-    CMessage("%MeritChangePLow%");
-   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% %GoldMedium%");
+    changeMeritLow(false);
+   sendVirtualAssistantMessage(" Let me reward that %GNMGrin%");
+    rewardGoldMedium();
     End();
     return;
     iContinued();
@@ -954,53 +1030,75 @@ function i()
     setVar("ChoreAlt2i", true);
    sendVirtualAssistantMessage(" " + random("You\'re gonna spend some time on the floor", "Let\'s make you spend some time on the floor"));
     setVar("ChoreActive", true);
-    --UNINTERPRETED LINE:@SystemMessage #VANC In just a moment you'll be in the worship position showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@SystemMessage #VANC While in the worship position I want you to repeat the follow sentence over and over.. showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(i1,i2,i3)
-    i1();
+    sendVirtualAssistantMessage(" In just a moment you'll be in the worship position");
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+    sendVirtualAssistantMessage(" While in the worship position I want you to repeat the follow sentence over and over..");
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
+		jump=randomInteger(1,3);
+	switch (jump) {
+	case 1:
+		i1();
+	break;
+	case 2:
+		i2();
+	break;
+	case 3:
+		i3();
+	break;
+	}
+	
 }
 function i1()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "I am but the tool of #DomHonorific #DomName" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(iTime)
-    i2();
+    sendVirtualAssistantMessage("I am but the tool of %DomHonorific% %DomName%" );
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
+	iTime();
+ 
 }
 function i2()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "I am an unworthy chastity belted slave" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(iTime)
-    i3();
+    sendVirtualAssistantMessage("I am an unworthy chastity belted slave");
+	showImage("Images/Spicy/Positions/Worship1.jpg");
+	iTime();
+    
 }
 function i3()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC "I serve to please my #DomHonorific" showImage("/GNMImages/Positions/Worship1.jpg"); @Goto(iTime)
+    sendVirtualAssistantMessage("I serve to please my %DomHonorific%"); 
+	showImage("Images/Spicy/Positions/Worship1.jpg"); 
     iTime();
 }
 function iTime()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC @RT(Repeat your mantra until you hear the bell,You will repeat the mantra until you hear the bell) showImage("/GNMImages/Positions/Worship1.jpg");
-    --UNINTERPRETED LINE:@SystemMessage #VANC Get into the worship position and begin.. showImage("/GNMImages/Positions/Worship1.jpg");
-    i4();
+     sendVirtualAssistantMessage(random("Repeat your mantra until you hear the bell","You will repeat the mantra until you hear the bell"));
+	 showImage("Images/Spicy/Positions/Worship1.jpg");
+     sendVirtualAssistantMessage( "Get into the worship position and begin..");
+	 showImage("Images/Spicy/Positions/Worship1.jpg");
+		i4();
 }
 function i4()
-{
-    --UNINTERPRETED LINE:@NullResponse showImage("/GNMImages/Positions/Worship1.jpg"); @Wait(#Random(240,360))
+{	
+    showImage("Images/Spicy/Positions/Worship1.jpg");
+	sleep(randomInteger(240,360));
+	
     Belli();
 }
 function Belli()
-{
-     sendVirtualAssistantMessage(" Get back up #SlaveName playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
+{    
+     sendVirtualAssistantMessage(" Get back up %SlaveName% ");
+	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
     Donei();
 }
 function Donei()
 {
    sendVirtualAssistantMessage(" " + random("Moving on", "Let\'s continue"));
     delVar("ChoreAlt2i");
-    CMessage("%MeritChangePLow%");
-   sendVirtualAssistantMessage(" Let me reward that %GNMGrin% %GoldMedium%");
+    changeMeritLow(false);
+   sendVirtualAssistantMessage(" Let me reward that %GNMGrin%");
+   rewardGoldMedium();
     End();
     return;
-    
-    
-    
-    End();
+   
 }
 function End()
 {

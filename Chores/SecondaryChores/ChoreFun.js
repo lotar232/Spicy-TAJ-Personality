@@ -148,9 +148,9 @@ function aContinued()
     sendVirtualAssistantMessage(" Go fetch your stimulator and 2 eletrodes");
     setVar("ChoreFuna", true);
     wait(30);
-    let answer0 = getInput("%VANC% %VANP%");
+     answer0 = createInput();
     setVar("ChoreActive", true);
-    CMessage("Got it?");
+    sendVirtualAssistantMessage("Got it?");
     while (!(answer0.isLike("yes") || answer0.isLike("no")))
     {
         answer0 = getInput("%VANC% %VANP% Yes or no electroslut?");
@@ -168,9 +168,9 @@ function aContinued()
     sendVirtualAssistantMessage(" Find a pattern and a level that suits you");
     sendVirtualAssistantMessage(" Try to impress me a little");
     wait(30);
-    CMessage("%stopstroking%", 0);
+    sendVirtualAssistantMessage("%stopstroking%", 0);
     wait(randomInt(100, 300));
-    CMessage("%stopstroking%", 0);
+    sendVirtualAssistantMessage("%stopstroking%", 0);
     delVar("ChoreFuna");
     wait(30);
     End();
@@ -206,7 +206,7 @@ function b()
     playVideo("Videos" + java.io.File.separator + "*.*");
     sendVirtualAssistantMessage(" This was fun!");
     sendVirtualAssistantMessage(" Hope your %GNMCock% feels the same way %GNMLol%");
-    CMessage("%stopstroking%", 0);
+    sendVirtualAssistantMessage("%stopstroking%", 0);
     delVar("ChoreFunb");
     wait(30);
     End();
@@ -228,10 +228,12 @@ function c()
     setVar("ChoreFunc", true);
     sendVirtualAssistantMessage(" You can either enjoy a dildo or you can just sit on your hands");
     setVar("ChoreActive", true);
-    let answer0 = getInput("%VANC% %VANP% So which one is it?");
+	sendVirtualAssistantMessage(" So which one is it?");
+	let answer0 = createInput();
     while (!(answer0.isLike("dildo") || answer0.isLike("hands")))
     {
-        answer0 = getInput("%VANC% %VANP% Dildo or hands slave?");
+		sendVirtualAssistantMessage(" Dildo or hands slave?");
+		answer0 = createInput();
     }
     if (answer0.isLike("dildo"))
     {
@@ -1201,7 +1203,8 @@ function WrongH()
 }
 function RightH()
 {
-    sendVirtualAssistantMessage(" Against all odds you got it right! ");  changeMeritMedium(false);
+    sendVirtualAssistantMessage(" Against all odds you got it right! ");
+	changeMeritMedium(false);
     sendVirtualAssistantMessage(" Thats 400 gold worth!");
     setVar("GNMGold", getVar("GNMGold", 0) + 400);
     sendVirtualAssistantMessage(" You now have "+getVar(GNMGold));
