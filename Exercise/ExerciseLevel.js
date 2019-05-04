@@ -38,3 +38,5 @@ else {
         sendVirtualAssistantMessage(random("My decision on this is final", "Try not to disappoint %DomHonorific% %DomName%", "You're welcome") + " %SlaveName%");
     }
 }
+
+return();
