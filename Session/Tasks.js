@@ -31,14 +31,12 @@ function startTimePassTasks(durationMinutes, allowTeasing = true) {
         //Don't do it for corner tasks, we can do that more frequently
         if(option != 0) {
             tasksDone.add(tasksDone);
+            setTempVar("tasksDone", tasksDone);
         }
-
-        //TODO: don't repeat stuff
 
         switch(option) {
             case 0:
-                //TODO: Times based on mood
-                goToCorner(randomInteger(60, 180));
+                goToCorner(getCornerTime());
                 break;
             case 1:
                 sendMessage(random("How about some training?", "Let's do some training", "Let's work on your fitness", "I think we should do something about your fitness right now"));
@@ -75,24 +73,28 @@ function startTimePassTasks(durationMinutes, allowTeasing = true) {
                 }
                 break;
             case 2:
-                //TODO: Humiliation limit
-                sendMessage("I want you to grab your phone or a camera");
-                sendMessage("And I want you to take some humiliating pictures of yourself right now");
-                sendMessage("I don't care what you do to make them humiliating");
-                //TODO: Has sissy outfit? And check for other stuff that the sub might be wearing right now and tell to make photos of it
-                sendMessage("But I want them to show you either naked or in that cute little sissy outfit of yours");
-                sendMessage("Go ahead and take some now and return when you hear my bell");
-                sleep(randomInteger(45, 90));
-                returnSlave();
-                sendMessage("I want you to place those pictures inside your self humiliation folder");
-                sendMessage("But you can do so after the session");
-                sendMessage("For now I want to continue messing with you %Grin%")
-                break;
+                if (!HUMILIATION_LIMIT.isHardLimit() || !VERBAL_HUMILIATION_LIMIT.isHardLimit()) {
+                    sendMessage("I want you to grab your phone or a camera");
+                    sendMessage("And I want you to take some humiliating pictures of yourself right now");
+                    sendMessage("I don't care what you do to make them humiliating");
+                    //TODO: Has sissy outfit? And check for other stuff that the sub might be wearing right now and tell to make photos of it
+                    sendMessage("But I want them to show you either naked or in that cute little sissy outfit of yours");
+                    sendMessage("Go ahead and take some now and return when you hear my bell");
+                    sleep(randomInteger(75, 120));
+                    returnSlave();
+                    sendMessage("I want you to place those pictures inside your self humiliation folder");
+                    sendMessage("But you can do so after the session");
+                    sendMessage("For now I want to continue messing with you %Grin%")
+                    break;
+                }
+
+                iterations = 0;
+                continue;
             case 3:
-                if(!isPlugged() && getAnalLimit() == LIMIT_ASKED_YES) {
+                if(!isPlugged() && ANAL_LIMIT.isAllowed()) {
                     if(putInButtplug()) {
                         if(isChance(50)) {
-
+                           goToCorner(getCornerTime());
                         }
                     } else {
                         iterations = 0;
@@ -105,29 +107,7 @@ function startTimePassTasks(durationMinutes, allowTeasing = true) {
 
                 break;
             case 4:
-                if(!getVar(VARIABLE_IS_BALLS_TIED, false) && !getVar(VARIABLE_CHASTITY_ON, false) && getPainLimit() == LIMIT_ASKED_YES && fetchToy("Rope")) {
-                    setTempVar(VARIABLE_IS_BALLS_TIED, true);
-
-                    //TODO: Show tutorials etc. and tell the sub what exactly to do
-                    sendMessage("Now take that rope and tie up your balls");
-                    sendMessage("Do it real nice and tight");
-                    const answer = sendInput("Tell me when you are ready to continue");
-
-                    while(true) {
-                        if(answer.isLike("done", "yes", "ready")) {
-                            sendMessage("%Good%");
-                            break;
-                        } else {
-                            sendMessage("If you aren't done yet don't bother me.");
-                            answer.loop();
-                        }
-                    }
-                } else {
-                    //Reset task counter because if we fail fetch toy we already send the message "Well then..." so we don't want another connector message
-                    iterations = 0;
-                    continue;
-                }
-
+                interactWithRandomToys();
                 break;
             case 5:
                 if(!distributeClamps(randomInteger(5, 10))) {
@@ -139,11 +119,24 @@ function startTimePassTasks(durationMinutes, allowTeasing = true) {
                 break;
         }
 
+        //TODO: Limit and toy talk
+
         iterations++;
     }
 }
 
+function getCornerTime() {
+    let mood = getMood();
+    let minSeconds = Math.max(30, (mood + 1)*10*(getStrictnessForCharacter() + 1));
+    let maxSeconds = Math.max(45, (mood + 1)*15*(getStrictnessForCharacter() + 1));
+    let random = randomInteger(minSeconds, maxSeconds);
+    sendDebugMessage('Calculated ' + random + ' corner time seconds based on mood ' + mood + ' and strictness ' + getStrictnessForCharacter());
+    return random;
+}
+
 function goToCorner(durationSeconds) {
+    sendDebugMessage('Going to corner for ' + durationSeconds);
+
     let cornersDone = getVar("cornersDone", new java.util.ArrayList());
     setTempVar("cornersDone", cornersDone);
 
@@ -167,7 +160,18 @@ function goToCorner(durationSeconds) {
         sendMessage("Now...");
     }
 
+
     sendMessage("Go to the corner");
+
+
+
+    //TODO Humbler support finish
+    let humbler = !PARACHUTE_TOY.isToyOn() && feelsLikePunishingSlave() && !isInChastity();
+
+    if(humbler) {
+
+    }
+
 
     let faceWall = isChance(50) || holdUpMoney;
     if(faceWall) {
@@ -176,10 +180,52 @@ function goToCorner(durationSeconds) {
         sendMessage("Facing the room");
     }
 
-    if(isChance(50)) {
-        sendMessage("I want you standing on your tip toes")
-    } else if(!faceWall) {
+    let voiceCommands = feelsLikePunishingSlave();
+
+    let sayThankYou = voiceCommands;
+
+    let onToes = isChance(50);
+
+    let countHeelsTouch = feelsEvil() && onToes;
+
+    if(onToes) {
+        sendMessage("I want you standing on your tip toes");
+        sendMessage("At no point are you allowed to rest down on your heels");
+
+        if(countHeelsTouch) {
+            sendMessage("I want you to count every time your heel strikes the floor or you loose your balance...");
+            sendMessage("If both heels strikes at the same time it counts as two!");
+        }
+
+        if(voiceCommands) {
+            sendMessage("You'll hear my voice saying 'up' or 'down'");
+            sendMessage("Down means going down in a squat still on toes");
+            sendMessage("Up means standing up on your toes...");
+            sendMessage("Now I'm not done %Grin%");
+            sendMessage("I want you to count the number of commands I give in your head");
+            sendMessage("Every time you hear a command I want you say 'Thank You %DomHonorific%'");
+        }
+    } else if(voiceCommands) {
+        sendMessage("You'll hear my voice saying 'up' or 'down'");
+        sendMessage("Down means going down in a squat");
+        sendMessage("Up means standing up...");
+        sendMessage("Now I'm not done %Grin%");
+        sendMessage("I want you to count the number of commands I give in your head");
+        sendMessage("Every time you hear a command I want you say 'Thank You %DomHonorific%'");
+    }
+
+    //No count seconds if we are counting the heel touches or giving voice commands
+    let keepCountSeconds = feelsEvil() && !countHeelsTouch && !voiceCommands;
+
+    if(keepCountSeconds) {
+        sendMessage('I want you to keep count of the seconds you spent in the corner');
+    }
+
+    //We use this in parachute play and we can't do this properly with the parachute on
+    else if(!faceWall && !PARACHUTE_TOY.isToyOn() && !onToes && !voiceCommands) {
         sendMessage("I want you to press your back against the wall, \"sit\" in the air and hold that position");
+    } else if(isChance(50) && !onToes && !voiceCommands) {
+        sendMessage("I want you to kneel");
     }
 
     if(holdUpMoney) {
@@ -201,10 +247,132 @@ function goToCorner(durationSeconds) {
             break;
     }
 
-    sendMessage("And now wait for my bell %Grin%");
+    sendMessage("We will start once you hear my bell %Grin%");
 
-    sleep(durationSeconds);
-    returnSlave();
+    playBellSound();
+
+    if(onToes) {
+        playAudio("Audio\\Spicy\\Commands\\OnYourToes.mp3");
+    }
+
+    do {
+        //Voice commands?
+        if(voiceCommands) {
+            let secondsPassed = 0;
+            const secondsToWait = 4;
+            let up = true;
+
+            while(secondsPassed < durationSeconds) {
+                if(up) {
+                    playAudio("Audio\\Spicy\\Commands\\Down\\*.mp3");
+                    up = false;
+                } else {
+                    playAudio("Audio\\Spicy\\Commands\\Up\\*.mp3");
+                    up = true;
+                }
+
+                sleep(secondsToWait);
+
+                secondsPassed += secondsToWait;
+            }
+        } else {
+            //Just wait it out
+            sleep(durationSeconds);
+        }
+
+
+        returnSlave();
+
+        //Ask the times the heels touched the ground
+        if(countHeelsTouch) {
+            let int = createIntegerInput('So how many times did your heels touch the floor %SlaveName%?', undefined, undefined, 'That\'s not a valid number %SlaveName%...');
+
+            if(int === 0) {
+                sendMessage('Wow! That\'s quite impressive %Grin%');
+
+                sendMessage('I am actually gonna give you a bit of gold for accomplishing this');
+                rewardGoldLow();
+
+                countHeelsTouch = false;
+                changeMeritLow(false);
+            } else if(int < 4) {
+                sendMessage('Not too bad %Grin%');
+                sendMessage('You did a good job %EmoteHappy%');
+                countHeelsTouch = false;
+                changeMeritLow(false);
+            } else if(int < 6) {
+                sendMessage('Well I guess that\'s kinda okay %Lol%');
+                countHeelsTouch = false;
+            } else {
+                sendMessage('That is not acceptable %SlaveName%');
+                sendMessage('Which means we will try again');
+                sendMessage('Go back to the corner and try harder this time');
+                sendMessage('Time starts with my bell!', 10);
+                playBellSound();
+            }
+        }
+
+        //Ask for the seconds the sub counted
+        if(keepCountSeconds) {
+            let int = createIntegerInput('So how many seconds did you spend in the corner %SlaveName%?', undefined, undefined, 'That\'s not a valid number %SlaveName%...');
+
+            if(durationSeconds - 5 < int && durationSeconds + 5 > int) {
+                sendMessage('Almost correct!');
+                sendMessage('You did a very good job of keeping count!');
+                changeMeritMedium(false);
+                keepCountSeconds = false;
+            } else if(durationSeconds - 10 < int && durationSeconds + 10 > int) {
+                sendMessage('About right %Grin%');
+                sendMessage('You did a good job of keeping count!');
+                keepCountSeconds = false;
+                changeMeritLow(false);
+            } else if(durationSeconds - 15 < int && durationSeconds + 15 > int) {
+                sendMessage('Well I guess that\'s kinda precise enough %Lol%');
+                keepCountSeconds = false;
+            } else {
+                sendMessage('Nope. That is completely off %SlaveName%');
+                sendMessage('Which means we will try again');
+
+                sendMessage('But first a little punishment should be in place');
+
+                sendMessage('Go back to the corner and try harder this time');
+                sendMessage('Time starts with my bell!', 10);
+                playBellSound();
+            }
+        }
+    }
+    while(keepCountSeconds || countHeelsTouch);
+
+    if(sayThankYou) {
+        sendMessage("Now I need you to be honest with me...");
+
+        let answer = sendYesOrNoQuestionTimeout("Did you remember to say 'Thank you %DomHonorific%' every time I gave a command?", 10);
+
+        switch(answer) {
+            case ANSWER_YES:
+                sendMessage("%Good%");
+                sendMessage("I know this was rough %SlaveName%");
+                sendMessage("But it makes me happy knowing you completed it!");
+                changeMeritLow(false);
+                break;
+            case ANSWER_NO:
+                sendMessage("%EmoteSad%");
+                changeMeritMedium(true);
+                break;
+            case ANSWER_TIMEOUT:
+                sendMessage("I'm gonna take your silence as a no...");
+                changeMeritHigh(true);
+                break;
+        }
+
+        if(answer !== ANSWER_YES) {
+            sendMessage('Since you did not do as I wanted I am gonna have to punish you %Lol%');
+
+            smallPunishment();
+
+            sendMessage('I sincerely hope you learned your lesson and will do better next time');
+        }
+    }
 }
 
 function returnSlave() {

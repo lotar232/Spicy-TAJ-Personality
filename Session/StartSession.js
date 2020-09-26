@@ -1,5 +1,14 @@
 {
+    setCurrentSender(SENDER_TAJ);
     setDate(VARIABLE_CURRENT_SESSION_DATE);
+    setTempVar(VARIABLE_CURRENT_SESSION_ACTIVE, true);
+
+    sendDebugMessage('Starting session with mood: ' + getMood());
+
+    //Toys
+    updateSessionButtplugs();
+    updateSessionDildos();
+
 //TODO: Special day test (birthday etc.)
 
     const greeting = ["Hello", "Greetings", "Hey", "Hi"];
@@ -13,7 +22,7 @@
         greeting.push("Good evening");
     }
 
-    playSound("Audio/GNMSounds/Starts/StartScripts/Hello/*.mp3");
+    playSound("Audio/Spicy/Starts/Hello/*.mp3");
     let answer = sendInput(greeting[randomInteger(0, greeting.length - 1)] + " %SlaveName%", 20);
     if (answer.isTimeout()) {
         changeMeritHigh(true);
@@ -31,70 +40,24 @@
             sendMessage(random("As you well know", "As you know", "As you should know", "Oh well", "Oh my", "Poor you"));
             lockImages();
             showPicture("Images/Spicy/Chastity/ChastityOffDenied/*.*", 5);
-            sendMessage(random("You're under strict lockdown", "You're strictly locked", "You're not gonna be released"), 5);
+            sendMessage(random("You're under strict lock down", "You're strictly locked", "You're not gonna be released"));
             //, "You are still being punished", "You're serving a punishment" TODO: Punishment flag
-            sendMessage(random("Meaning there will be no release from that %Cage%...", "Meaning you won't be released for this session", "So there won't be any release today"), 5);
+            sendMessage(random("Meaning there will be no release from that %ChastityCage%...", "Meaning you won't be released for this session", "So there won't be any release today"));
             unlockImages();
         } else {
             if (getVar(VARIABLE_LOCKED_DAYS_IN_ROW, 0) > getVar(VARIABLE_LOCKED_UP_LIMIT)) {
                 unlockChastityStart();
             } else {
-                let choice = randomInteger(1, 100);
-                if (getVar(VARIABLE_HAPPINESS) > getVar(VARIABLE_ANGER)) {
-                    choice += randomInteger(1, 25);
-                } else {
-                    choice -= randomInteger(1, 25);
-                }
-
-                if (getVar(VARIABLE_LUST) > 30) {
-                    choice += randomInteger(1, 25);
-                }
-
-
-                let choices = [30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 1, 5, 5, 10, 10, 15, 25, 30, 35, 40];
-                let index = 0;
-
-                if (getMonthlyGoodDays() <= getMonthlyBadDays()) {
-                    index += 1;
-                }
-
-                if (ACTIVE_PERSONALITY_STRICTNESS == 1) {
-                    choices = [35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 5, 10, 10, 15, 15, 20, 30, 35, 40, 50];
-                } else if (ACTIVE_PERSONALITY_STRICTNESS == 2) {
-                    choices = [40, 45, 50, 55, 60, 70, 75, 80, 85, 90, 10, 15, 15, 20, 20, 30, 40, 50, 60, 70];
-                }
-
-                if (!isVar("chastityMode")) {
-                    index += 10;
-                }
-
-                const mood = getMood();
-                if (mood == PLEASED_MOOD) {
-                    index += 2;
-                } else if (mood == NEUTRAL_MOOD) {
-                    index += 4;
-                } else if (mood == ANNOYED_MOOD) {
-                    index += 6;
-                } else if (mood == VERY_ANNOYED_MOOD) {
-                    index += 8;
-                }
-
-                const choiceToReach = choices[index];
-
                 //Unlock
-                if (choice >= choiceToReach) {
+                if (!willKeepChastityOn()) {
                     unlockChastityStart();
                 }
                 //Denied
                 else {
-                    if (getVar(VARIABLE_CHASTITY_ON)) {
-                        lockImages();
-                        sendMessage(random("I don't think you should be unlocked", "You won't be unlocked today", "There won't be any release today") + " %SlaveName%", 0);
-                        showPicture("Images/Spicy/Chastity/ChastityOffDenied/*.*", 5);
-                        sendMessage(random("I'm sorry", "Just desperation", "Only agony and crazed lust", "Only despair %Grin%", "No pleasure today"), 5);
-                        sendMessage(random("Enjoy", "Maybe it's better staying locked", "Learn to appreciate being locked away", "Just let the happiness of obeying flow through you"), 5);
-                        unlockImages();
+                    if (isInChastity()) {
+                        run('Session/Start/Chastity/OffDenied/*.js');
                     } else {
+                        //TODO: Intro files
                         lockChastityCage();
                     }
                 }
@@ -102,18 +65,13 @@
         }
     }
 
-    if (randomInteger(1, 100) <= 50) {
-        run("Session/Start/Neutral/*.js");
-    } else if (getVar(VARIABLE_CHASTITY_ON)) {
-        //run("Session/Start/Chastity/*.js");
-        run("Session/Start/Neutral/*.js");
-    } else {
-        run("Session/Start/NoChastity/*.js");
-    }
+    run("Session/Start/DecideStart.js");
 
-    if (getVar(VARIABLE_CHASTITY_ON)) {
-        setVar(VARIABLE_LOCKED_DAYS_IN_ROW, getVar(VARIABLE_LOCKED_DAYS_IN_ROW) + 1);
-    } else if (getVar(VARIABLE_LOCKED_DAYS_IN_ROW) > 0) {
+    if (isInChastity()) {
+        sendDebugMessage('Stayed in chastity so incrementing locked in a row');
+        incrementVar(VARIABLE_LOCKED_DAYS_IN_ROW, 1, 0);
+    } else if (getVar(VARIABLE_LOCKED_DAYS_IN_ROW, 0) > 0) {
+        sendDebugMessage('Resetting locked days in a row');
         setVar(VARIABLE_LOCKED_DAYS_IN_ROW, 0);
     }
 

@@ -11,37 +11,37 @@
     sendMessage("Let that sink in for a moment...", 10);
     sendMessage("Now what is more important for you to understand is that the thing residing in your pants");
     sendMessage("Is not yours anymore", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro1.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro1.mp3", true);
     sendMessage("It's mine!", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro2.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro2.mp3", true);
     sendMessage("You serve under my rules and terms", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro3.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro3.mp3", true);
     sendMessage("Fail to do so properly", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro4.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro4.mp3", true);
     sendMessage("...and you will be sold off.", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro5.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro5.mp3", true);
     sendMessage("On another note", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro6.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro6.mp3", true);
     sendMessage("If you thought even for one second that my world is centered around you", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro7.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro7.mp3", true);
     sendMessage("You are dearly mistaken", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro8.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro8.mp3", true);
     sendMessage("This isn't about you", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro9.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro9.mp3", true);
     sendMessage("Not even a little bit", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro10.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro10.mp3", true);
     sendMessage("I am the center", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro11.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro11.mp3", true);
     sendMessage("I am your focus", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro12.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro12.mp3", true);
     sendMessage("Your job is to please me", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro13.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro13.mp3", true);
     sendMessage("Never forget that...", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro14.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro14.mp3", true);
     sendMessage("Well %SlaveName%", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro15.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro15.mp3", true);
     sendMessage("If you thought that you are my sole focus", 0);
-    playAudio("Audio/GNMSounds/Starts/Intro/intro16.mp3", true);
+    playAudio("Audio/Spicy/Starts/Intro/intro16.mp3", true);
     sendMessage("You are once again dearly mistaken");
     sendMessage("Others have signed up through Tease-AI");
     sendMessage("Both men and women...");
@@ -126,34 +126,35 @@
         }
 
         sendMessage("Perfect " + getVar(VARIABLE_MIN_WEEKLY_VISITS) + " times a week it is.");
-        sendMessage("Next I need to know how many chores per week you should complete");
-        sendMessage("Right now the number of chores is " + getVar(VARIABLE_MIN_WEEKLY_CHORES));
+        sendMessage("Next I need to know how many minutes per week you should do chores");
+        sendMessage("Right now the amount of minutes for chores is " + getVar(VARIABLE_MIN_WEEKLY_CHORE_TIME));
         sendMessage("Which I think is fair all considered");
         sendMessage("Since this number will likely cover your cleaning duty");
         sendMessage("All chores beyond those I consider to be voluntary");
         sendMessage("Either because you want to please me or perhaps earn a bit of gold");
-        answer = sendInput("Do you wish to change the number of chores?");
+
+        answer = sendInput("Do you wish to change this?");
         while (true) {
             if (answer.isLike("yes")) {
                 sendMessage("Okay then...");
-                answer = sendInput("So how many chores should you at the very minimum complete each week?");
+                answer = sendInput("So many minutes should you at the very minimum do chores each week?");
 
                 while (true) {
                     if (answer.isInteger()) {
                         const result = answer.getInt();
-                        if (result <= 2) {
-                            sendMessage("Not less than three!");
+                        if (result < 60*2) {
+                            sendMessage("Not less than 120 minutes!");
                             answer.loop();
                         } else {
                             sendMessage("Excellent");
-                            setVar(VARIABLE_MIN_WEEKLY_CHORES, result);
+                            setVar(VARIABLE_MIN_WEEKLY_CHORE_TIME, result);
                             break;
                         }
                     } else {
                         sendMessage("All I asked you to do was input a simple number...");
-                        sendMessage("Like 3");
-                        sendMessage("or 6");
-                        sendMessage("or 100...");
+                        sendMessage("Like 120");
+                        sendMessage("or 150");
+                        sendMessage("or 400...");
                         answer.loop();
                     }
                 }
@@ -248,7 +249,59 @@
         sendMessage("We're gonna have a lot of fun! %Lol%");
     }
 
+    sendMessage('So...');
+    sendMessage('During our sessions you will be told to stroke quite frequently');
+    sendMessage('Right now letting you stroke as a break is up to me though');
+    sendMessage('If you want to do it differently though you can tell me on a scale of 1 to 5 how many times you want to have a stroking break during a session');
+    sendMessage('So tell me %SlaveName%');
+
+    answer = sendInput('Should it be up to me and my mood? Otherwise just type the amount of you want to choose yourself');
+
+    while (true) {
+        if(answer.isLike('you', 'mood')) {
+            sendMessage('I knew you would let me choose');
+            sendMessage('That is the only proper way %Grin%');
+            setVar(VARIABLE_STROKE_MODULE_PAUSE_FREQUENCY, 0);
+            break;
+        } else if (answer.isInteger()) {
+            const result = answer.getInt();
+            if (result <= 0) {
+                sendMessage("You have to choose a number larger than 0...");
+                answer.loop();
+            } else if (result <= 5) {
+                sendMessage("So be it...");
+                setVar(VARIABLE_STROKE_MODULE_PAUSE_FREQUENCY, result);
+                break;
+            } else {
+                sendMessage('You can\'t give me a number greater than 5...');
+                answer.loop();
+            }
+        } else {
+            sendMessage("Just give me a number like 3, 10 or 70...");
+            answer.loop();
+        }
+    }
+
+
     sendMessage("Next");
+
+    sendMessage('There is some personal information that I want to know');
+    sendMessage('Just to get to know you better %Grin%');
+
+    sendMessage('For example your birthday');
+    sendMessage();
+
+    let day = createIntegerInput('Tell me %SlaveName% what day of the month were you born on?', 1, 32, 'That\'s not a number. Just give me a number like 15', 'That\'s not a valid number for a day of a month.');
+    let month = createIntegerInput('Now what month were you born in?', 1, 12, 'That\'s not a number. Just give me a number like 6', 'That\'s not a valid number for a month.');
+    let year = createIntegerInput('And last but not least what year were you born in?', 1900, 2100, 'That\'s not a number. Just give me a number like 6', 'That\'s not a valid number for a year.');
+
+    let teaseDate = setDate();
+    teaseDate.setYear(year);
+    teaseDate.setMonth(month);
+    teaseDate.setDay(day);
+
+    setDate(VARIABLE_SUB_BIRTHDAY, teaseDate);
+
     sendMessage("I think it's important that we start out with a clean history");
     sendMessage("I don't know when you cleaned your pipes the last time");
     sendMessage("So yes");
@@ -292,7 +345,7 @@
             setVar(VARIABLE_ORGASM_FREQUENCY, ORGASM_FREQUENCY_RARE);
             break;
         } else if (answer.containsIgnoreCase("you", "your choice", "extremely rare")) {
-            sendMessage("That's what I wanted to here %SlaveName%");
+            sendMessage("That's what I wanted to hear %SlaveName%");
             setVar(VARIABLE_ORGASM_FREQUENCY, ORGASM_FREQUENCY_DOM);
             break;
         } else {
@@ -308,12 +361,12 @@
     if (getVar(VARIABLE_CHASTITY_TRAINING, false) || !getVar(VARIABLE_HAS_CHASTITY)) {
         setVar(VARIABLE_CHASTITY_ON, false);
         sendMessage("I want you to put your %Cock% away...");
-        sendMessage("Enjoy");
+        sendMessage("Enjoy", 10);
     } else {
         setVar(VARIABLE_CHASTITY_ON, true);
-        sendMessage("I want you to lock up your %Cock% in its %ChastityCage% %Grin%");
+        sendMessage("I want you to lock up your %Cock% in its %ChastityBelt% %Grin%");
         sendMessage("Enjoy slave!");
-        sendMessage("See you tomorrow...");
+        sendMessage("See you tomorrow...", 10);
     }
 
     endSession();
