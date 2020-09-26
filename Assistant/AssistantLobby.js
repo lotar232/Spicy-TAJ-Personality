@@ -1,62 +1,117 @@
 {
+
+    if (getVar(VARIABLE_WAITING_FOR_CHASTITY_KEY_RETURN, false)) {
+        sendVirtualAssistantMessage('%SlaveName%');
+        sendVirtualAssistantMessage('Last time you left I allowed you to unlock yourself and since then I haven\'t locked you back yet');
+        sendVirtualAssistantMessage('Are you ready to be locked again?', 0);
+
+        if (createYesOrNoQuestion()) {
+            sendVirtualAssistantMessage('Great!');
+            onChastityKeyReturn();
+        } else {
+            sendVirtualAssistantMessage('Don\'t abuse my trust %SlaveName%!');
+        }
+    }
+
     sendVirtualAssistantMessage(getWelcomeMessage(), false);
+
     let exitRequest = false;
 
-
-
     while (!exitRequest) {
-        let lobbyAnswer = createInput("Session", "Chores", "Dungeon", "Settings", "Shop", "Fitness", "Exercise", "Study", "House Rules", "Pin Board", "End");
+        let lobbyAnswer = createInput("Session", "Chores", "Dungeon", "Settings", "Shop", "Fitness", "Exercise", "Study", "House Rules", "Pin Board", "Chastity", "End", "video","Pishock","lovense");
         while (true) {
-            if (lobbyAnswer.containsIgnoreCase("session", "domme")) {
- 				   lobbyAnswer.clearOptions();
-				   startSession();
- 
+            if (lobbyAnswer.isLike("session", "domme")) {
+                lobbyAnswer.clearOptions();
+                startSession();
                 break;
-            } else if (lobbyAnswer.containsIgnoreCase("chore", "clean", "dust", "wipe", "wash")) {
-				lobbyAnswer.clearOptions();
-                 run("Chores/ChoreBase.js");
+            } else if (lobbyAnswer.isLike("chore", "clean", "dust", "wipe", "wash")) {
+                lobbyAnswer.clearOptions();
+                run("Chore/ChoreMenu.js");
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
                 break;
-            } else if (lobbyAnswer.containsIgnoreCase("dungeon", "spanking", "spankzchoir", "selfbondage", "pain", "torture", "chamber", "punish")) {
+            } else if (lobbyAnswer.isLike("dungeon", "spanking", "spankzchoir", "selfbondage", "pain", "torture", "chamber", "punish")) {
+                lobbyAnswer.clearOptions();
                 // sendVirtualAssistantMessage("This is not supported yet!");
-				lobbyAnswer.clearOptions();
                 run("Dungeon/PunishmentBase.js");
-                sendVirtualAssistantMessage("back to the assistant from dungeon");
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
                 break;
-            } else if (lobbyAnswer.containsIgnoreCase("setting", "clean", "adjust", "calibrate", "setup")) {
+            } else if (lobbyAnswer.isLike("setting", "adjust", "calibrate", "setup")) {
+                lobbyAnswer.clearOptions();
+                run('Assistant/Settings/Settings.js');
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
+                break;
+            } else if (lobbyAnswer.isLike("shop", "buy", "purchase", "spent", "gold", "store")) {
                 sendVirtualAssistantMessage("This is not supported yet!");
                 break;
-            } else if (lobbyAnswer.containsIgnoreCase("shop", "buy", "purchase", "spent", "gold", "store")) {
-                sendVirtualAssistantMessage("This is not supported yet!");
-                break;
-            } else if (lobbyAnswer.containsIgnoreCase("fitness", "health")) {
-				   lobbyAnswer.clearOptions();
-                sendVirtualAssistantMessage("about to start your workout");
+            } else if (lobbyAnswer.isLike("fitness", "health")) {
+                lobbyAnswer.clearOptions();
                 run("Exercise/ExerciseBase.js");
-                sendVirtualAssistantMessage("nice workout!");
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
                 break;
-            } else if (lobbyAnswer.containsIgnoreCase("report", "exercise")) {
-				lobbyAnswer.clearOptions();
+            } else if (lobbyAnswer.isLike("report", "exercise")) {
+                lobbyAnswer.clearOptions();
                 run("Exercise/reportexercise.js");
-                sendVirtualAssistantMessage("back to the assistant from reporting exercise");
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
                 break;
-            } else if (lobbyAnswer.containsIgnoreCase("work", "study")) {
-				   lobbyAnswer.clearOptions();
-                 run("WorkMode/GNMWorkMode.js");
-				 //sendVirtualAssistantMessage("This is not supported yet!");
+            } else if (lobbyAnswer.isLike("work", "study")) {
+                lobbyAnswer.clearOptions();
+                run("WorkMode/GNMWorkMode.js");
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
                 break;
-            } else if (lobbyAnswer.containsIgnoreCase("rule", "house", "commands", "orders")) {
-                //sendVirtualAssistantMessage("This is not supported yet!");
-				lobbyAnswer.clearOptions();
-                run("rules/HouseRules.js");
-                sendVirtualAssistantMessage("back to the assistant from rules");
+            } else if (lobbyAnswer.isLike("rule", "house", "commands", "orders")) {
+                lobbyAnswer.clearOptions();
+                run("Rules/HouseRules.js");
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
                 break;
-            } else if (lobbyAnswer.containsIgnoreCase("save", "end", "quit", "stop", "leave", "close", "finish")) {
+			 } else if (lobbyAnswer.isLike("video")) {
+                lobbyAnswer.clearOptions();
+                run("Video/vidtest.js");
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
+                break;
+			 } else if (lobbyAnswer.isLike("pishock")) {
+                lobbyAnswer.clearOptions();
+                testpishock(1,100,5,1);
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
+                break;
+			} else if (lobbyAnswer.isLike("lovense")) {
+                lobbyAnswer.clearOptions();
+
+               enumeratelovense();
+			    buttplugid=getVar("LovenseButtplugIndex");
+			    toy0=getVar("Lovense"+buttplugid+"ID");
+			    vibratelovense(2, toy0);
+				showTeaseImage(randomInteger(5, 10));
+			    vibratelovense(0, toy0);	
+				showTeaseImage(randomInteger(5, 10));
+			    vibrate1lovense(5, toy0);	
+				showTeaseImage(randomInteger(5, 10));
+			    vibrate1lovense(0, toy0);	
+				showTeaseImage(randomInteger(5, 10));
+			    vibrate2lovense(4, toy0);	
+				showTeaseImage(randomInteger(5, 10));
+			    vibrate2lovense(0, toy0);	
+				showTeaseImage(randomInteger(5, 10));
+				vibratepatternlovense(2,toy0);
+				showTeaseImage(randomInteger(5, 10));
+				vibratelovense(0, toy0);	
+				batterylevel= getbatterylovense( toy0);
+				sendVirtualAssistantMessage("it looks like your battery level is " + batterylevel);
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
+                break;
+			} else if (lobbyAnswer.isLike("save", "end", "quit", "stop", "leave", "close", "finish")) {
                 sendVirtualAssistantMessage(random("Bye", "Until next time", "See you", "I'm waiting for the next time", "Don't leave me alone to long", "Good bye", "Have a nice day", "I saved your process you can close the program"));
                 lobbyAnswer.clearOptions();
                 endSession();
                 break;
-            } else if (lobbyAnswer.containsIgnoreCase("pin", "board", "notices", "news")) {
-                sendVirtualAssistantMessage("This is not supported yet!");
+            } else if (lobbyAnswer.isLike("pin", "board", "notices", "news")) {
+                lobbyAnswer.clearOptions();
+                run("Assistant/PinBoard.js");
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
+                break;
+            } else if (lobbyAnswer.isLike("chastity")) {
+                lobbyAnswer.clearOptions();
+                run('Assistant/ChastityLobby.js');
+                sendVirtualAssistantMessage(getWelcomeMessage(), false);
                 break;
             } else {
                 sendVirtualAssistantMessage("You have the following options %SlaveName%");
@@ -64,12 +119,12 @@
                 sendVirtualAssistantMessage("Request a chore");
                 sendVirtualAssistantMessage("Enter the dungeon");
                 sendVirtualAssistantMessage("Check settings");
-                //sendVirtualAssistantMessage("Enter the shop");
+                sendVirtualAssistantMessage("Enter the shop");
                 sendVirtualAssistantMessage("Do some fitness");
                 sendVirtualAssistantMessage("Report for exercise (you can only complete an exercise every 10 hours)");
                 sendVirtualAssistantMessage("Work/Study mode");
                 sendVirtualAssistantMessage("Request to view the rules ");
-                //sendVirtualAssistantMessage("View the pin-board");
+                sendVirtualAssistantMessage("View the pin-board");
                 sendVirtualAssistantMessage("Or save and leave the program");
                 break;
             }
@@ -102,7 +157,7 @@ function startSession() {
         }
 
         sendVirtualAssistantMessage(random("Launching", "Initiating", "Starting", "Establishing") + " session with Mistress");
-        run("Session/StartSession.js")
+        run("Session/StartSession.js");
         return;
     } else {
         sendVirtualAssistantMessage("%SlaveName% you had a session recently");
