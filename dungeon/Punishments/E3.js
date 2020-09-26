@@ -1,16 +1,46 @@
+
+
+switch(getVar("Punisher")) {
+
+	case 1 :
+	// @Goto(Hello)
+	break;
+	case 2 :
+	sendDungeonMessage(" Contacting %DomHonorific% %domFriend1Name% ..",1);
+	setSender(2);
+	break;
+	case 3 :
+	sendDungeonMessage(" Contacting %DomHonorific% %domFriend2Name% ..",1);
+	setSender(3);
+	break;
+	case 4 :
+	sendDungeonMessage(" Contacting %DomHonorific% %domFriend3Name% ..",1);
+	setSender(4);
+
+	break;
+}
+
+
+
+
 main();
+
+
+
 function main()
 {
-    CMessage("%SlaveName% %DT%");
+    sendMessage("%SlaveName% ");
     if(getVar("ParachutePunishment", false))
     {
         ParachutePunishment();
         return;
     }
-    CMessage("%Fetch% a wooden spoon %DT%");
+    sendMessage("%Fetch% wooden spoon ");
     wait(15);
-    CMessage(random("This should be fun! ", "Well this is gonna be fun! ", "%GNMGrin% ") + "%DT%");
+    sendMessage(random("This should be fun! ", "Well this is gonna be fun! ", "%Grin% ") );
     setVar("Time", 1);
+	setVar("Times", randomInteger(7,19)+ randomInteger(2,6)* getVar("SubPainTolerance"));
+	/*
     --UNINTERPRETED LINE:@Variable[SubPain]>=[10] @NullResponse @SetVar[Times]=[#Random(30,50)]
     --UNINTERPRETED LINE:@Variable[SubPain]>=[9] @NullResponse @SetVar[Times]=[#Random(25,45)]
     --UNINTERPRETED LINE:@Variable[SubPain]>=[8] @NullResponse @SetVar[Times]=[#Random(20,40)]
@@ -21,35 +51,56 @@ function main()
     --UNINTERPRETED LINE:@Variable[SubPain]>=[3] @NullResponse @SetVar[Times]=[#Random(5,15)]
     --UNINTERPRETED LINE:@Variable[SubPain]>=[2] @NullResponse @SetVar[Times]=[#Random(5,10)]
     --UNINTERPRETED LINE:@Variable[SubPain]>=[1] @NullResponse @SetVar[Times]=[5]
-    CMessage(random("You\'re going to smack those %GNMBalls% ", "You\'ll soon be swatting those %GNMBalls% ", "In a moment you\'re going to hit those %GNMBalls% ") + "%DT%");
-    CMessage("I\'ll count them for you %DT%");
-    CMessage("Get ready %DT%");
+	*/
+    sendMessage(random("You\'re going to smack those %Balls% ", "You\'ll soon be swatting those %Balls% ", "In a moment you\'re going to hit those %Balls% ") );
+	//decide to hit with rythm or at Mistresses whim
+	setVar("SmackCadence", randomInteger(0,1));
+	if(getVar("SmackCadence")==1) {
+		sendMessage("I\'ll count them for you ");
+	}else{
+		sendMessage("I\'ll tell you when to strike ");
+	}
+    sendMessage("Get ready ");
     wait(randomInt(5, 10));
     Count();
 }
 function Count()
 {
-    --Command:ShowVar(Time)
-    CMessage("%DT%");
+    if(getVar("SmackCadence")==1) {
+		sendMessage( getVar("Time")+" !");
+	}else{
+		sendMessage( "%hit% "+ random("those","%domhonorific% %DomName%s")+" %Balls%  ");
+	}
+	 playAudio("Audio/Spicy/Punishment/SpankingCane/Cane1.mp3", true);
     setVar("Time", getVar("Time", 0) + 1);
     if (getVar("Time", 0) >= getVar("Times", 0))
     {
         End();
         return;
     }
-    wait(randomInt(2, 8));
+	if(getVar("SmackCadence")==1) {
+	    wait(3);
+	}else{
+		wait(randomInt(2, 8));
+	}
     Count();
     return;
-    ParachutePunishment();
+   
 }
 function ParachutePunishment()
 {
-    CMessage("%Fetch% your parachute %DT%");
+    sendMessage("%Fetch% your parachute ");
     wait(20);
-    --UNINTERPRETED LINE:@Variable[SubPainTolerance]>=[6] @RT(Apply,Add) @RT(1.5 kg's,2 kg's) to it #DT @Wait(20)
-    --UNINTERPRETED LINE:@Variable[SubPainTolerance]<[6] @RT(Apply,Add) @RT(1 kg,1.5 kg's) to it #DT @Wait(20)
-    CMessage(random("Go to the corner hands above you head ", "Go the corner with your hands above your head ") + "%DT%");
-    CMessage("Wait for the bell %DT%");
+    if(getVar("SubPainTolerance")>=6) {
+		sendMessage(random("Apply ","Add ")+ random("1.5 kg\'s","2 kg\'s")+ " to it ");
+		wait(20);
+		}
+		else{
+				sendMessage(random("Apply ","Add ")+ random("1 kg\'s","1.5 kg\'s")+ " to it ");
+		}
+ 
+    sendMessage(random("Go to the corner hands above you head ", "Go the corner with your hands above your head ") );
+    sendMessage("Wait for the bell ");
     if(getVar("Personality1", false))
     {
         wait(randomInt(200, 600));
@@ -61,16 +112,20 @@ function ParachutePunishment()
     if(getVar("Personality3", false))
     {
         wait(randomInt(600, 1200));
-        --UNINTERPRETED LINE:@RT(Come back here,get back) #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Wait(15) @Goto(End)
-    }
+	}
+        sendMessage(random("Come back here","get back")); 
+		playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
+		Wait(15)
+
     End();
 }
 function End()
 {
-    CMessage(random("That was it ", "We\'re done ") + "%DT%");
-    CMessage(random("Good girl ", "Good slut ", "Good slave ") + "%DT%");
-    setTempVar("E2Complete", true);
-    setTempVar("PunishmentComplete", true);
-    run("CR" + java.io.File.separator + "BackgroundMode" + java.io.File.separator + "Punishment" + java.io.File.separator + "PunishmentBaseEnd.js");
+    sendMessage(random("That was it ", "We\'re done ") );
+    sendMessage(random("Good girl ", "Good slut ", "Good slave ") );
+	setVar("PunishmentComplete", true);
+	setVar("punishmentCompleted", 43);
+
+    run("Dungeon" + java.io.File.separator + "PunishmentBaseEnd.js");
     return;
 }

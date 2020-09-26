@@ -1,3 +1,27 @@
+
+switch(getVar("Punisher")) {
+
+	case 1 :
+	// @Goto(Hello)
+	break;
+	case 2 :
+	sendDungeonMessage(" Contacting %DomHonorific% %domFriend1Name% ..",1);
+	setSender(2);
+	break;
+	case 3 :
+	sendDungeonMessage(" Contacting %DomHonorific% %domFriend2Name% ..",1);
+	setSender(3);
+	break;
+	case 4 :
+	sendDungeonMessage(" Contacting %DomHonorific% %domFriend3Name% ..",1);
+	setSender(4);
+
+	break;
+}
+
+
+
+
 main();
 function main()
 {
@@ -17,13 +41,13 @@ function main()
         return;
         break;
     }
-    a1();
+   // a1();
 }
 function a1()
 {
-    CMessage("Grab my %GNMBalls% and squeeze them %DT%");
+    sendMessage("Grab my %Balls% and squeeze them ");
     wait(10);
-    CMessage("Squeeze them " + random("as hard as you can ", "so hard that your eyes start to tear ") + "until I tell you to release your grip " + random("%SlaveName% ", "%Slut% ", "%SubName% ") + "%DT%");
+    sendMessage("Squeeze them " + random("as hard as you can ", "so hard that your eyes start to tear ") + "until I tell you to release your grip " + random("%SlaveName% ", "%Slut% ", "%SubName% ") );
     if(getVar("Personality1", false))
     {
         wait(5);
@@ -36,19 +60,19 @@ function a1()
     {
         wait(20);
     }
-    CMessage("%stopstroking%", 0);
+    sendMessage("%stopstroking%", 0);
     let answer0 = getInput("Are they " + random("blue ", "sore ", "purple ", "hurting ") + "yet?");
     while (!(answer0.isLike("yes") || answer0.isLike("no")))
     {
-        answer0 = getInput("%GNMYesOrNo% %DT%");
+        answer0 = getInput("%YesOrNo% ");
     }
     if (answer0.isLike("yes"))
     {
-        CMessage("%GNMMoan% %DT%");
+        sendMessage("%Moan% ");
     }
     else if (answer0.isLike("no"))
     {
-        CMessage("I am sure I can do something about that %SlaveName% %DT%");
+        sendMessage("I am sure I can do something about that %SlaveName% ");
         switch(random("a2", "a3"))
         {
             case "a2":
@@ -67,16 +91,14 @@ function a1()
 }
 function a2()
 {
-    CMessage("Be ready to bust my %GNMBalls% %SlaveName% %DT%");
+    sendMessage("Be ready to bust my %Balls% %SlaveName% ");
     setVar("TempHits", getVar("SubPain", 0) + 0);
     Loop2();
 }
 function Loop2()
 {
-    CMessage("Hit them hard");
-    --Command:ShowVar(TempHits)
-    CMessage("times %DT%");
-    let answer0 = getInput(random("Let me know when you\'re done ", "Inform me when you\'re done ") + "%SlaveName% %DT%", 45);
+    sendMessage("Hit them hard " +getVar("TempHits")+ " Times");
+    let answer0 = getInput(random("Let me know when you\'re done ", "Inform me when you\'re done ") + "%SlaveName% ", 45);
     if (answer0.isTimeout())
     {
         Time();
@@ -84,11 +106,11 @@ function Loop2()
     }
     while (!(answer0.isLike("done")))
     {
-        answer0 = getInput("Are you trying to write \'done\'? %DT%");
+        answer0 = getInput("Are you trying to write \'done\'? ");
     }
     if (answer0.isLike("done"))
     {
-        CMessage("%GNMGrin% %DT%");
+        sendMessage("%Grin% ");
         Continue2();
         return;
     }
@@ -96,16 +118,15 @@ function Loop2()
 }
 function Time()
 {
-    CMessage(random("This is taking too long ", "You are taking way too much time ", "How is this taking so long? ") + "%DT% %MeritChangeNLow%");
-    CMessage(random("I guess we have to try this again ", "Let\'s try this again shall we? ") + "%DT%");
+    sendMessage(random("This is taking too long ", "You are taking way too much time ", "How is this taking so long? ") + " %MeritChangeNLow%");
+    sendMessage(random("I guess we have to try this again ", "Let\'s try this again shall we? ") );
     Loop2();
     return;
     Continue2();
 }
 function Continue2()
 {
-    let answer0 = getInput("Hit my %GNMBalls% another");
-    --Command:ShowVar(TempHits)
+    let answer0 = getInput("Hit my %Balls% another " +getVar("TempHits")+ " Times"););
     if (answer0.isTimeout())
     {
         Time();
@@ -113,11 +134,11 @@ function Continue2()
     }
     while (!(answer0.isLike("done")))
     {
-        answer0 = getInput("Are you trying to write \'done\'? %DT%");
+        answer0 = getInput("Are you trying to write \'done\'? ");
     }
     if (answer0.isLike("done"))
     {
-        CMessage("%GNMGood% %DT%");
+        sendMessage("%Good% ");
     }
     End();
     return;
@@ -125,16 +146,14 @@ function Continue2()
 }
 function a3()
 {
-    CMessage("I want you to flick my balls %SlaveName% %DT%");
+    sendMessage("I want you to flick my balls %SlaveName% ");
     setVar("TempHits", getVar("SubPain", 0) * 2);
     Loop3();
 }
 function Loop3()
 {
-    CMessage("Flick each side");
-    --Command:ShowVar(TempHits)
-    CMessage("times %DT%");
-    let answer0 = getInput(random("Let me know when you\'re done ", "Inform me when you\'re done ") + "%SlaveName% %DT%", 60);
+    sendMessage("Flick each side " +getVar("TempHits")+ " Times"););
+    let answer0 = getInput(random("Let me know when you\'re done ", "Inform me when you\'re done ") + "%SlaveName% ", 60);
     if (answer0.isTimeout())
     {
         Time2();
@@ -142,11 +161,11 @@ function Loop3()
     }
     while (!(answer0.isLike("done")))
     {
-        answer0 = getInput("Are you trying to write \'done\'? %DT%");
+        answer0 = getInput("Are you trying to write \'done\'? ");
     }
     if (answer0.isLike("done"))
     {
-        CMessage("%GNMGrin% %DT%");
+        sendMessage("%Grin% ");
         Continue3();
         return;
     }
@@ -154,8 +173,8 @@ function Loop3()
 }
 function Time2()
 {
-    CMessage(random("This is taking too long ", "You are taking way too much time ", "How is this taking so long? ") + "%DT% %MeritChangeNLow%");
-    CMessage(random("I guess we have to try this again ", "Let\'s try this again shall we? ") + "%DT%");
+    sendMessage(random("This is taking too long ", "You are taking way too much time ", "How is this taking so long? ") + " %MeritChangeNLow%");
+    sendMessage(random("I guess we have to try this again ", "Let\'s try this again shall we? ") );
     Loop3();
     return;
     Continue3();
@@ -165,15 +184,15 @@ function Continue3()
     let answer0 = getInput("Does it " + random("hurt ", "burn ", "ache ") + "yet?");
     while (!(answer0.isLike("yes") || answer0.isLike("no")))
     {
-        answer0 = getInput("%GNMYesOrNo% %DT%");
+        answer0 = getInput("%YesOrNo% ");
     }
     if (answer0.isLike("yes"))
     {
-        CMessage("%GNMGood% %DT%");
+        sendMessage("%Good% ");
     }
     else if (answer0.isLike("no"))
     {
-        CMessage("I am sure I can do something about that %SlaveName% %DT%");
+        sendMessage("I am sure I can do something about that %SlaveName% ");
         switch(random("a1", "a3"))
         {
             case "a1":
@@ -241,41 +260,41 @@ function End()
 }
 function a()
 {
-    CMessage("Let\'s give thoes %GNMBalls% another");
+    sendMessage("Let\'s give thoes %Balls% another");
     --Command:ShowVar(TempHits)
     wait(400);
     b();
 }
 function b()
 {
-    CMessage("I want your %GNMBalls% to really hurt. Give them another hard slap %DT%");
+    sendMessage("I want your %Balls% to really hurt. Give them another hard slap ");
     wait(200);
     c();
 }
 function c()
 {
-    CMessage("Punch your %GNMBalls%");
+    sendMessage("Punch your %Balls%");
     --Command:ShowVar(TempHits)
     wait(200);
     d();
 }
 function d()
 {
-    CMessage("Now smack those %GNMBalls%");
+    sendMessage("Now smack those %Balls%");
     --Command:ShowVar(SubPain)
     wait(200);
     e();
 }
 function e()
 {
-    CMessage("Now flick each testicle");
+    sendMessage("Now flick each testicle");
     --Command:ShowVar(TempHits)
     wait(200);
     f();
 }
 function f()
 {
-    CMessage("Now");
+    sendMessage("Now");
     --Command:ShowVar(TempHits)
     wait(200);
     g();
@@ -283,7 +302,7 @@ function f()
 function g()
 {
     setVar("TempHits", getVar("SubPain", 0) * 2);
-    CMessage("Give me");
+    sendMessage("Give me");
     --Command:ShowVar(TempHits)
     wait(400);
     h();
@@ -291,20 +310,20 @@ function g()
 function h()
 {
     --Command:ShowVar(TempHits)
-    CMessage("more smacks %DT%");
+    sendMessage("more smacks ");
     wait(400);
     i();
 }
 function i()
 {
-    CMessage("I want");
+    sendMessage("I want");
     --Command:ShowVar(TempHits)
     wait(400);
     j();
 }
 function j()
 {
-    CMessage("I want you to add");
+    sendMessage("I want you to add");
     --Command:ShowVar(TempHits)
     wait(200);
     End1();
@@ -321,9 +340,9 @@ function End1()
     FinalEnd();
 }
 function FinalEnd()
-{
-    setTempVar("E3Complete", true);
-    setTempVar("PunishmentComplete", true);
-    run("CR" + java.io.File.separator + "BackgroundMode" + java.io.File.separator + "Punishment" + java.io.File.separator + "PunishmentBaseEnd.js");
+{	setVar("PunishmentComplete", true);
+	setVar("punishmentCompleted", 41);
+
+    run( "Dungeon" + java.io.File.separator + "PunishmentBaseEnd.js");
     return;
 }

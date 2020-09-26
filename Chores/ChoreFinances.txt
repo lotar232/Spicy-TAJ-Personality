@@ -5,46 +5,69 @@
 @SystemMessage #VANC #VANP If you don't have that you can always use Google sheets which is free..
 @SystemMessage #VANC #VANP Follow these instructions carefully if this is your first time setting up a spreadsheet
 @SystemMessage #VANC #VANP If you've tried it before then there might be some things you're already familiar with
-@SystemMessage #VANC #VANP Look at this picture @ShowImage[\GNMImages\Finance\Budget.*]
-@SystemMessage #VANC #VANP This is how I want your budget to look like @ShowImage[\GNMImages\Finance\Budget.*]
-@SystemMessage #VANC #VANP So the top row is Year: Months: Space: Total: @ShowImage[\GNMImages\Finance\Budget.*]
-@SystemMessage #VANC #VANP The first Column is Year: Average Income: Fixed Expenses: Etc. @ShowImage[\GNMImages\Finance\Budget.*]
-@SystemMessage #VANC #VANP Giving you a few minutes.. @ShowImage[\GNMImages\Finance\Budget.*] @Wait(120)
-@SystemMessage #VANC #VANP Are you done? - only answer yes if you're done.. @ShowImage[\GNMImages\Finance\Budget.*]
+@SystemMessage #VANC #VANP Look at this picture 
+@ShowImage[\GNMImages\Finance\Budget.*]
+@SystemMessage #VANC #VANP This is how I want your budget to look like
+ @ShowImage[\GNMImages\Finance\Budget.*]
+@SystemMessage #VANC #VANP So the top row is Year: Months: Space: Total:
+ @ShowImage[\GNMImages\Finance\Budget.*]
+@SystemMessage #VANC #VANP The first Column is Year: Average Income: Fixed Expenses: Etc. 
+@ShowImage[\GNMImages\Finance\Budget.*]
+@SystemMessage #VANC #VANP Giving you a few minutes..
+ @ShowImage[\GNMImages\Finance\Budget.*] 
+ @Wait(120)
+@SystemMessage #VANC #VANP Are you done? - only answer yes if you're done.. 
+@ShowImage[\GNMImages\Finance\Budget.*]
 [yes]@SystemMessage #VANC #VANP Good
 @DifferentAnswer @SystemMessage #VANC #VANP "yes" if you're ready..
 @SystemMessage #VANC #VANP Now pay attention..
-@SystemMessage #VANC #VANP In the field B18 I want you to write this: @ShowImage[\GNMImages\Finance\5.*]
-@SystemMessage #VANC #VANP Copy this for C18, D18, E18 all the way to O18. @ShowImage[\GNMImages\Finance\5.*] @Wait(30)
+@SystemMessage #VANC #VANP In the field B18 I want you to write this:
+ @ShowImage[\GNMImages\Finance\5.*]
+@SystemMessage #VANC #VANP Copy this for C18, D18, E18 all the way to O18.
+ @ShowImage[\GNMImages\Finance\5.*] @Wait(30)
 @SystemMessage #VANC #VANP Are you done? - only answer yes if you're done..
 [yes]@SystemMessage #VANC #VANP Good
 @DifferentAnswer @SystemMessage #VANC #VANP "yes" if you're ready..
-@SystemMessage #VANC #VANP In the field O2 I want you to write this: @ShowImage[\GNMImages\Finance\1.*]
-@SystemMessage #VANC #VANP Copy this for O3, O4, O5 all the way to O17. @ShowImage[\GNMImages\Finance\1.*] @Wait(30)
+@SystemMessage #VANC #VANP In the field O2 I want you to write this:
+ @ShowImage[\GNMImages\Finance\1.*]
+@SystemMessage #VANC #VANP Copy this for O3, O4, O5 all the way to O17. 
+@ShowImage[\GNMImages\Finance\1.*] @Wait(30)
 @SystemMessage #VANC #VANP Are you done? - only answer yes if you're done..
 [yes]@SystemMessage #VANC #VANP Good
 @DifferentAnswer @SystemMessage #VANC #VANP "yes" if you're ready..
-@SystemMessage #VANC #VANP In the field B7 I want you to write this: @ShowImage[\GNMImages\Finance\2.*]
-@SystemMessage #VANC #VANP Copy this for C7, D7 all the way to O7 @ShowImage[\GNMImages\Finance\2.*] @Wait(30)
+@SystemMessage #VANC #VANP In the field B7 I want you to write this: 
+@ShowImage[\GNMImages\Finance\2.*]
+@SystemMessage #VANC #VANP Copy this for C7, D7 all the way to O7 
+@ShowImage[\GNMImages\Finance\2.*] 
+@Wait(30)
 @SystemMessage #VANC #VANP Are you done? - only answer yes if you're done..
 [yes]@SystemMessage #VANC #VANP Good
 @DifferentAnswer @SystemMessage #VANC #VANP "yes" if you're ready..
-@SystemMessage #VANC #VANP In the field B11 I want you to write this: @ShowImage[\GNMImages\Finance\3.*]
-@SystemMessage #VANC #VANP Copy this for C11, D11 all the way to O11 @ShowImage[\GNMImages\Finance\3.*] @Wait(30)
+@SystemMessage #VANC #VANP In the field B11 I want you to write this:
+ @ShowImage[\GNMImages\Finance\3.*]
+@SystemMessage #VANC #VANP Copy this for C11, D11 all the way to O11 
+@ShowImage[\GNMImages\Finance\3.*] 
+@Wait(30)
 @SystemMessage #VANC #VANP Are you done? - only answer yes if you're done..
 [yes]@SystemMessage #VANC #VANP Good
 @DifferentAnswer @SystemMessage #VANC #VANP "yes" if you're ready..
-@SystemMessage #VANC #VANP In the field B15 I want you to write this: @ShowImage[\GNMImages\Finance\4.*]
-@SystemMessage #VANC #VANP Copy this for C15, D15 all the way to O15 @ShowImage[\GNMImages\Finance\4.*] @Wait(30)
+@SystemMessage #VANC #VANP In the field B15 I want you to write this: 
+@ShowImage[\GNMImages\Finance\4.*]
+@SystemMessage #VANC #VANP Copy this for C15, D15 all the way to O15 
+@ShowImage[\GNMImages\Finance\4.*] 
+@Wait(30)
 @SystemMessage #VANC #VANP Are you done? - only answer yes if you're done..
 [yes]@SystemMessage #VANC #VANP Good
 @DifferentAnswer @SystemMessage #VANC #VANP "yes" if you're ready..
-@SystemMessage #VANC #VANP Notice the field in the bottom left! @ShowImage[\GNMImages\Finance\Budget.*]
+@SystemMessage #VANC #VANP Notice the field in the bottom left! 
+@ShowImage[\GNMImages\Finance\Budget.*]
 @SystemMessage #VANC #VANP Every time you update your budget I want you to update the date as well..
-@SystemMessage #VANC #VANP You can do that right now.. @Wait(15)
+@SystemMessage #VANC #VANP You can do that right now..
+ @Wait(15)
 @SystemMessage #VANC #VANP Now let me explain how this works..
 @SystemMessage #VANC #VANP So average income:
-@SystemMessage #VANC #VANP Average income is ALL the money you earn each month, wether it comes from your job / jobs @SetVar[FinanceOffence]=[0]
+@SystemMessage #VANC #VANP Average income is ALL the money you earn each month, wether it comes from your job / jobs
+ @SetVar[FinanceOffence]=[0]
 @SystemMessage #VANC #VANP The source doesn't matter. Made some money you enter it into this field..
 @SystemMessage #VANC #VANP Fixed expenses are ALL your fixed expenses: Phone bill, electric bill, rent any fixed expenses
 @SystemMessage #VANC #VANP I know some values might be over several months like the electric bill is in some countries paid every third month
@@ -74,12 +97,17 @@
 @SystemMessage #VANC #VANP They might take a moment to find
 @SystemMessage #VANC #VANP Take your time
 @SystemMessage #VANC #VANP DO NOT INPUT ANY TEXT OR SPACES
-@SystemMessage #VANC #VANP What is your average income? @InputVar[AverageIncome]
-@SystemMessage #VANC #VANP What is your fixed expenses? @InputVar[FixedExpenses]
-@SystemMessage #VANC #VANP What should your food budget be? @InputVar[FoodBudget]
-@SystemMessage #VANC #VANP How much do you need for your household budget? @InputVar[HouseholdBudget]
+@SystemMessage #VANC #VANP What is your average income? 
+@InputVar[AverageIncome]
+@SystemMessage #VANC #VANP What is your fixed expenses? 
+@InputVar[FixedExpenses]
+@SystemMessage #VANC #VANP What should your food budget be?
+ @InputVar[FoodBudget]
+@SystemMessage #VANC #VANP How much do you need for your household budget? 
+@InputVar[HouseholdBudget]
 @SystemMessage #VANC #VANP Next we need to figure out a reasonable allowance
-@SystemMessage #VANC #VANP Money you can spend however you like @Wait(5)
+@SystemMessage #VANC #VANP Money you can spend however you like 
+@Wait(5)
 @SystemMessage #VANC #VANP Just imagine being a slave
 @SystemMessage #VANC #VANP No such thing as allowance or spending money without asking permission
 @SystemMessage #VANC #VANP Total
@@ -90,32 +118,61 @@
 @SystemMessage #VANC #VANP Your allowance
 @SystemMessage #VANC #VANP I'm gonna leave this up to you 
 @SystemMessage #VANC #VANP Well not 100% though
-@SystemMessage #VANC #VANP Now tell me again with a number.. @SetVar[AllowanceTotal]=[0]
+@SystemMessage #VANC #VANP Now tell me again with a number.. 
+@SetVar[AllowanceTotal]=[0]
 @SystemMessage #VANC #VANP What would you say a reasonable monthly allowance is if your behaviour within the last month has been good? @InputVar[AllowanceGood]
 @SystemMessage #VANC #VANP What would you say a reasonable monthly allowance is if your behaviour within the last month has been bad? @InputVar[AllowanceBad]
 @SystemMessage #VANC #VANP ow imagine that your behaviour neither was good or bad but more neutral, what would the number be then? @InputVar[AllowanceNeutral]
 @NullResponse @SetVar[AllowanceTotal]=[AllowanceNeutral]
-@SystemMessage #VANC #VANP Give me just a moment to write all of this down... @ChangeVar[AllowanceGood]=[AllowanceGood]/[31]
+@SystemMessage #VANC #VANP Give me just a moment to write all of this down... 
+@ChangeVar[AllowanceGood]=[AllowanceGood]/[31]
 @NullResponse @ChangeVar[AllowanceBad]=[AllowanceBad]/[30]
 @NullResponse @ChangeVar[AllowanceNeutral]=[AllowanceNeutral]/[30]
 @SystemMessage #VANC #VANP Hmm
 @SystemMessage #VANC #VANP Now based on the values you just gave me
 @SystemMessage #VANC #VANP It will be me telling you your monthly allowance
-@Month(1) @SystemMessage #VANC #VANP This January your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[1]
-@Month(2) @SystemMessage #VANC #VANP This February your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[2]
-@Month(3) @SystemMessage #VANC #VANP This March your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[3]
-@Month(4) @SystemMessage #VANC #VANP This April your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[4]
-@Month(5) @SystemMessage #VANC #VANP This May your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[5]
-@Month(6) @SystemMessage #VANC #VANP This June your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[6]
-@Month(7) @SystemMessage #VANC #VANP This July your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[7]
-@Month(8) @SystemMessage #VANC #VANP This August your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[8]
-@Month(9) @SystemMessage #VANC #VANP This September your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[9]
-@Month(10) @SystemMessage #VANC #VANP This October your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[10]
-@Month(11) @SystemMessage #VANC #VANP This November your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[11]
-@Month(12) @SystemMessage #VANC #VANP This December your allowance is @ShowVar[AllowanceTotal] @SetVar[CurrentMonth]=[12]
+@Month(1) @SystemMessage #VANC #VANP This January your allowance is 
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[1]
+@Month(2) @SystemMessage #VANC #VANP This February your allowance is
+ @ShowVar[AllowanceTotal] 
+ @SetVar[CurrentMonth]=[2]
+@Month(3) @SystemMessage #VANC #VANP This March your allowance is 
+
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[3]
+@Month(4) @SystemMessage #VANC #VANP This April your allowance is 
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[4]
+@Month(5) @SystemMessage #VANC #VANP This May your allowance is 
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[5]
+@Month(6) @SystemMessage #VANC #VANP This June your allowance is 
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[6]
+@Month(7) @SystemMessage #VANC #VANP This July your allowance is 
+
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[7]
+@Month(8) @SystemMessage #VANC #VANP This August your allowance is 
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[8]
+@Month(9) @SystemMessage #VANC #VANP This September your allowance is 
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[9]
+@Month(10) @SystemMessage #VANC #VANP This October your allowance is 
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[10]
+@Month(11) @SystemMessage #VANC #VANP This November your allowance is 
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[11]
+@Month(12) @SystemMessage #VANC #VANP This December your allowance is 
+@ShowVar[AllowanceTotal] 
+@SetVar[CurrentMonth]=[12]
 @SystemMessage #VANC #VANP Whenever the month changes you can check your monthly allowance simply by asking
 @SystemMessage #VANC #VANP Now once in a while I'll have you make entries into your budget
-@SystemMessage #VANC #VANP But you should strive towards always keeping it up to date #GNMEmoteHappy @SetDate(Finances, 0 Days)
+@SystemMessage #VANC #VANP But you should strive towards always keeping it up to date #GNMEmoteHappy
+ @SetDate(Finances, 0 Days)
 @End
 (FirstFinance)
 @SystemMessage #VANC #VANP Its time to do your finances #SubName
@@ -183,24 +240,28 @@
 @End
 (Bad2)
 @SystemMessage #VANC #VANP #SubName..
-@SystemMessage #VANC #VANP This has to be punished @ChangeVar[GNMPPoints]=[GNMPPoints]+[30]
+@SystemMessage #VANC #VANP This has to be punished
+ @ChangeVar[GNMPPoints]=[GNMPPoints]+[30]
 @SystemMessage #VANC #VANP I assigned you punishment points
 @End
 (Bad5)
 @SystemMessage #VANC #VANP #SlaveName..
 @SystemMessage #VANC #VANP I expected more from you.. #MeritChangeNLow
-@SystemMessage #VANC #VANP I'll have to punish you.. @ChangeVar[GNMPPoints]=[GNMPPoints]+[60]
+@SystemMessage #VANC #VANP I'll have to punish you.. 
+@ChangeVar[GNMPPoints]=[GNMPPoints]+[60]
 @SystemMessage #VANC #VANP I assigned you punishment points
 @End
 (Bad10)
 @SystemMessage #VANC #VANP #SlaveName..
 @SystemMessage #VANC #VANP You need to take better care of #DomName's money.. #MeritChangeNMedium
-@SystemMessage #VANC #VANP I'll have to punish you.. @ChangeVar[GNMPPoints]=[GNMPPoints]+[100]
+@SystemMessage #VANC #VANP I'll have to punish you.. 
+@ChangeVar[GNMPPoints]=[GNMPPoints]+[100]
 @SystemMessage #VANC #VANP I assigned you punishment points
 @End
 (Bad15)
 @SystemMessage #VANC #VANP #SlaveName..
 @SystemMessage #VANC #VANP You need to take better care of #DomName's money.. #MeritChangeNHigh
-@SystemMessage #VANC #VANP I'll have to punish you.. @ChangeVar[GNMPPoints]=[GNMPPoints]+[150]
+@SystemMessage #VANC #VANP I'll have to punish you.. 
+@ChangeVar[GNMPPoints]=[GNMPPoints]+[150]
 @SystemMessage #VANC #VANP I assigned you punishment points
 @End

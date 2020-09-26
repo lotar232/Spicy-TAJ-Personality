@@ -61,8 +61,9 @@ if(isVar("ChoreActive") &&getVar("ChoreActive")==true)
 			answer=createInput("Assigned by Mistress", "please pick one");
 			while (true) {
 				if (answer.isLike("assigned", "chosen")) {
-				  sendVirtualAssistantMessage(" %subname%, you're lucky to have such an attentive %DomHonorific% in %Domname%  you %Slave% ");
+				  sendVirtualAssistantMessage(" %subname%, you're lucky to have such an attentive %DomHonorific% in %Domname%  you %Slave% ",0);
 				  	showImage("Images/Spicy/FFriends/Girlfriend/*");
+					wait(5);
 				  doassigned=true;
 					break;
 				} else if (answer.isLike("pick", "you")) {

@@ -447,7 +447,7 @@ function Donef()
 {
     sendVirtualAssistantMessage(" Tell me \'done\' when you\'re done..");
    // --Command:CustomMode(done,Goto,Done2f)
-    waitForDone();
+    waitForDone(10000);
     Done2f();
 }
 function Done2f()
@@ -467,7 +467,7 @@ function g()
     sendVirtualAssistantMessage(" I expect this because they are the weapon I use to make you horny!");
     sendVirtualAssistantMessage(" So begin studying, your 10 minutes have started...");
     wait(600);
-    playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
+    playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
     sendVirtualAssistantMessage(" Let\'s see how well you know your models");
     switch(random("g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g10", "g11", "g12"))
     {
@@ -525,7 +525,7 @@ function g()
 function g1()
 {
     sendVirtualAssistantMessage("  Who is this?");
-  showImage("/GNMImages/Chores/Chore7a/AdrianaLima.*");
+  showImage("Images/Spicy/Chores/Chore7a/AdrianaLima.*");
   response=createInput();
     if (response.isLike("lima","Adriana"))
     {
@@ -546,7 +546,7 @@ function g1()
 function g2()
 {
     sendVirtualAssistantMessage("  Who is this?");
-  showImage("/GNMImages/Chores/Chore7a/AidenStarr.*");
+  showImage("Images/Spicy/Chores/Chore7a/AidenStarr.*");
   response=createInput();
     if (response.isLike("starr","Aiden"))
     {

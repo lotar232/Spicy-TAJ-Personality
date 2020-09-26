@@ -138,7 +138,7 @@ if(!isVar("FirstassignedChoreRun")){
 		 {kinkychoice= randomInteger(5,21); }
 		case 5:
 
-			 if(getVar("toyCollar")==true)
+			 if(COLLAR_TOY.hasToy())
 				 {
 				sendVirtualAssistantMessage("If you have it I want you to handcuff yourself, if not be 'creative'..");
 				cleaningTimeTemp=cleaningTimeTemp+randomInteger(6,7);
@@ -231,7 +231,7 @@ if(!isVar("FirstassignedChoreRun")){
 			sendVirtualAssistantMessage(" I cant hear does that mean you're gagged? ");
 			showImage("Images/Spicy/Toys/gag.*"); 
 				waitForDone2(20);
-			sleep(20);
+			sleep(3);
 
 			sendVirtualAssistantMessage("Remember to remove it after you're done with the chore I've assigned you %GNMGrin%");
 			sendVirtualAssistantMessage("%Slave% I expect this to take at least "+cleaningTimeTemp+" minutes.");
@@ -301,7 +301,7 @@ if(!isVar("FirstassignedChoreRun")){
 		//@Goto(StartTimerStandard);
 		break;
 		case 14:
-		 if(getVar("ToyCollar")==true) {
+		 if(COLLAR_TOY.hasToy()) {
 		
 			
 			sendVirtualAssistantMessage("This is gonna be a little complicated %GNMlol%");
@@ -374,6 +374,7 @@ if(!isVar("FirstassignedChoreRun")){
 		sendVirtualAssistantMessage("You may begin..");
 	//	@Goto(StartTimerStandard)
 		break;
+		
 		default:
 		sendVirtualAssistantMessage("%SlaveName%, I've noticed you've not been very deferential lately....");
 		sendVirtualAssistantMessage("I want you to put your humbler on");
@@ -394,7 +395,8 @@ if(!isVar("FirstassignedChoreRun")){
 	
 	setDate("TimerEarly",setDate().addMinute(cleaningTimeTemp-1));
 	setDate("TimerLate",setDate().addMinute(cleaningTimeTemp+10));
-
+            CHORE_WATCH.reset();
+            CHORE_WATCH.start();
    waitForDone(10000);
 
    
@@ -432,7 +434,19 @@ if(!isVar("FirstassignedChoreRun")){
 
 setVar("ChoreActive",false);
  setVar(VARIABLE_WEEKLY_CHORES_COMPLETED, getVar(VARIABLE_WEEKLY_CHORES_COMPLETED)+1);
- 
+             CHORE_WATCH.stop();
 
+             secondsPassed = parseInt(CHORE_WATCH.getTime() / 1000, 10);
+             minutesPassed = Math.round(secondsPassed/60);
+
+          //Weekly chores done
+            incrementVar(VARIABLE_WEEKLY_CHORES_DONE, 1);
+
+            incrementVar(VARIABLE_TOTAL_CHORES_DONE, 1);
+
+            //Time in minutes spend doing chores
+            incrementVar(VARIABLE_WEEKLY_CHORES_TIME, minutesPassed);
+
+            incrementVar(VARIABLE_TOTAL_CHORES_TIME, minutesPassed);
  
  

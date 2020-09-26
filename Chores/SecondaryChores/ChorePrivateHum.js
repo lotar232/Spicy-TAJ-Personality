@@ -582,7 +582,7 @@ function Lingerie4()
 function Punishment()
 {
     sendVirtualAssistantMessage(" Come back here");
-    playAudio("/GNMSounds/SpecialSounds/bell.mp3");
+    playAudio("/Spicy/SpecialSounds/bell.mp3");
     sendVirtualAssistantMessage(" You didn\'t make it.. %GNMEmoteSad%");
     sendVirtualAssistantMessage(" So I\'ve given you punishment points..");
     setVar("GNMPPoints", getVar("GNMPPoints", 0) + 50);
@@ -655,7 +655,7 @@ function e()
     sendVirtualAssistantMessage(" I want you to film yourself");
     sendVirtualAssistantMessage(" When you\'re done you\'re gonna put that movie inside your selfhumiliation folder found inside videos");
     sendVirtualAssistantMessage(" Go ahead girl! Tell me when you\'re \"done\"");
-	waitForDone();
+	waitForDone(10000);
     sendVirtualAssistantMessage(" I bet you had fun! %GNMGrin%");
 
     delVar("ChorePrivHume");

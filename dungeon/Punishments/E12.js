@@ -112,20 +112,53 @@ case 3 :
 break;
 }
 
+   sendMessage("Fetch your shock collar %SlaveName%" );
+	setVar("shocks_recieved", 0);
+	showImage("Images/Spicy/Toys/ShockCollar.jpg");
+	sleep(10);
+    answer0 = sendInput("Got it? ");
+    if (answer0.isLike("yes"))
+    {
+        sendMessage("%Good% ");
+    }
+    else
+    {
+        sendMessage("%Good% ");
+    }
+     answer1 = sendInput("Turn it on...is it charged up slave??? ");
+    if (answer1.isLike("yes"))
+    {
+        sendMessage("%Good% ");
+		 pishock(0,50,2,1);  //sends a buzz 
+	
+    }
+    else
+    {
+        sendMessage("well go charge it quickly and tell me when its done ");
+		waitForDone();
+    }
+    sendMessage("Go ahead and wrap the collar around your %balls%");
+    sleep(10);
+sendMessage("%Grin% "); //#DT4
+sendMessage("You will not enjoy this! "); //#DT4
+
+
 //(Intro)
 	sendMessage("So %SlaveName% .."); //#DT4
 	sendMessage("I'm grounding you to your computer with a rather simple task.. "); //#DT4
 	sendMessage("I'm turning the screen black"); //#DT4
-	sendMessage("Every once in a while a few numbers will appear and you will have exactly 5 seconds to write back the number colored red ");//#DT4
+	sendMessage("Every once in a while a few numbers will appear and you will have exactly 4 seconds to write back the number colored red ");//#DT4
 	sendMessage("If not I promise you your %DomHonorific% won't be happy.. ");//#DT4
 	sendMessage("And ohh.. ");//#DT4
-	sendMessage("Its gonna cost you 10 gold and the punishment prolonges"); //#DT4
+	pishock(0,35,2,0); 
+	sendMessage("I'm going to use this little toy to help you stay focused %lol%"); //#DT4
+	setVar("shocks_recieved", 0);
 	sendMessage("Enjoy!"); //#DT4 
 //	 @SetVar[Timer]=[0]
 	// @CountVar[Timer]
 	donetime=setDate();
 	donetime.addSecond(getVar("GroundingSet"));
-	
+	shocklevel=20
 	while(!(donetime.hasPassed())){
 //(Task)
 		 showImage("Images/Spicy/Punishment/Grounding/BlackBase.*"); 
@@ -136,45 +169,51 @@ break;
 	 
 		//here to prompt an answer or does that hint too much?
 		//this trips something in TTS??? I wonder if that still hapens with non empty string?
-		answer=sendInput("  ",5);
+		answer=sendInput("  ",4);
 		 while (true){
 			if( answer.isTimeout()) {
-			sendMessage("Time out.." );
+			sendMessage(random("Time out..","you have to be faster %slave%", "Faster Bitch!") );
 			showImage("Images/Spicy/Punishment/Grounding/BlackBase.*");
 			changeMeritLow(true);
-			setVar(VARIABLE_GOLD,getVar(VARIABLE_GOLD)-10); 
+				pishock(0,shocklevel,2,0); 
+				shocklevel=shocklevel+10;
 			//@TempFlag(PunishmentComplete)
-			donetime=donetime.addSecond(randomInteger(60,180));
+			donetime=donetime.addSecond(randomInteger(60,120));
 			break;
 			} else{
 				if(answer.isInteger()) {
 					if ( answer.getInteger() == answerval){   
-						 sendMessage("Correct");
+						 sendMessage(random("Correct","right","yep"));
 						 showImage("Images/Spicy/Punishment/Grounding/BlackBase.*");
 						 break;
 					}
-					else{ sendMessage("Wrong.. You were supposed to write "+answerval+".. ");
+					else{ pishock(0,shocklevel,2,0); 
+						if (shocklevel<100)
+							{shocklevel=shocklevel+10;}
+						sendMessage("Wrong.. You were supposed to write "+answerval+".. ");
 						showImage("Images/Spicy/Punishment/Grounding/BlackBase.*");
 						changeMeritLow(true);
-						setVar(VARIABLE_GOLD,getVar(VARIABLE_GOLD)-10); 
 						//@TempFlag(PunishmentComplete)
-						donetime=donetime.addSecond(randomInteger(60,180));
+						donetime=donetime.addSecond(randomInteger(60,120));
 						break;
 					}
-				}else {
-					sendMessage("Wrong.. You were supposed to write "+answerval+".. that wasn't even a number %SlaveName% ");
+				}else {pishock(0,shocklevel,2,0); 
+						if (shocklevel<100)
+							{shocklevel=shocklevel+10;}
+						sendMessage("Wrong.. You were supposed to write "+answerval+"..");
+						sendMessage("that wasn't even a number %SlaveName% ");
+						pishock(0,shocklevel,2,0);
 						showImage("Images/Spicy/Punishment/Grounding/BlackBase.*");
 						changeMeritLow(true);
-						setVar(VARIABLE_GOLD,getVar(VARIABLE_GOLD)-10); 
 						//@TempFlag(PunishmentComplete)
-						donetime=donetime.addSecond(randomInteger(60,180));
+						donetime=donetime.addSecond(randomInteger(60,120));
 						break;
 				}
 		 }
 	}
  
 	}
-
+    setTempVar("E12Complete", true);
  setVar("PunishmentComplete", true);
- setVar("PunishmentCompleted", 12);
+ setVar("PunishmentCompleted", 412);
  run("Dungeon/PunishmentBaseEnd.js");

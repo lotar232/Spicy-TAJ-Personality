@@ -24,13 +24,13 @@ switch(getVar("Punisher")) {
 }
 
 
-sendMessage("Well "+ random("hello","hi")+ " %SlaveName%");// #DT4 @Goto(Start)
+//sendMessage("Well "+ random("hello","hi")+ " %SlaveName%");// #DT4 @Goto(Start)
 
 
 switch(getVar("Punisher")){
 	case 1 :
 	//(Domme)
-	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%");// #DT4
+	sendMessage(random("Well well","Oh my","Well") + " %subName%");// #DT4
 	sendMessage(random("It's time to pay","We need to settle your recent behaviour","I believe I have just the thing to discipline you","I believe I know how to correct your bad behaviour!")); //#DT4
 	//1 = easy, 2= medium 3= hard
 	PM5=2;
@@ -65,7 +65,7 @@ switch(getVar("Punisher")){
 	case 3 :
 	//(Contact2)
 	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%");// #DT4
-	sendMessage(random("Discipline I just love that","You're not gonna like this %GNMGrin%","I don't think your %GNMCock% will enjoy this","This is fun!"));// #DT4
+	sendMessage(random("Discipline I just love that","You're not gonna like this %Grin%","I don't think your %Cock% will enjoy this","This is fun!"));// #DT4
 
 	if (getVar("SubEndurance")>=7) {
 	PM5=3;}
@@ -115,7 +115,7 @@ break;
 sendMessage("So %slaveName% "); //#DT4
 sendMessage("The punishment you're about to be given "); //#DT4
 sendMessage("Might be considered a game to some "); //#DT4
-sendMessage("A mindgame %GNMGrin% "); //#DT4
+sendMessage("A mind game %Grin% "); //#DT4
 sendMessage("I need you to %fetch% ballcrusher and put it on so its ready.. ",30); //#DT4 @Wait(30)
 
 crusherNotOn=true;
@@ -123,7 +123,7 @@ while(crusherNotOn){
 answer=sendInput("Are you done? "); //#DT4
 
 if(answer.isLike("yes")){
-	sendMessage("%GNMGood% "); //#DT4 @Goto(Info2)
+	sendMessage("%Good% "); //#DT4 @Goto(Info2)
 	crusherNotOn=false;
 	} 
 	else if(answer.isLike("no")){
@@ -140,7 +140,7 @@ if(answer.isLike("yes")){
 }
 sendMessage("Now tighten the top and bottom until its a tight fit "); //#DT4
 sendMessage("It shouldn't be painful at all "); //#DT4
-sendMessage("Just feel <i>tight</i>.. ",10); //#DT4 @Wait(10)
+sendMessage("Just feel ...<i>tight.. ",10); //#DT4 @Wait(10)
 sendMessage("Every time I tell you to 'tighten' "); //#DT4
 sendMessage("You will turn the two bottom screws 90 degrees in whatever direction tightens them.. "); //#DT4
 sendMessage("Then some time will pass and I will ask you to tighten them again. "); //#DT4
@@ -152,23 +152,25 @@ sendMessage("If the number of times I said 'tighten' is HIGHER than the random n
 sendMessage("You win.. "); //#DT4
 sendMessage("If not this won't count as a punishment and I will claim a small fee.. "); //#DT4
 sendMessage("You need to be aware of one thing! "); //#DT4
-sendMessage("When you say stop you have to last full 2 minutes before you have permission to release the pressure.. "); //#DT4
+sendMessage("When you say stop you have to last a full 2 minutes before you have permission to release the pressure.. "); //#DT4
 sendMessage("If you can't last 2 minutes it will also count as a failed punishment.. "); //#DT4 @CustomMode(stop, Goto, Stop)
-sendMessage("Well lets begin! "); //#DT4 
+sendMessage("Well shall we begin? "); //#DT4 
 BallCrushingCount=0;
 
 keepGoing=true;
+answer=createInput("Stop");
 while (keepGoing) {
-	answer=sendInput(random("Tigthen..","Tigthen it","Tighten the device..","Tigthen","Tighten..","Tigthen","Tighten...","Tigthen it..","Tigthen it...","Tigthen it %slaveName%"),randomInteger(5,16)); //#DT4
+	answer=sendInput(random("tighten..","tighten it","Tighten the device..","tighten it Bitch","Tighten..","turn those screws","Tighten...","tighten it %SubName%..","tighten it...","tighten it %slaveName%", "give me a little more squeeze"),randomInteger(7,16)); //#DT4
 	 BallCrushingCount=BallCrushingCount+1; 
 	 if(answer.isLike("stop")){
 		 keepGoing=false;
 		
 		}
 }
+	answer.clearOptions();
 sendMessage("You used the magic word! "); //#DT4 
 //@CustomMode(ModeText, Normal) 
-sendMessage("%GNMGrin%");
+sendMessage("%Grin%");
  if (BallCrushingCount<BallCrushing) {
 	 sendMessage("hmm and now just a little matter of suffering for 2 minutes"); wait(120);
 	sendMessage("Well to little surprise you failed.. "); //#DT4 
@@ -187,7 +189,7 @@ sendMessage("%GNMGrin%");
 	//@TempFlag(PunishmentComplete)
 
 	setVar("PunishmentComplete", true);
-	setVar("punishmentCompleted", 05);
+	setVar("punishmentCompleted", 15);
 	run("Dungeon/PunishmentBaseEnd.js");
 
  }

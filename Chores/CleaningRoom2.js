@@ -96,8 +96,8 @@ function BellGame1()
 }
 function Corner()
 {
-    --UNINTERPRETED LINE:@SystemMessage #VANC #VANP Go to the corner #SlaveName @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp, Stop] @Wait(#Random(20,60))
-    --UNINTERPRETED LINE:@SystemMessage #VANC #VANP Return to work #SlaveName @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp] @Goto(BellGame1)
+    --UNINTERPRETED LINE:@SystemMessage #VANC #VANP Go to the corner #SlaveName @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp, Stop] @Wait(#Random(20,60))
+    --UNINTERPRETED LINE:@SystemMessage #VANC #VANP Return to work #SlaveName @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp] @Goto(BellGame1)
     BellGame2();
 }
 function BellGame2()
@@ -109,7 +109,7 @@ function BellGame2()
 }
 function Sentence()
 {
-    --UNINTERPRETED LINE:@NullResponse @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp, Stop]
+    --UNINTERPRETED LINE:@NullResponse @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp, Stop]
     Type();
 }
 function Type()

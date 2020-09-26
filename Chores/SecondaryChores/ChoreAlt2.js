@@ -177,7 +177,7 @@ function aContinued()
    sendVirtualAssistantMessage(" Drink from the bowl and then crawl back %GNMLol%");
    // --Command:CustomMode(done,Goto,Donea)
    sendVirtualAssistantMessage(" Let me know when you\'re \'done\'");
-  waitForDone();
+  waitForDone(10000);
     Donea();
 }
 function Donea()
@@ -268,7 +268,7 @@ function Bellb()
    sendVirtualAssistantMessage(" Wait for the bell");
     wait(randomInt(200, 500));
     sendVirtualAssistantMessage(" Get back here.. ");
-	playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+	playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
    sendVirtualAssistantMessage(" Position and corner training in one package");
     delVar("ChoreAlt2b");
     changeMeritLow(false);
@@ -448,7 +448,7 @@ function cTimer()
     unlockImages();
      sendVirtualAssistantMessage(" Good boy"); 
 	 changeMeritLow(false);
-	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+	 playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
    sendVirtualAssistantMessage(" Let me reward that %GNMGrin% ");
     rewardGoldMedium();
     End();
@@ -472,7 +472,7 @@ function d()
    sendVirtualAssistantMessage(" Find a porn that DOESN\'T turn you on!");
    sendVirtualAssistantMessage(" I want you to watch " + randomInt(2, 5) + "minutes of it!");
    sendVirtualAssistantMessage(" When you\'re done, just tell me");
-	waitForDone();
+	waitForDone(10000);
    sendVirtualAssistantMessage(" %GNMGood%");
     delVar("ChoreAlt2d");
     changeMeritmedium(false);
@@ -772,14 +772,14 @@ function End1()
 {
      sendVirtualAssistantMessage(" Get back here ");
 	 changeMeritLow(false);
-	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+	 playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
 	 Donee();
  
 }
 function End2()
 {
      sendVirtualAssistantMessage(" Get back here");
-	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3"); 
+	 playAudio("Audio/Spicy/SpecialSounds/Bell.mp3"); 
    sendVirtualAssistantMessage(" Remove your lingerie ");
   	 changeMeritMedium(false);
     wait(60);
@@ -860,7 +860,7 @@ function Timef()
 function Bellc()
 {
      sendVirtualAssistantMessage(" Get back up %SlaveName% ");
-	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+	 playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
     Donec();
 }
 function Donec()
@@ -933,7 +933,7 @@ function Timeg()
 function Bellg()
 {
      sendVirtualAssistantMessage(" Get back up %SlaveName%"); 
-	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+	 playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
     Doneg();
 }
 function Doneg()
@@ -1007,7 +1007,7 @@ function Timeh()
 function Bellh()
 {
      sendVirtualAssistantMessage(" Get back up %SlaveName%");
-	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+	 playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
     Done6();
 }
 function Done6()
@@ -1086,7 +1086,7 @@ function i4()
 function Belli()
 {    
      sendVirtualAssistantMessage(" Get back up %SlaveName% ");
-	 playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+	 playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
     Donei();
 }
 function Donei()

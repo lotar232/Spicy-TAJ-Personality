@@ -22,14 +22,14 @@ switch(getVar("Punisher")) {
 }
 
 
-sendMessage("Well "+ random("hello","hi")+ " %SlaveName%");// #DT4 @Goto(Start)
+//sendMessage("Well "+ random("hello","hi")+ " %SlaveName%");// #DT4 @Goto(Start)
 
 
 switch(getVar("Punisher")) {
 	case 1 :
 	//(Domme)
 	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%");// #DT4
-	sendMessage(random("Lets see what we can do about you %GNMGrin%","Its time to make you repent your sins","I suppose we need to correct your recent behaviour","I have something for you..")); //#DT4
+	sendMessage(random("Lets see what we can do about you %Grin%","Its time to make you repent your sins","I suppose we need to correct your recent behaviour","I have something for you..")); //#DT4
 
 //	sendMessage(random("It's time to pay","We need to settle your recent behaviour","I believe I have just the thing to discipline you","I believe I know how to correct your bad behaviour!")); //#DT4
 	//1 = easy, 2= medium 3= hard
@@ -53,9 +53,9 @@ switch(getVar("Punisher")) {
 	case 2 :
 	//(Contact1)
 	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%" );// #DT4
-	//sendMessage(random("Lets see what we can do about you %GNMGrin%","Its time to make you repent your sins","I suppose we need to correct your recent behaviour","I have something for you..")); //#DT4
+	//sendMessage(random("Lets see what we can do about you %Grin%","Its time to make you repent your sins","I suppose we need to correct your recent behaviour","I have something for you..")); //#DT4
 	//sendMessage(random("I'm absolute sure you're gonna hate this and that makes me love it!","We need to correct your poor behaviour","You need a little discipline","Its about time we did something about your behaviour") );// #DT4
-	sendMessage(random("Oh my I love handling %DomName%'s pet","I'll be happy to punish you %GNMGrin%","This is gonna be fun")); //#DT4
+	sendMessage(random("Oh my I love handling %DomName%'s pet","I'll be happy to punish you %Grin%","This is gonna be fun")); //#DT4
 	if(getVar("SubEndurance")>=8) {
 	PM4=3;}
 	else if (getVar("SubEndurance")>4){
@@ -66,8 +66,8 @@ switch(getVar("Punisher")) {
 	case 3 :
 	//(Contact2)
 	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%");// #DT4
-	sendMessage(random("Discipline I just love that","You're not gonna like this %GNMGrin%","I don't think your %GNMCock% will enjoy this","This is fun!"));// #DT4
-sendMessage(random("Lets see what we can do about you %GNMGrin%","Its time to make you repent your sins","I suppose we need to correct your recent behaviour","I have something for you..")); //#DT4
+	sendMessage(random("Discipline I just love that","You're not gonna like this %Grin%","I don't think your %Cock% will enjoy this","This is fun!"));// #DT4
+sendMessage(random("Lets see what we can do about you %Grin%","Its time to make you repent your sins","I suppose we need to correct your recent behaviour","I have something for you..")); //#DT4
 
 	if (getVar("SubEndurance")>=7) {
 	PM4=3;}
@@ -82,7 +82,7 @@ sendMessage(random("Lets see what we can do about you %GNMGrin%","Its time to ma
 	//(Contact3)
 	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%");// #DT4
 	//sendMessage(random("Discipline can never be cruel enough","Discipline is all about being cruel","Discipline is about showing no mercy!","No mercy for the bad ones.."));// #DT4
-	sendMessage(random("This is entirely my pleasure %GNMLol%","I'm gonna love this!","This is gonna be fun!")); //#DT4
+	sendMessage(random("This is entirely my pleasure %Lol%","I'm gonna love this!","This is gonna be fun!")); //#DT4
 	if (getVar("SubEndurance")>=6) {
 	PM4=3;}
 	else if (getVar("SubEndurance")>2){
@@ -95,7 +95,7 @@ sendMessage(random("Lets see what we can do about you %GNMGrin%","Its time to ma
 	
 }
 
-sendMessage("%GNMGrin% "); //#DT4
+sendMessage("%Grin% "); //#DT4
 sendMessage("You will not enjoy this! "); //#DT4
 
 switch(PM4) {
@@ -130,9 +130,13 @@ errors_allowed=randomInteger(2,4);
 sendMessage ("ok %SlaveName%, you're going to write the following line "+ total_lines + " times");
 
 sentence = replaceVocab(sentence);
+sendDebugMessage("Debug1");
 text2 = new javafx.scene.text.Text(sentence);
+sendDebugMessage("Debug2");
 text2.setFill(javafx.scene.paint.Color.ROYALBLUE);
+sendDebugMessage("Debug3");
 text2.setFont(javafx.scene.text.Font.font(null, javafx.scene.text.FontWeight.MEDIUM, 13));
+sendDebugMessage("Debug4");
 sendCustomMessage(text2);
 
 sendMessage ("oh, and be careful " + random("get it wrong ","fuck it up ", "screw it up ", "make a mistake ") + (errors_allowed+1) +" times and you'll fail" );
@@ -219,5 +223,5 @@ sendMessage ("Then you have a long way to go to redeem yourself.. ");
 
 
 	
-	setVar("punishmentCompleted", 21);
-	run("dungeon/PunishmentBaseEnd.js");
+//	setVar("punishmentCompleted", 21);
+	//run("dungeon/PunishmentBaseEnd.js");

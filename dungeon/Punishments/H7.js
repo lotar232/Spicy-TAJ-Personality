@@ -64,7 +64,7 @@ switch(getVar("Punisher")){
 	case 3 :
 	//(Contact2)
 	sendMessage(random("Well well","Oh my","Well") + " %SlaveName%");// #DT4
-	sendMessage(random("Discipline I just love that","You're not gonna like this %GNMGrin%","I don't think your %GNMCock% will enjoy this","This is fun!"));// #DT4
+	sendMessage(random("Discipline I just love that","You're not gonna like this %Grin%","I don't think your %Cock% will enjoy this","This is fun!"));// #DT4
 
 	if (getVar("SubEndurance")>=7) {
 	PS2=3;}
@@ -182,7 +182,7 @@ sendMessage (" Today you will be given "+caningNumber + " strikes %SlaveName%");
 		sendMessage("a little further %Bitch%...", randomInteger(1,2)); //#DT4
 		break;
 	}
-	playAudio("Audio/GNMSounds/Punishment/SpankingCane/Cane1.mp3"); // @Goto(CaningBase)
+	playAudio("Audio/Spicy/Punishment/SpankingCane/Cane1.mp3"); // @Goto(CaningBase)
  }
 sendMessage("Well done %SubName%"); //#DT4
 sendMessage("I'm impressed by your willpower today "); //#DT4 

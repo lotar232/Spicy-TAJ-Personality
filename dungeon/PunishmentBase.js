@@ -1,31 +1,30 @@
+if (!isVar("PunishmentBaseIntro")) {
+    setVar("PunishmentBaseIntro", true);
+    setVar("PunishmentActive", false);
 
-if(!isVar("PunishmentBaseIntro")){
-	setVar("PunishmentBaseIntro",true);
-	setVar("PunishmentActive",false);
-	
-sendDungeonMessage( random("Hello","Welcome","Hi","Greetings","Good to see you")+ " " + random("%SlaveName%","%SubNam%","slave","slave","slave","slave","slave") );
-sendDungeonMessage(" I go by 'Miss A' ");
-sendDungeonMessage(" It is my job to punish you whenever you report for punishment ");
-sendDungeonMessage(" The domme rarely has time to do so ");
-sendDungeonMessage(" So if you misbehave in sessions or similar you will often simply be awarded punishment points ");
-sendDungeonMessage(" These points accumulate over time ");
-sendDungeonMessage(" don't let them grow too much ");
-sendDungeonMessage(" Or your %DomHonorific% will be displeased with you ");
-sendDungeonMessage(" Trust me.. ");
-sendDungeonMessage(" You don't want that to happen! ");
-sendDungeonMessage(" Currently you have 2 options with me ");
-sendDungeonMessage(" Report for punishment ");
-sendDungeonMessage(" Or ");
-sendDungeonMessage(" You can sell your ass ");
-sendDungeonMessage(" Yes you heard correctly! ");
-sendDungeonMessage(" I'm also handling your SpankzChoir account ");
-sendDungeonMessage(" SpankzChoir.com is a spanking auction site ");
-sendDungeonMessage(" In there you can sell your ass for a spanking and actually earn gold ");
-sendDungeonMessage(" Do notice that your %DomHonorific% takes a percentage of your earnings ");
-sendDungeonMessage(" Also.. ");
-sendDungeonMessage(" You are required to have an active account to use SpankzChoir.com ");
-sendDungeonMessage(" An account lasts 14 days and can be paid for in the shop ");
-sendDungeonMessage(" Now.. ");
+    sendDungeonMessage(random("Hello", "Welcome", "Hi", "Greetings", "Good to see you") + random("%SlaveName%", "slave", "slave", "slave", "slave", "slave"));
+    sendDungeonMessage("I go by 'Miss A'");
+    sendDungeonMessage("It is my job to punish you whenever you report for punishment");
+    sendDungeonMessage("The domme rarely has time to do so");
+    sendDungeonMessage("So if you misbehave in sessions or similar you will often simply be awarded punishment points");
+    sendDungeonMessage("These points accumulate over time");
+    sendDungeonMessage("don't let them grow too much");
+    sendDungeonMessage("Or your %DomHonorific% will be displeased with you");
+    sendDungeonMessage("Trust me...");
+    sendDungeonMessage("You don't want that to happen!");
+    sendDungeonMessage("Currently you have 2 options with me");
+    sendDungeonMessage("Report for punishment");
+    sendDungeonMessage("Or");
+    sendDungeonMessage("You can sell your ass");
+    sendDungeonMessage("Yes you heard correctly!");
+    sendDungeonMessage("I'm also handling your SpankzChoir account");
+    sendDungeonMessage("SpankzChoir.com is a spanking auction site");
+    sendDungeonMessage("In there you can sell your ass for a spanking and actually earn gold");
+    sendDungeonMessage("Do notice that your %DomHonorific% takes a percentage of your earnings");
+    sendDungeonMessage("Also...");
+    sendDungeonMessage("You are required to have an active account to use SpankzChoir.com");
+    sendDungeonMessage("An account lasts 14 days and can be paid for in the shop");
+    sendDungeonMessage("Now...");
 }
 if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 	delVar("Punishment");
@@ -96,7 +95,7 @@ if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 					sendDungeonMessage( random( "lol %SubName%, you're so fucked!", "oh %SlaveName%, you're ass is gonna bleed ", "you should be ashamed, %Subname%", "how did you let it get so bad?"));
 			
 		}else if (getVar("punishmentpoints") > 500 ){
-			sendDungeonMessage( random( "this is SERIOUS %Slave%, you need to put some time in down here", "NOT GOOD, you need to put some serious time in down here", "I have a feeling we're going to be spending lots of time together %GNMGrin%", "that's so many your %DomHonorific% won't even session with you"));
+			sendDungeonMessage( random( "this is SERIOUS %Slave%, you need to put some time in down here", "NOT GOOD, you need to put some serious time in down here", "I have a feeling we're going to be spending lots of time together %Grin%", "that's so many your %DomHonorific% won't even session with you"));
 		}if (getVar("punishmentpoints") > 250 ){
 			sendDungeonMessage( random( "we have some work to do down here","I'll let the mistresses know they should plan to spend some time in the dungeon"));
 		}else{
@@ -119,7 +118,7 @@ if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 			 chancenum = randomInteger(1,100);
 			 }
 			sendDungeonMessage( random("Okay then","Lets proceed","lets move forward","Lets continue ")); 
-			playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+			playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
 			 run("dungeon/SpankzChoir/SpankzChoirBase.js");
 			
 		
@@ -127,7 +126,7 @@ if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 			answer.clearOptions();
 
 	 delVar("Punishment");
-	sendDungeonMessage( random("Oh my","Oh how nice","Lovely!","Splendid!","Exciting!","Fantastic","%GNMGrin%","perfect..","Good","So you want to be punished.") ); 
+	sendDungeonMessage( random("Oh my","Oh how nice","Lovely!","Splendid!","Exciting!","Fantastic","%Grin%","perfect..","Good","So you want to be punished.") );
 	sendDungeonMessage( random("Let me just look up your file..","Checking your file","Having a look at your file..","Let me just check your file.."),2); 
 			sendDungeonMessage( "Take a seat..");
 			 showImage("Images/Spicy/Punishment/SpankzChoir/chair1.jpg");
@@ -139,7 +138,7 @@ if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 			 chancenum = randomInteger(1,100);
 			 }
 			sendDungeonMessage( random("Okay then","Lets proceed","lets move forward","Lets continue ")); 
-			playAudio("Audio/GNMSounds/SpecialSounds/Bell.mp3");
+			playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
 
 	if(getVar(VARIABLE_PUNISHMENT_POINTS) <100) {
 
@@ -175,6 +174,8 @@ if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 	if(isVar("BadMouth") && getVar("BadMouth")) { sendDungeonMessage( random("Filthy mouth","Talking back","Bad mouthing","Undesired talking","Failed to request permission to talk","Talking out of terms.."),2);}
 
 	if(isVar("Preason_BadFullTime") && getVar("Preason_BadFullTime")) { sendDungeonMessage( random("Failed to fulfill full time duties","Laziness","Failure to meet demands for proper slavery"),2);} 
+	
+		if(isVar("Preason_Flirting") && getVar("Preason_Flirting")) { sendDungeonMessage( random("Flirting with some Whore","making a fool of yourself flirting with some woman clearly out of your league","Disrispecting %domhonorific% %DomName% by paying inappropriate attention to another girl"),2);} 
 
 	sendDungeonMessage( random("Poor attitude","Poor performance","Lack of performance","Failed to perform properly","Poor results"),2); 
 
@@ -253,11 +254,34 @@ if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 			break;
 			case 2:
 			//fixme impliment punishment 6
-			   punishmentchoice = randomInteger(1,5);
-			   run("dungeon/Punishments/M"+punishmentchoice+".js");		
+			   punishmentchoice = randomInteger(1,6);
+			  
+
+			   switch ( punishmentchoice ) {
+
+			  case 1:
+			   run("dungeon/Punishments/M1.js");
+			   break;
+				case 2:
+			   run("dungeon/Punishments/M2.js"); 
+			   break;
+				case 3:
+			   run("dungeon/Punishments/M3.js");
+			   break;
+			  case 4:
+			   run("dungeon/Punishments/M4.js");
+			   break;
+				case 5:
+			   run("dungeon/Punishments/M5.js"); 
+			   break;
+				case 6:
+			   run("dungeon/Punishments/M8.js");
+			   break;
+			   }
+			   //run("dungeon/Punishments/M"+punishmentchoice+".js");		
 			break;
 			case 3:
-			   punishmentchoice = randomInteger(1,3);
+			   punishmentchoice = randomInteger(1,4);
 			   switch ( punishmentchoice ) {
 				   case 1:
 			   run("dungeon/Punishments/H1.js");
@@ -268,25 +292,40 @@ if(isVar("PunishmentActive") && getVar("PunishmentActive")==true){
 				case 3:
 			   run("dungeon/Punishments/H7.js");
 			   break;
+			    case 4:
+			   run("dungeon/Punishments/H8.js");
+			   break;
 			
-		
 			   }
 			
 			break;
 			case 4:
 			//fixme impliment other extreeme punishments
-			   punishmentchoice = randomInteger(4,4);
-			   if((punishmentchoice==5) && (getVar("toyenemakit")==true))
+			//1-5
+			   punishmentchoice = randomInteger(2,7);  //fixme was 2-=7
+			   if((punishmentchoice==7) && (getVar("toyenemakit")==true))
 			   { run("dungeon/Punishments/B1.js");}
-		   else
-			   //fixme un stick this
-			   punishmentchoice = randomInteger(4,4);
-				if((punishmentchoice==4) && (getVar("toyshockcollar")==true))
-				{
-				run("dungeon/Punishments/E"+punishmentchoice+".js");
-				}
-				else {punishmentchoice = randomInteger(1,3);
-				run("dungeon/Punishments/E"+punishmentchoice+".js");
+				else{
+				   //fixme un stick this
+				//1-4
+				   punishmentchoice = randomInteger(2,6);// fixme was 2-6
+					if(((punishmentchoice==4) || (punishmentchoice==5)|| (punishmentchoice==6)) && (getVar("toyshockcollar")==true))
+					{
+						if(punishmentchoice==4)	{
+						run("dungeon/Punishments/E4.js");
+						}
+						if(punishmentchoice==5) {
+						run("dungeon/Punishments/E11.js");
+						}
+						if(punishmentchoice==6) {
+						run("dungeon/Punishments/E12.js");
+						}
+					}
+					//1-3
+					else 
+					 {punishmentchoice = randomInteger(2,3);
+						run("dungeon/Punishments/E"+punishmentchoice+".js");
+					}
 				}
 			break;
 			

@@ -133,7 +133,7 @@ function a()
     sendVirtualAssistantMessage(" Enjoy!");
     wait(1200);
         sendVirtualAssistantMessage(random("Get back here","Time to get back"));
-		playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
+		playAudio("/Spicy/SpecialSounds/Bell.mp3");
     sendVirtualAssistantMessage(" " + random("Let\'s move on..", "Moving on", "Let\'s continue"));
     delVar("ChoreAlt1a");
 	changeMeritLow(true);

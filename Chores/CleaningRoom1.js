@@ -38,12 +38,12 @@ sendVirtualAssistantMessage(" Report when you're done cleaning @CustomMode(#Done
 (BellGame1)
 sleep(randomInteger(20,120)); @Goto(Corner)
 (Corner)
-sendVirtualAssistantMessage(" Go to the corner %SlaveName% @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp, Stop] sleep(randomInteger(20,60));
-sendVirtualAssistantMessage(" Return to work %SlaveName% @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp] @Goto(BellGame1)
+sendVirtualAssistantMessage(" Go to the corner %SlaveName% @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp, Stop] sleep(randomInteger(20,60));
+sendVirtualAssistantMessage(" Return to work %SlaveName% @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp] @Goto(BellGame1)
 (BellGame2)
  sleep(randomInteger(20,120)); @Goto(Sentence)
 (Sentence)
- @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp, Stop]
+ @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @CountVar[CleaningTimeTemp, Stop]
 (Type)
 sendVirtualAssistantMessage(" random("(I have to clean properly","I'm a cleaning slut","I have to clean with a smile","Cleaning makes me happy","You can never clean enough","I wish I could clean all day","I really love cleaning)
 [i have to clean properly]sendVirtualAssistantMessage(" Get back to cleaning

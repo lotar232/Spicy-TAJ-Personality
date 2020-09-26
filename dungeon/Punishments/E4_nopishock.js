@@ -58,13 +58,13 @@ function Info()
     else
     {
         sendMessage("well go charge it quickly and tell me when its done ");
-		waitForDone();
+		waitforDone();
     }
     sendMessage("Go ahead and turn it on and wrap the collar around your %balls%");
-    sleep(10);
+    sleep(15);
     
-    sendMessage("Lucky for you Mistress has an automatic shocker for you and can control your punishment all by herself ");
-    //sendMessage("then I\'m going to tell you to push that magical button %EmoteHappy% ");
+    sendMessage("Now in just a moment I will tell you how to adjust your zapper ");
+    sendMessage("then I\'m going to tell you to push that magical button %EmoteHappy% ");
     sendMessage("Let me just check my papers.. ");
     Start();
     return;
@@ -175,7 +175,7 @@ function Contact3()
 }
 function PM4Easy()
 {
-    //sendMessage("Remember to say \"yes %DomHonorific%\" right after you\'ve shocked yourself.. ");
+    sendMessage("Remember to say \"yes %DomHonorific%\" right after you\'ve shocked yourself.. ");
     setVar("M4Round", 0);
     setVar("RipPegs", randomInteger(9,12));
     setTempVar("M4Easy", true);
@@ -185,7 +185,7 @@ function PM4Easy()
 }
 function PM4Medium()
 {
-   // sendMessage("Remember to say \"yes %DomHonorific%\" right after you\'ve shocked yourself.. ");
+    sendMessage("Remember to say \"yes %DomHonorific%\" right after you\'ve shocked yourself.. ");
     setVar("M4Round", 0);
     setVar("RipPegs",  randomInteger(12,15)); 
     setTempVar("M4Easy", true);
@@ -195,7 +195,7 @@ function PM4Medium()
 }
 function PM4Hard()
 {
-   // sendMessage("Remember to say \"yes %DomHonorific%\" right after you\'ve shocked yourself.. ");
+    sendMessage("Remember to say \"yes %DomHonorific%\" right after you\'ve shocked yourself.. ");
     setVar("M4Round", 0);
     setVar("RipPegs",  randomInteger(15,18));
     setTempVar("M4Easy", true);
@@ -212,7 +212,7 @@ function RipBase()
         return;
     }
     setVar("RipPegs", getVar("RipPegs", 0) - 1);
-    switch(random("ten", "twentyfive", "fifty", "Holdit","dazzle","ramp", "FF3", "FF2", "FF1"))
+    switch(random("ten", "twentyfive", "fifty", "Holdit", "FF3", "FF2", "FF1"))
     {
         case "ten":
         ten();
@@ -228,14 +228,6 @@ function RipBase()
         break;
         case "Holdit":
         Holdit();
-        return;
-        break;
-		case "dazzle":
-        dazzle();
-        return;
-        break;
-		case "ramp":
-        ramp();
         return;
         break;
         case "FF3":
@@ -255,9 +247,7 @@ function RipBase()
 }
 function ten()
 {
-    sendMessage("hmmm I think I'll Set the controller to 20  ");
-	setTempVar("pishockintensity", 20);
-	setTempVar("pishockduration", 2);
+    sendMessage("Set the controller to 10  ");
     sleep(5);
     Black();
     return;
@@ -265,9 +255,7 @@ function ten()
 }
 function twentyfive()
 {
-    sendMessage("let's set the controller to 50  ");
-	setTempVar("pishockintensity", 50);
-	setTempVar("pishockduration", 2);
+    sendMessage("Set the controller to 25  ");
     sleep(5);
     Black();
     return;
@@ -275,56 +263,21 @@ function twentyfive()
 }
 function fifty()
 {
-    sendMessage("lets see how hard this thing can hit... ");
-	setTempVar("pishockintensity", 100);
-	setTempVar("pishockduration", 2);
+    sendMessage("Set the controller to 50  ");
     sleep(5);
     Black();
     return;
  //   Holdit();
 }
-function dazzle()
-{
-    sendMessage("%slavename%, I want do Dazzle you ");
-	times=randomInteger(4,8);
-	iter=0
-	while (iter< times)
-		{setTempVar("pishockintensity", randomInteger(10,100));
-		setTempVar("pishockduration", 1);
-		pishock(0,getVar("pishockintensity"),getVar("pishockduration"),0);
-		sleep(1);
-		iter++;
-		}
-    RipBase();
-    return;
- //   Holdit();
-}
-function ramp()
-{
-    sendMessage("%slavename%, lets turn this up ");
-	times=randomInteger(4,8);
-	iter=0
-	while (iter< times)
-		{setTempVar("pishockintensity", 12*(iter+1));
-		setTempVar("pishockduration", 1);
-		pishock(0,getVar("pishockintensity"),getVar("pishockduration"),0);
-		sleep(1);
-		iter++;
-		}
-    RipBase();
-    return;
- //   Holdit();
-}
 function Holdit()
 {
-    sendMessage("Set the controller to 10 ");
+    sendMessage("Set the controller to 5 ");
     sleep(5);
-    sendMessage("This time %SlaveName% I'm going to find out how long I can hold the button down.");
+    sendMessage("This time %SlaveName% I want you to hold the button for the duration of the sound you\'re about to hear.");
     sendMessage(random("Tap","press","hold")+" the controller!" );
 	playAudio("Audio/Spicy/Electricity.mp3");
-		setTempVar("pishockintensity", 10);
-		setTempVar("pishockduration", 10);
-	response=sendInput(" ",10);
+
+	response=sendInput("",10);
 	     while(true){
 		 if (response.isLike("yes")) {
 			 
@@ -354,9 +307,7 @@ function FF1()
     sleep(3);
 
     textName = "["+getVar("blackmailname1")+"] :";
-	setTempVar("pishockintensity",random(10,20,30,50,100) );
-	setTempVar("pishockduration", random(1,3,5));
-    sendArbMessage(textName, "hmmm... lets Set the controller to "+getVar("pishockintensity"),0); 
+    sendArbMessage(textName, "hmmm... lets Set the controller to "+random("5","10","15","25","50"),0); 
 	showImage("Images/Spicy/FFriends/1/*");
 		sleep(3); 
     sendArbMessage(textName,"%SlaveName%, I want you to truely understand that you deserve this.",0);
@@ -365,15 +316,11 @@ function FF1()
     sendArbMessage(textName,"Slave, think of all the ways you've failed me over time",0);
 
 	showImage("Images/Spicy/FFriends/1/*");
-	//sleep(3);
-    //sendArbMessage(textName,random("Tap","press","hold","tap twice")+" the controller bitch ",0);
-	//showImage("Images/Spicy/FFriends/1/*");
-	pishock(0,getVar("pishockintensity"),getVar("pishockduration"),0);
-	playAudio("Audio/Spicy/Electricity.mp3");
 	sleep(3);
-	
-	/*
-	response=sendInput(" ",10);
+    sendArbMessage(textName,random("Tap","press","hold","tap twice")+" the controller bitch ",0);
+	showImage("Images/Spicy/FFriends/1/*");
+	playAudio("Audio/Spicy/Electricity.mp3");
+	response=sendInput("",10);
 	     while(true){
 		 if (response.isLike("yes")) {
 			 
@@ -391,8 +338,7 @@ function FF1()
 			sleep(3);
 		 break;
 		}
-	*/
-	RipBase();
+	
 	 }
 	
 	
@@ -407,25 +353,23 @@ function FF2()
 {
     sendMessage("This time %SlaveName% your friend "+ getVar("blackmailname2")+" is going to be the one that decides to shock you...");
     sleep(3);
-	setTempVar("pishockintensity",random(10,20,30,50,100) );
-	setTempVar("pishockduration", random(2,3,4));
+	
 		  
     textName = "["+getVar("blackmailname2")+"] :";
    
-    sendArbMessage(textName,"hmmm... lets Set the controller to "+getVar("pishockintensity"),0 );
+    sendArbMessage(textName,"hmmm... lets Set the controller to "+ random("5","10","15","25","50"),0 );
 
 	  showImage("Images/Spicy/FFriends/2/*");
 	  sleep(3);
     sendArbMessage(textName,"I want you to think of what you did to earn this punishment ",0);
 	 showImage("Images/Spicy/FFriends/2/*");
-		// sleep(3);
-    //sendArbMessage(textName,random("Tap","press","hold","tap twice")+" the controller ",0);
+		 sleep(3);
+    sendArbMessage(textName,random("Tap","press","hold","tap twice")+" the controller ",0);
 
 	  showImage("Images/Spicy/FFriends/2/*");
-	  pishock(0,getVar("pishockintensity"),getVar("pishockduration"),0);
 	  playAudio("Audio/Spicy/Electricity.mp3");
 	
-		response=sendInput(" ",10);
+		response=sendInput("",10);
 	     while(true){
 		 if (response.isLike("yes")) {
 			 
@@ -454,23 +398,21 @@ function FF2()
 function FF3()
 {
     sendMessage("This time %SlaveName% your friend "+ getVar("blackmailname3")+"  is going to be the one that decides to shock you...");
-    sleep(2);
+    sleep(3);
 	
     textName = "["+getVar("blackmailname3")+"] :";
-	setTempVar("pishockintensity",random(10,20,30,50,100) );
-	setTempVar("pishockduration", random(2,4,6,8,10));
-   sendArbMessage(textName,"hmmm... lets Set the controller to "+getVar("pishockintensity"),0 );
+
+   sendArbMessage(textName,"hmmm... lets Set the controller to "+random("5","10","15","25","50"),0 );
 	showImage("Images/Spicy/FFriends/3/*");
 	sleep(3);
 	
-   sendArbMessage(textName,"are you ready to suffer for me?",0);	
+   sendArbMessage(textName,"are you ready to do this for me?",0);	
 	showImage("Images/Spicy/FFriends/3/*");
-	//sleep(3) ;
-   //sendArbMessage(textName,random("Tap","press","hold","tap twice")+ " the controller twice cutie ",0);
+	sleep(3) ;
+   sendArbMessage(textName,random("Tap","press","hold","tap twice")+ " the controller twice cutie ",0);
 	showImage("Images/Spicy/FFriends/3/*");
-	pishock(0,getVar("pishockintensity"),getVar("pishockduration"),0);
 	playAudio("Audio/Spicy/Electricity.mp3");
-	response=sendInput(" ",10);
+	response=sendInput("",10);
 	     while(true){
 		 if (response.isLike("yes")) {
 			 
@@ -501,21 +443,15 @@ function FF3()
 function Black()
 {
     sendMessage(random("Be ready!","Prepare","Prepare yourself","Get ready","Stay ready","Ready yourself") );
-
-	sleep(randomInteger(2,10));
-	intensity= 
-    pishock(0,getVar("pishockintensity"),getVar("pishockduration"),0);
 	showImage("Images/Spicy/Punishment/Grounding/BlackBase.*"); 
-	sleep(randomInteger(2,4));
-	//Rip();
-	RipBase();
-	return;
+	sleep(randomInteger(2,10));
+    Rip();
 }
 function Rip()
 {
     sendMessage(random("Tap","press","hold","tap twice","squeeze")+" the controller ");
     playAudio("Audio/Spicy/Electric Shock.mp3");
-	response=sendInput(" ",10);
+	response=sendInput("",10);
 	     while(true){
 		 if (response.isLike("yes")) {
 			 

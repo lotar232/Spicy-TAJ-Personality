@@ -152,7 +152,7 @@ sendVirtualAssistantMessage(" I'm gonna ask you how many rooms are in your %home
 sendVirtualAssistantMessage(" You can choose between 1-5 not including kitchen and bathroom");
 sendVirtualAssistantMessage(" If you have more than 5 rooms or some of them are very small consider adding two of them together");
 sendVirtualAssistantMessage(" I also suggest that you draw a schematic of your %home% and add it to the folder named Home");
-sendVirtualAssistantMessage(" The folder should be located inside GNMImages");
+sendVirtualAssistantMessage(" The folder should be located inside 'Spicy'");
 sendVirtualAssistantMessage(" You can name the image whatever you want");
 sendVirtualAssistantMessage(" Just make sure that there is only 1 image inside the folder");
 sendVirtualAssistantMessage(" It can look something like this ",0);
