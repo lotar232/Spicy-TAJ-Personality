@@ -5,7 +5,7 @@ function GNMReadyVocabulary() {
    if (getVar("BlockSounds") == true) {
     }
     else {
-        playAudio("Audio/GNMSounds/QuestionAndShortWords/Ready/*.mp3");
+        playAudio("Audio/Spicy/QuestionAndShortWords/Ready/*.mp3");
     }
 
     return answers[randomInteger(0, answers.length - 1)];
