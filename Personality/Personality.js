@@ -1,6 +1,7 @@
 run("Personality/Limits.js");
 
 const ENFORCING_PERSONALITY_ID = 1;
+const KIND_PERSONALITY_ID = 2;
 
 const ACTIVE_PERSONALITY_ID = getVar("personalityType");
 
@@ -8,15 +9,47 @@ let ACTIVE_PERSONALITY_STRICTNESS = getVar("personalityStrictness", 0);
 
 const TOY_PLAY_MODE = 0;
 const TOY_PUNISHMENT_MODE = 1;
-const TOY_BOTH_MODE = 2;
+const TOY_BOTH_MODE = 2;1
 const TOY_ASKED_BUY_MODE = 3;
+
+const DOMME_BIRTHDAY = new Date(new Date().getFullYear(), 6, 30, 0, 0, 0);
+
+
+/**
+ * Returns the strictness of the current active character
+ * @param index
+ * @returns {*}
+ */
+function getStrictnessForCharacter(index = getCurrentTAJSenderID()) {
+    switch(index) {
+        //Dom
+        case 1:
+            return ACTIVE_PERSONALITY_STRICTNESS;
+            //Friend 1
+        case 2:
+            return 0;
+            //Friend 2
+        case 3:
+            return 1;
+            //Friend 3
+        case 4:
+            return 2;
+        default:
+            sendDebugMessage('Unknown sender id for strictness: ' + index);
+            return 0;
+    }
+}
 
 function setUpPersonalityVars() {
     switch(ACTIVE_PERSONALITY_ID) {
         case ENFORCING_PERSONALITY_ID:
             for(let x = 0; x < LIMITS.length; x++) {
-                if(getVar(LIMITS[x], LIMIT_NEVER_ASKED) != LIMIT_NEVER) setVar(LIMITS[x], LIMIT_ASKED_YES);
+                if(LIMITS[x].getLimit() != LIMIT_NEVER) {
+                    LIMITS[x].setLimit(LIMIT_ASKED_YES);
+                }
             }
+            break;
+        case KIND_PERSONALITY_ID:
             break;
         default:
             sendSystemMessage("Personality type id " + ACTIVE_PERSONALITY_ID + " does not exist.");
@@ -41,12 +74,13 @@ function updateMood() {
 }
 
 function getMood() {
-    updateMood();
+     
+   updateMood();
 
     const merits = getVar("Merits");
 
     let veryPleased, pleased, neutral, annoyed, veryAnnoyed;
-    switch(ACTIVE_PERSONALITY_STRICTNESS) {
+    switch(getStrictnessForCharacter()) {
         case 0:
             veryPleased = 900;
             pleased = 700;
@@ -98,7 +132,7 @@ function changeMeritHigh(negative) {
 }
 
 function changeMerit(level, negative) {
-    let index = ACTIVE_PERSONALITY_STRICTNESS*10;
+    let index = getStrictnessForCharacter()*10;
     let minChange;
     let maxChange;
     if(getMonthlyBadDays() > getMonthlyGoodDays()) {
@@ -150,14 +184,54 @@ function changeMerit(level, negative) {
     addMerits(meritChange);
 }
 
-function addMerits(meritChange) {
-    if(getVar(VARIABLE_MERITS) + meritChange < 0) {
-        meritChange = -getVar(VARIABLE_MERITS);
-    }
+function isDomBirthday() {
+    return 12 === new Date().getDate() && 7 === new Date().getMonth();
+}
 
-    setVar(VARIABLE_MERITS, getVar(VARIABLE_MERITS) + meritChange);
+function addMerits(meritChange) {
+    //Min 0 max 1000
+    setVar(VARIABLE_MERITS, Math.min(1000, Math.max(0, getVar(VARIABLE_MERITS) + meritChange)));
 }
 
 function isEnforcingPersonality() {
     return ENFORCING_PERSONALITY_ID === ACTIVE_PERSONALITY_ID;
+}
+
+function sendGreeting() {
+    const greeting = ["Hello", "Greetings", "Hey", "Hi"];
+
+    const date = new Date();
+    if (date.getHours() > 6 && date.getHours() < 12) {
+        greeting.push("Good morning");
+    } else if (date.getHours() >= 12 && date.getHours() < 18) {
+        greeting.push("Good afternoon");
+    } else if (date.getHours() >= 18 && date.getHours() < 24) {
+        greeting.push("Good evening");
+    }
+
+
+    sendMessage(greeting[randomInteger(0, greeting.length - 1)] + " %SlaveName%", 0);
+    playSound("Audio/Spicy/Starts/Hello/*.mp3");
+
+    let answer = createInput(15);
+    if (answer.isTimeout()) {
+        changeMeritHigh(true);
+        sendMessage(random("Not feeling like greeting your domme today", "Seems like you are not in the mood to greet me", "Being impolite today", "Being rude today") + " %SlaveName%?");
+        sendMessage("I won't tolerate " + random("impolite", "rude", "disrespectful", "ignorant") + " behaviour!");
+        return false;
+    } else if (answer.containsIgnoreCase("Hello", "Greetings", "Hey", "Hi")) {
+        changeMeritLow(false);
+        return true;
+    }
+}
+
+function sendAsMuchFun() {
+    sendMessage(random("Hopefully ", 'I hope ') + random("that was as much fun for you as for me", 'you enjoyed this as much as I did', 'you enjoyed this too', 'this was fun for you too'));
+
+    if (getStrictnessForCharacter() > 0 && feelsLikePunishingSlave()) {
+        sendMessage("Oh wait...");
+        sendMessage("I don't really care %Lol%");
+    } else {
+        sendMessage(random('I certainly enjoyed it %Lol%', 'It was fun for me at least %Lol%', 'I certainly had a lot of fun %Grin%', 'I certainly had a blast %Grin%', 'I certainly really enjoyed this %Lol%'));
+    }
 }

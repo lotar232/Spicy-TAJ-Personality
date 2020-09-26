@@ -1,7 +1,7 @@
 {
     let exercise = true;
 
-    if (isVar("HasExercised")) {
+    if (!isVar("HasExercised")) {
         setVar("HasExercised", true);
         //sendVirtualAssistantMessage("TP2");
         setVar("ExerciseTimes", 0);
@@ -69,7 +69,7 @@
 
         if (isVar("ExercisePeriod")&&(getDate("ExercisePeriod").before(setDate().addHour(-160)))) {
             sendVirtualAssistantMessage("A seven day cycle has ended");
-            sendVirtualAssistantMessage("This past week you've spent" + getVar("ExerciseTimes") + " times exercising with me");
+            sendVirtualAssistantMessage("This past week you've spent " + getVar("ExerciseTimes") + " times exercising with me");
             switch (getVar("ExerciseTimes")) {
                 case 6:
                     sendVirtualAssistantMessage("Which is Excellent!! And it earns you 450 gold");
@@ -86,7 +86,7 @@
                 case 3:
                     sendVirtualAssistantMessage("Which is good and earns you 100 gold");
                     addGold(100);
-                    break
+                    break;
                 case 2:
                     sendVirtualAssistantMessage("Which is okay.. but it earns you 50 gold");
                     addGold(50);
