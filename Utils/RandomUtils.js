@@ -10,6 +10,70 @@ function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function getWinnerIndex(array) {
+    let maxChance = 0;
+    for(let index = 0; index < array.length; index++) {
+        maxChance += array[index];
+    }
+
+    const randomInt = randomInteger(0, maxChance);
+
+    let currentChance = 0;
+
+    for(let index = 0; index < array.length; index++) {
+        currentChance += array[index];
+
+        if(randomInt <= currentChance) {
+            return index;
+        }
+    }
+
+    sendDebugMessage('No winner in array found!');
+    return -1;
+}
+
+/**
+ * Shuffles array in place.
+ * @param {Array} a items an array containing the items.
+ */
+function shuffle(a) {
+    let j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
+function findRandomUnusedIndex(indexMax, history, minElementsSinceLastRun = indexMax/2) {
+    let indexesToTry = new java.util.ArrayList();
+
+    for(let x = 0; x <= indexMax; x++) {
+        indexesToTry.add(x);
+    }
+
+    let randomIndex = null;
+
+    //At least a bit of diversity
+    while(randomIndex == null || (history.isInHistory(randomIndex) && history.getModulesSinceHistory(randomIndex) < minElementsSinceLastRun)) {
+        //We tried all possibilities
+        if(indexesToTry.isEmpty()) {
+            break;
+        }
+
+        randomIndex = randomInteger(0, indexesToTry.size() - 1);
+
+        //Remove from array so we won't get it again
+        indexesToTry.remove(randomIndex);
+    }
+
+    history.addHistoryRun(randomIndex);
+
+    return randomIndex;
+}
+
 function isChance(percentage) {
     return randomInteger(1, 100) <= percentage;
 }
@@ -27,6 +91,7 @@ function waitForDone() {
 			}
 		
 			else
+				wait(1);
 				answer.loop();
 		}
 	
@@ -58,7 +123,8 @@ function waitForDone2(delay) {
 	response = createInput(delay+randomInteger(1,3),"done");
 	while(true){
 		if(response.containsIgnoreCase("ready","ok","yes","done","finshed")) {
-			sendVirtualAssistantMessage(" %GNMGood% !"); 
+			sendVirtualAssistantMessage(" %GNMGood% !");
+				response.clearOptions();
 			break;
 			}
 		 if (response.isTimeout()){

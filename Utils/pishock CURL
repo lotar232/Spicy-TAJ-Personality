@@ -1,0 +1,1 @@
+curl -d '{"Username":"lotar232","Code":"1701CD3D0FB","Intensity":"100","Duration":"5","ApiKey":"8fefff04-abad-4563-bc0b-3fb3ee1508da","Op":"1"}' -H "Content-Type: application/json" -X POST https://pss.pishock.com/Api/APIOperate
