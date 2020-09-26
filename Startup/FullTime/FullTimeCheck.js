@@ -1,6 +1,6 @@
-sendMessage("in full time checkup");
-        const date = new Date();
-sendMessage("the day is "+ date.getDay());
+//sendMessage("in full time checkup");
+       const date = new Date();
+//sendMessage("the day is "+ date.getDay());
 
     if (isVar(VARIABLE_LAST_ROUTINE_CHECK) && getDate(VARIABLE_LAST_ROUTINE_CHECK).hasPassed()) {
         setVar(VARIABLE_WEEKLY_SLAVE_VISITS, getVar(VARIABLE_WEEKLY_SLAVE_VISITS) + 1);
@@ -25,7 +25,7 @@ sendMessage("the day is "+ date.getDay());
         }
 
 
-sendMessage("the day is "+ date.getDay());
+//sendMessage("the day is "+ date.getDay());
         //Tuesday
         if (date.getDay() == 2) {
             run("Startup/FullTime/ConfessionDay.js");
@@ -70,8 +70,8 @@ sendMessage("the day is "+ date.getDay());
 
                 setVar(VARIABLE_WEEKLY_SLAVE_VISITS, 0);
                 sendVirtualAssistantMessage("Let's see if you've been doing your chores like a good slave!");
-//fixme... somehow NAN check causes a crash here?  uninitialized Var's?
-                if (isVar(VARIABLE_WEEKLY_CHORES_COMPLETED) && (getVar(VARIABLE_WEEKLY_CHORES_COMPLETED) < getVar(VARIABLE_MIN_WEEKLY_CHORES))) {
+
+                if (getVar(VARIABLE_WEEKLY_CHORES_TIME) < getVar(VARIABLE_MIN_WEEKLY_CHORE_TIME)) {
                     sendVirtualAssistantMessage(random("Bad boy!", "Bad girl!", "Bad slut!", "Bad dog!", "Bad slave!", "Bad sissy!"));
                     sendVirtualAssistantMessage("Bad behaviour is punished!");
                     sendVirtualAssistantMessage("I just assigned you punishment points!");
@@ -84,7 +84,9 @@ sendMessage("the day is "+ date.getDay());
                     sendVirtualAssistantMessage("Transferring gold...");
                     addGold(randomInteger(50, 200));
                 }
-				   setVar(VARIABLE_WEEKLY_CHORES_COMPLETED, 0);
+
+                setVar(VARIABLE_WEEKLY_CHORES_TIME, 0);
+                setVar(VARIABLE_WEEKLY_CHORES_DONE, 0);
 
                 //TODO: Study and athlete mode
             }

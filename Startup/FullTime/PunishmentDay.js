@@ -28,8 +28,7 @@
 		setVar("Preason_BadEdging",false);	
 		setVar("BadMouth",false);	
 		setVar("Preason_BadFullTime",false);	
-
-		
+		setVar("Preason_Flirting",false);		
 		
 		
 		if (!isVar(VARIABLE_NEXT_PUNISHMENT_DAY)) {
@@ -41,7 +40,7 @@
             sendVirtualAssistantMessage("I've added a healthy dose of punishment points for that!");
             addPunishmentPoints(300);
 			setVar("PReason_skipping_punishment", true);
-            sendVirtualAssistantMessage("You are expected to report on tuesdays!");
+            sendVirtualAssistantMessage("You are expected to report on thursdays!");
         }
 
         //Set the date to the next thursday
@@ -57,7 +56,7 @@
 			setVar("PReason_too_many_points",true);
         }
 		else{ sendVirtualAssistantMessage(random("Good Boy!","%GNMgood%", "well done, %Slave%!"));
-			sendVirtualAssistantMessage(random("I hope you learned your lesson","suffering punishment for %Mistressname% is your duty", " That satisfies you're weekly %slave% requirement"));
+			sendVirtualAssistantMessage(random("I hope you learned your lesson, %subname%","suffering punishment for %domname% is your duty %subname%", " That satisfies you're weekly %slave% requirement %subname%"));
 			//fixme  expand dialog... clear Preason flags here..	
 			
 		}
