@@ -1,4 +1,297 @@
  //@CheckFlag(AssignedChoreFirstTime) @SetFlag(AssignedChoreFirstTime)
+function pishockChore(choretime){
+	  sendVirtualAssistantMessage("Fetch your shock collar %SlaveName%" );
+	setVar("shocks_recieved", 0);
+	showImage("Images/Spicy/Toys/ShockCollar.jpg");
+	sleep(10);
+	sendVirtualAssistantMessage("Got it? " );
+    answer0 = createInput("Yes", "No");
+	
+    if (answer0.isLike("yes"))
+    {
+        sendVirtualAssistantMessage("%Good% ");
+    }
+    else
+    {
+        sendVirtualAssistantMessage("%bad% ");
+		sendVirtualAssistantMessage("are you able to go fetch it now boy and connect it? ");
+		
+		//fixme... need to handle this case with yes/no and assing punishment if toy isn't available.
+    }
+     answer1 = sendInput("Turn it on...is it charged up slave??? ");
+    if (answer1.isLike("yes"))
+    {
+        sendVirtualAssistantMessage("%Good% ");
+
+	
+    }
+    else
+    {
+        sendVirtualAssistantMessage("well go charge it quickly and tell me when its done ");
+		waitForDone();
+    }
+	pishock(0,50,2,1);  //sends a buzz 
+    sendVirtualAssistantMessage("Go ahead and wrap the collar around your %balls%");
+    sleep(10);
+sendVirtualAssistantMessage("%Grin% "); //#DT4
+
+ sendVirtualAssistantMessage("Slave, go ahead and start your chore... don't worry about time....");
+  pishock(0,20,2,0);  //sends a buzz 
+  sendVirtualAssistantMessage("I'll give you a little reminder when its time to come back");
+  
+  
+  	setDate("TimerEarly",setDate().addMinute(cleaningTimeTemp-1));
+	setDate("TimerLate",setDate().addMinute(cleaningTimeTemp+10));
+            CHORE_WATCH.reset();
+            CHORE_WATCH.start();
+
+
+	minutes=0;
+	startshock=20;
+	duration=2;
+		answer = createInput(60, "Done");	
+	while (true){
+	if(answer.containsIgnoreCase("done","ok","finished","yes")){
+		answer.clearOptions();
+		sendDebugMessage("done observed");
+		sendVirtualAssistantMessage(" I hope you did a job %domHonorific% %domName% will be proud of",4);	
+		sendVirtualAssistantMessage("did you completely finish the job you were assigned??",0);	
+		    answer0 = createInput("Yes", "No");
+	
+				if (answer0.isLike("yes"))
+				{
+					sendVirtualAssistantMessage("%Good% %slave%",2);
+					break;
+				}
+				else
+				{ if (65<=randomInteger(0,100)) {
+					sendVirtualAssistantMessage("that's pathetic slave!");
+					sendVirtualAssistantMessage(random("but I suppose I'll let you slide this time", "but I don't have time to supervise your lazy ass"));
+					sendVirtualAssistantMessage(random("but I can't let this go entirely uncorrected", "but you must be punished","however.... you must suffer"));
+					sendVirtualAssistantMessage(random("oh I know!", "aha!", "", "I got it!", "take this!"));
+					pishock(0,70,2,0);
+					break;
+					}
+					else {pishock(0,70,2,0);
+					sendVirtualAssistantMessage("that is not what you were told to do and is disrespectful of myself and  %domHonorific% %domName%",2);	
+					sendVirtualAssistantMessage("get back to work %bitch%...");	
+					sendVirtualAssistantMessage("I'll give you a few minutes before the shocks start again ");	
+					choretime=minutes + randomInteger(3,8);
+					answer.clearOptions();
+					answer = createInput(60, "Done");
+					}
+					
+				}
+	
+	}else if (answer.isTimeout()){
+		minutes=minutes+1;
+		sendDebugMessage("chore shock minutes in= " +minutes);
+		if (minutes<choretime)
+		{sleep(1);
+		}
+		else
+		{  pishock(0,startshock,duration,0);
+		if (startshock<100)
+			{startshock=startshock+10;}
+		else
+			{duration=duration+1;}
+		
+		}
+		answer.clearOptions();
+		answer = createInput(60, "Done");
+		
+	}
+}
+
+
+
+
+}
+
+function lovenseChore(choretime){
+	//fixme needs to be written
+		  sendVirtualAssistantMessage("%SlaveName%, I want you to get your Lovense plug" );
+	
+	showImage("Images/Spicy/Toys/lovense.jpg");
+	sleep(10);
+	sendVirtualAssistantMessage("Got it? " );
+    answer0 = createInput("Yes", "No");
+	
+    if (answer0.isLike("yes"))
+    {
+        sendVirtualAssistantMessage("%Good% ");
+    }
+    else
+    {
+        sendVirtualAssistantMessage("%bad% ");
+    }
+	sendVirtualAssistantMessage("go ahead and turn it on, and connect it to the lovense connect SW on your computer" );
+     answer1 = sendInput("Turn it on...is it charged up and connected slave??? ");
+    if (answer1.isLike("yes"))
+    {
+        sendVirtualAssistantMessage("%Good% ");
+		sendVirtualAssistantMessage(" lets give this a little test");
+		enumeratelovense();
+		buttplugid=getVar("LovenseButtplugIndex");
+		toy0=getVar("Lovense"+buttplugid+"ID");
+		vibratelovense(4, toy0);
+		sleep(1);
+		vibratelovense(0, toy0);
+		batterylevel= getbatterylovense(toy0);
+		sendVirtualAssistantMessage("it looks like your battery level is " + batterylevel);
+		if (batterylevel<15){
+
+			sendVirtualAssistantMessage("which is lower than I'd like %slavename%...");
+			sendVirtualAssistantMessage("%subname%, plug it in for a few minutes right now!", 20);
+			sendVirtualAssistantMessage("%slavename%, you can just wait there, Kneeling on the floor.... ", 15);
+			sendVirtualAssistantMessage("Reflecting on why its a sub's duty to keep all of his toys ready ", 15);
+			waitForDone(randomInteger(240,500));		
+		}
+		if (batterylevel>90){
+
+			sendVirtualAssistantMessage("Good job being prepared %subname%");
+			
+		}
+
+
+	
+    }
+    else
+    {
+        sendVirtualAssistantMessage("well go charge it quickly and tell me when its done ");
+		waitForDone();
+    }
+	
+    sendVirtualAssistantMessage("Go ahead and lube up the toy and get it inside you");
+    sendVirtualAssistantMessage("let me know when you're done.");
+	
+	waitForDone();
+	sendVirtualAssistantMessage("Slave, go ahead and start your chore... don't worry about time....");
+  sendVirtualAssistantMessage("I'll give you a little buzz each minute and put you on notice when your time is up");
+	vibratelovense(4, toy0);
+	sleep(1);
+	vibratelovense(0, toy0);
+    sleep(10);
+sendVirtualAssistantMessage("%Grin% "); //#DT4
+	
+  	setDate("TimerEarly",setDate().addMinute(cleaningTimeTemp-1));
+	setDate("TimerLate",setDate().addMinute(cleaningTimeTemp+10));
+            CHORE_WATCH.reset();
+            CHORE_WATCH.start();
+
+
+	minutes=0;
+
+		answer = createInput(60, "Done");	
+	while (true){
+	if(answer.containsIgnoreCase("done","ok","finished","yes")){
+		answer.clearOptions();
+		sendDebugMessage("done observed");
+		sendVirtualAssistantMessage(" I hope you did a job %domHonorific% %domName% will be proud of",4);	
+		sendVirtualAssistantMessage("%subname%, did you completely finish the job you were assigned??",0);	
+		    answer0 = createInput("Yes", "No");
+	
+				if (answer0.isLike("yes"))
+				{	answer0.clearOptions();
+					vibratelovense(0, toy0);
+					sendVirtualAssistantMessage("%Good% %slave%",2);
+					
+					
+					break;
+				}
+				else
+				{ if (65<=randomInteger(0,100)) {
+					vibratelovense(0, toy0);
+					sendVirtualAssistantMessage("that's pathetic slave!");
+					sendVirtualAssistantMessage(random("but I suppose I'll let you slide this time", "but I don't have time to supervise your lazy ass"));
+					sendVirtualAssistantMessage(random("but I can't let this go entirely uncorrected", "but you must be punished","however.... you must suffer"));
+					sendVirtualAssistantMessage(random("oh I know!", "aha!", "", "I got it!", "take this!") + " I'm assigning you punishment points");
+					vibratelovense(0, toy0);
+					addPunishmentPoints(50);
+					break;
+					}
+					else {
+					sendVirtualAssistantMessage("that is not what you were told to do and is disrespectful of myself and  %domHonorific% %domName%",2);	
+					sendVirtualAssistantMessage("get back to work %slaveName%...");	
+					sendVirtualAssistantMessage("I'll give you a few more minutes ");	
+					vibratelovense(0, toy0);
+					choretime=minutes + randomInteger(3,8);
+					answer.clearOptions();
+					answer = createInput(60, "Done");
+					}
+					
+				}
+	
+	}else if (answer.isTimeout()){
+		minutes=minutes+1;
+		vibratelovense(4, toy0);
+		sleep(1);
+		vibratelovense(0, toy0);
+		sendDebugMessage("chore lovense minutes in= " +minutes);
+		if (minutes<choretime)
+		{vibratelovense(4, toy0);
+		sleep(1);
+		vibratelovense(0, toy0);
+		}
+		else
+		{  vibratelovense( randomInteger(14,20),toy0);
+		
+		
+		}
+		answer.clearOptions();
+		answer = createInput(60, "Done");
+		
+	}
+}
+
+
+
+}
+
+
+function waitForChoreFinish(cleaningTimeTemp){
+		setDate("TimerEarly",setDate().addMinute(cleaningTimeTemp-1));
+	setDate("TimerLate",setDate().addMinute(cleaningTimeTemp+10));
+            CHORE_WATCH.reset();
+            CHORE_WATCH.start();
+   waitForDone(10000);
+	   if (getDate("TimerLate").hasPassed()){
+	   //slave is late
+			sendVirtualAssistantMessage(random("You're late!","You're late %SlaveName%","You're late slut..","Late are we?","You know you're late right?") );
+			sendVirtualAssistantMessage(random("I dont tolerate late!","You know I dont tolerate it when you're late","There is zero tolerance for being late and lazy!"));  
+			setVar("Preason_BadChores", true);
+			sendVirtualAssistantMessage("I have assigned you punishment points");
+			 addPunishmentPoints(50);
+
+ 
+   }else   if (getDate("TimerEarly").hasPassed()){
+	   //slave is on time
+
+			sendVirtualAssistantMessage("%GNMgood% %SlaveName%"); 
+			changeMeritMedium(false); 
+			sendVirtualAssistantMessage("Allow me to reward your "+ random("splendid","good","exelent","lovely")+" "+ random("behaviour","work")+ " %GNMGrin%");
+			addGold(randomInteger(40,80));
+
+   }else{
+	   //slave is early
+	 
+			sendVirtualAssistantMessage(random("You're early %SlaveName%","You're too early","Done so soon?","Already done?") ); 
+			sendVirtualAssistantMessage(random("We both know thats impossible","We both very well know you cant be..","Do I seem stupid to you?","Impossible..")); // @SetFlag(BadChores)
+			sendVirtualAssistantMessage(random("That cant go unpunished","I have to punish you for this","I'm gonna have to punish you.."));
+			sleep(5);
+			sendVirtualAssistantMessage("you know I'm timing you..");
+			sendVirtualAssistantMessage("I have assigned you punishment points ");
+			addPunishmentPoints(50);
+			setVar("Preason_BadChores", true);
+
+		}
+	
+}
+
+
+
+
+
 if(!isVar("FirstassignedChoreRun")){
 	sendVirtualAssistantMessage("Oh hey its your first time doing a chore %DomHonorific% %DomName% assigned...");
 	sendVirtualAssistantMessage("Well let me just ask you a question before we get started..");
@@ -31,7 +324,7 @@ if(!isVar("FirstassignedChoreRun")){
 //	(AssignedChoreFirstTime)
 	
 	
-	sendVirtualAssistantMessage(" So %SlaveName%, tell me what you're assignment is?"); 
+	sendVirtualAssistantMessage(" So %SlaveName%, tell me what you're assignment is?",0); 
 	ChoreThatWasAssigned= createInput();
 	 setVar("ChoreLog", getVar("ChoreLog")+" <> "+ChoreThatWasAssigned);
 	looping=true;
@@ -60,9 +353,40 @@ if(!isVar("FirstassignedChoreRun")){
 	sendVirtualAssistantMessage("When you're done return to me and say 'done' ", 15);
 	sendVirtualAssistantMessage("Remember i'm timing you! No cheating..");
 		//@Goto(StartTimerStandard)
+  waitForChoreFinish(cleaningTimeTemp);
+
 	}else
 
 	{
+		//fix the 0<random integer in lovense to unhardcode.
+		if(((75<=randomInteger(0,100))&&(isVar("hasPishock") && getVar("hasPishock")==true)) || ((0<=randomInteger(0,100))&&(isVar("hasLovense") && getVar("hasLovense")==true)))
+			{if((isVar("hasPishock") && getVar("hasPishock")==true) &&(isVar("hasLovense") && getVar("hasLovense")==true  ))
+				{
+					// they're both available
+					if( 50<=randomInteger(0,50))
+						{pishockChore(cleaningTimeTemp);}
+					else
+						{lovenseChore(cleaningTimeTemp);}
+				}
+			else
+			{//there's only one available so call it
+				if (isVar("hasPishock") && getVar("hasPishock")==true)
+					{pishockChore(cleaningTimeTemp);
+						//call pishock sequence
+					}
+				else
+					{lovenseChore(cleaningTimeTemp);
+						//call lovense
+					}
+					
+				
+			}
+			
+			}
+		else{
+		
+		
+		
 	sendVirtualAssistantMessage(random("Grin..","Okay!","Hmm..","Hehe","%GNMGrin%"));
 
 	 
@@ -391,46 +715,13 @@ if(!isVar("FirstassignedChoreRun")){
 		//@Goto(StartTimerStandard)
 		break;
 	 }
-	}
 	
-	setDate("TimerEarly",setDate().addMinute(cleaningTimeTemp-1));
-	setDate("TimerLate",setDate().addMinute(cleaningTimeTemp+10));
-            CHORE_WATCH.reset();
-            CHORE_WATCH.start();
-   waitForDone(10000);
+	waitForChoreFinish(cleaningTimeTemp);
 
+		}
    
-   if (getDate("TimerLate").hasPassed()){
-	   //slave is late
-			sendVirtualAssistantMessage(random("You're late!","You're late %SlaveName%","You're late slut..","Late are we?","You know you're late right?") );
-			sendVirtualAssistantMessage(random("I dont tolerate late!","You know I dont tolerate it when you're late","There is zero tolerance for being late and lazy!"));  
-			setVar("Preason_BadChores", true);
-			sendVirtualAssistantMessage("I have assigned you punishment points");
-			 addPunishmentPoints(50);
 
- 
-   }else   if (getDate("TimerEarly").hasPassed()){
-	   //slave is on time
-
-			sendVirtualAssistantMessage("%GNMgood% %SlaveName%"); 
-			changeMeritMedium(false); 
-			sendVirtualAssistantMessage("Allow me to reward your "+ random("splendid","good","exelent","lovely")+" "+ random("behaviour","work")+ " %GNMGrin%");
-			addGold(randomInteger(40,80));
-
-   }else{
-	   //slave is early
-	 
-			sendVirtualAssistantMessage(random("You're early %SlaveName%","You're too early","Done so soon?","Already done?") ); 
-			sendVirtualAssistantMessage(random("We both know thats impossible","We both very well know you cant be..","Do I seem stupid to you?","Impossible..")); // @SetFlag(BadChores)
-			sendVirtualAssistantMessage(random("That cant go unpunished","I have to punish you for this","I'm gonna have to punish you.."));
-			sleep(5);
-			sendVirtualAssistantMessage("you know I'm timing you..");
-			sendVirtualAssistantMessage("I have assigned you punishment points ");
-			addPunishmentPoints(50);
-			setVar("Preason_BadChores", true);
-
-   }
-
+	}
 
 setVar("ChoreActive",false);
  setVar(VARIABLE_WEEKLY_CHORES_COMPLETED, getVar(VARIABLE_WEEKLY_CHORES_COMPLETED)+1);
