@@ -99,7 +99,8 @@ function interpretLegacyTaunt(message, tauntType = LEGACY_TAUNT_TYPE_STROKE) {
         }
 
        // addStrokingBPM(Math.floor(maxBPM - getStrokingBPM()));
-	   startStrokingBPM(maxBPM);
+	sendDebugMessage('about to call startStrokingBPM with BPM= ' + maxBPM);
+	   startStroking(maxBPM);
     } else if (strokeSlowest) {
         let minBPM = 20;
 
@@ -110,7 +111,7 @@ function interpretLegacyTaunt(message, tauntType = LEGACY_TAUNT_TYPE_STROKE) {
         }
 
        // addStrokingBPM(Math.floor(minBPM - getStrokingBPM()));
-		startStrokingBPM(minBPM);
+		startStroking(minBPM);
     }
 
     if (showBoobsImage) {

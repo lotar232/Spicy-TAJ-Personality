@@ -1,5 +1,61 @@
 
 
+/*
+
+how to install lovense:
+
+you first need Lovense Toys ... I have a Hush, Edge, and Max so those should be the best tested, but others will likely work.. 
+note : all commands will not work with all toys... some have 2 vibrators(edge) while others only have 1(Hush).... some inflate (max) etc...
+
+ 
+ second you will likely need a Lovense Bluetooth adapter. 
+ (needed for PC's... its possible you wouldnt need it if running on a phone/tablet, but you're on your own trying to get that to work )
+ 
+ next you will need to install Lovense SW....
+ 
+ there are actually 2 pieces of Software, Lovense Connect, and Lovense Remote. 
+ only one of these programs can use your Bluetooth adapter to connect to your toy at once.
+ 
+ Lovense Connect is the "Server" that can be set up to be used by TeaseAIJava to automatically control toys. (it also is used for webcam automation)
+ 
+ Lovense Remote is the more traditional way to play with your toy directly through a user interface, or connectiing to a friend over the internet.
+ while you don't need Lovense remote for any TAIJ functionality, I'd strongly recommend installing it first to make sure your toys are connected and working
+ before taking the leap for TAIJ toy control.
+
+ 
+you will need a Lovense server (lovense Connect Software) on the same machine that you're running Tease AI Java on 
+(or will need to change the URLs used below "127-0-0-1.lovense.connect")
+
+for more details on the Lovense API's you can look here (possibly requires a free Lovense Developer account)
+https://www.lovense.com/developer/docs/lanlevel
+
+ok so how to set things up from a user perspective:
+
+1: install Lovense USB adapter into machine
+2: turn on Lovense Connect program
+3: turn on your toy and attempt to Connect to Lovense Connect
+4: once your toy is connected you should be able to use the below API's
+5: go ahead and use TAIJ 
+
+
+TAIJ scriptwriter tips:
+
+I recommend  use "lovense enumerate" first to find which toys are connected and still on... 
+it may make sense to call this periodically as the links may drop
+
+all commands don't work with all toys.... it may be better to write more general "Vibrate" commands than "Vibrate2" commands...
+(I'm debating writing a "downgrade path where if  "Vibrate2" fails it will send "Vibrate" instead)
+
+
+
+
+
+
+*/
+
+
+
+
 function setuplovense(){
 	sendVirtualAssistantMessage("hi Slave..... I hear you got a new toy",3);
 	sendVirtualAssistantMessage("smile",2);
@@ -10,11 +66,38 @@ function setuplovense(){
 	setVar('pishockUserName', createInput().getAnswer());
 	sendVirtualAssistantMessage("%SlaveName%, What is your Pishock API key");	
 	setVar('pishockAPIKey', createInput().getAnswer());
-	
+	setVar("hasLovense", true);
+}
+
+function trylovense(urlstring)	{
+	try
+	{
+	sendDebugMessage("Lovense attemting to send: "+ urlstring);
+	response = httpGet(urlstring);
+	sendDebugMessage("Lovense response data: " +response.data);
+	sendDebugMessage("Lovense response statuscode: "+response.statusCode);	
+	}
+	catch(Exception)
+	{	sendDebugMessage("Lovense Http get exception" + Exception+ " caught... maybe network issue?.. trying one more time");
+	//fixme... do a nested retry to see if the issue is intermitent
+	//sendDebugMessage("Lovense response data: " +response.data);
+	 //sendDebugMessage("Lovense response statuscode: "+response.statusCode);	
+	 
+	 try {response= httpGet(urlstring);
+		}
+			catch(Exception){
+				sendDebugMessage("2nd Lovense Http post exception" + Exception+ " caught... maybe network issue?.. trying one more time");
+				sendDebugMessage("2nd Lovense response data: " +response.data);
+				sendDebugMessage("2nd Lovense response statuscode: "+response.statusCode);	
+			}
+	 
+	}
+	sendDebugMessage("returning from trylovense");
+	return(response);
 }
 
 function enumeratelovense(){
-		response= httpGet("	https://127-0-0-1.lovense.club:30010/GetToys");
+		response= trylovense("https://127-0-0-1.lovense.club:30010/GetToys");
 	sendDebugMessage("lovense response data: " +response.data);
 	var obj = JSON.parse(response.data);
 	sendDebugMessage("lovense response type: " +obj.type);
@@ -27,18 +110,18 @@ function enumeratelovense(){
 	numberOfLovense=keys.length;
 	sendDebugMessage("lovense toys: " +numberOfLovense);
 	numberOfLovenseConnected=0;
-	for (iter=0;iter<=numberOfLovense;iter++)
+	for (iter=0;iter<numberOfLovense;iter++)
 	{if (obj.data[keys[iter]].status==1)
 		{//this device is connected
 
 		sendDebugMessage("found connected Lovense toy: " +obj.data[keys[iter]].name+" with battery charge: " +obj.data[keys[iter]].battery);
-		setVar("Lovense"+numberofLovenseConnected+"ID",obj.data[keys[iter]].id);
-		setVar("Lovense"+numberofLovenseConnected+"name",obj.data[keys[iter]].name);
-		setVar("Lovense"+numberofLovenseConnected+"status",obj.data[keys[iter]].status);
-		setVar("Lovense"+numberofLovenseConnected+"battery",obj.data[keys[iter]].battery);
-		setVar("Lovense"+numberofLovenseConnected+"control",obj.data[keys[iter]].control);
-		setVar("Lovense"+numberofLovenseConnected+"nickname",obj.data[keys[iter]].nickname);
-		setVar("Lovense"+numberofLovenseConnected+"version",obj.data[keys[iter]].version);
+		setVar("Lovense"+numberOfLovenseConnected+"ID",obj.data[keys[iter]].id);
+		setVar("Lovense"+numberOfLovenseConnected+"name",obj.data[keys[iter]].name);
+		setVar("Lovense"+numberOfLovenseConnected+"status",obj.data[keys[iter]].status);
+		setVar("Lovense"+numberOfLovenseConnected+"battery",obj.data[keys[iter]].battery);
+		setVar("Lovense"+numberOfLovenseConnected+"control",obj.data[keys[iter]].control);
+		setVar("Lovense"+numberOfLovenseConnected+"nickname",obj.data[keys[iter]].nickname);
+		setVar("Lovense"+numberOfLovenseConnected+"version",obj.data[keys[iter]].version);
 		
 		if ((obj.data[keys[iter]].name== "Edge") || (obj.data[keys[iter]].name== "Hush")){
 			setVar("LovenseButtplugIndex",numberOfLovenseConnected);
@@ -67,28 +150,28 @@ function enumeratelovense(){
 	return;
 }
 function vibratelovense(speed, toyid){
-		response= httpGet("https://127-0-0-1.lovense.club:30010/Vibrate?v="+speed+"&t="+toyid);
+		response= trylovense("https://127-0-0-1.lovense.club:30010/Vibrate?v="+speed+"&t="+toyid);
 	sendDebugMessage("lovense response data: " +response.data);
 	sendDebugMessage("lovense response statuscode: "+response.statusCode);
 	return;
 }
 //vibrate 1 0-20
 function vibrate1lovense(speed, toyid){
-		response= httpGet("https://127-0-0-1.lovense.club:30010/Vibrate1?v="+speed+"&t="+toyid);
+		response= trylovense("https://127-0-0-1.lovense.club:30010/Vibrate1?v="+speed+"&t="+toyid);
 	sendDebugMessage("lovense response data: " +response.data);
 	sendDebugMessage("lovense response statuscode: "+response.statusCode);
 	return;
 }
 //vibrate 2 0-20
 function vibrate2lovense(speed, toyid){
-		response= httpGet("https://127-0-0-1.lovense.club:30010/Vibrate2?v="+speed+"&t="+toyid);
+		response= trylovense("https://127-0-0-1.lovense.club:30010/Vibrate2?v="+speed+"&t="+toyid);
 	sendDebugMessage("lovense response data: " +response.data);
 	sendDebugMessage("lovense response statuscode: "+response.statusCode);
 	return;
 }
 // pattern 0-3??
 function vibratepatternlovense(pattern, toyid){
-		response= httpGet("https://127-0-0-1.lovense.club:30010/Preset?v="+pattern+"&t="+toyid);
+		response= trylovense("https://127-0-0-1.lovense.club:30010/Preset?v="+pattern+"&t="+toyid);
 	sendDebugMessage("lovense response data: " +response.data);
 	sendDebugMessage("lovense response statuscode: "+response.statusCode);
 	return;
@@ -96,30 +179,35 @@ function vibratepatternlovense(pattern, toyid){
 
 //start contractions (0-3)  max
 function AirAutolovense(speed, toyid){
-		response= httpGet("https://127-0-0-1.lovense.club:30010/AirAuto?v="+speed+"&t="+toyid);
+		response= trylovense("https://127-0-0-1.lovense.club:30010/AirAuto?v="+speed+"&t="+toyid);
 	sendDebugMessage("lovense response data: " +response.data);
 	sendDebugMessage("lovense response statuscode: "+response.statusCode);
 	return;
 }
 // for max
 function AirInlovense( toyid){
-		response= httpGet("https://127-0-0-1.lovense.club:30010/AirIn?t="+toyid);
+		response= trylovense("https://127-0-0-1.lovense.club:30010/AirIn?t="+toyid);
 	sendDebugMessage("lovense response data: " +response.data);
 	sendDebugMessage("lovense response statuscode: "+response.statusCode);
 	return;
 }
 // for max
 function AirOutlovense( toyid){
-		response= httpGet("https://127-0-0-1.lovense.club:30010/AirOut?t="+toyid);
+		response= trylovense("https://127-0-0-1.lovense.club:30010/AirOut?t="+toyid);
 	sendDebugMessage("lovense response data: " +response.data);
 	sendDebugMessage("lovense response statuscode: "+response.statusCode);
 	return;
 }
 function getbatterylovense( toyid){
-		response= httpGet("https://127-0-0-1.lovense.club:30010/Battery?t="+toyid);
+		response= trylovense("https://127-0-0-1.lovense.club:30010/Battery?t="+toyid);
 	sendDebugMessage("lovense response data: " +response.data);
 	sendDebugMessage("lovense response statuscode: "+response.statusCode);
-	return response.data;
+	sendDebugMessage("lovense response data.data: "+response.data.data);
+	sendDebugMessage("lovense response data[0].data: "+response.data[0].data);
+	sendDebugMessage("lovense response data[1].data: "+response.data[1].data);
+		
+
+	return response.data.data;
 }
 
 
