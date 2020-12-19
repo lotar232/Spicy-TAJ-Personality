@@ -183,7 +183,7 @@ function Count2()
 }
 function C1()
 {
-    --UNINTERPRETED LINE:@RT(Right!,Left!) #DT @PlayAudio[\GNMSounds\Punishment\SpankingTask\10Strikes\Spank10.mp3] @Wait(18) 
+    --UNINTERPRETED LINE:@RT(Right!,Left!) #DT @PlayAudio[\Spicy\Punishment\SpankingTask\10Strikes\Spank10.mp3] @Wait(18) 
     setVar("Strikes", getVar("Strikes", 0) - 18);
     setVar("SpankingCount", getVar("SpankingCount", 0) + 18);
     Count2();
@@ -192,7 +192,7 @@ function C1()
 }
 function C2()
 {
-    --UNINTERPRETED LINE:@RT(Right!,Left!) #DT @PlayAudio[\GNMSounds\Punishment\SpankingTask\20Strikes\Spank20.mp3] @Wait(18)
+    --UNINTERPRETED LINE:@RT(Right!,Left!) #DT @PlayAudio[\Spicy\Punishment\SpankingTask\20Strikes\Spank20.mp3] @Wait(18)
     setVar("Strikes", getVar("Strikes", 0) - 20);
     setVar("SpankingCount", getVar("SpankingCount", 0) + 20);
     Count2();

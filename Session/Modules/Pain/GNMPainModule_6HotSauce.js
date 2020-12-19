@@ -156,7 +156,7 @@ function Corner()
 {
     run("CR" + java.io.File.separator + "Modules" + java.io.File.separator + "LinkModules" + java.io.File.separator + "GoToCorner.js");
     wait(randomInt(240, 300));
-    --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3]
+    --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\Spicy\SpecialSounds\Bell.mp3]
     End();
     return;
     Stroking();

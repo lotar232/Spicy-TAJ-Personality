@@ -50,7 +50,7 @@ function b()
     run("CR" + java.io.File.separator + "Modules" + java.io.File.separator + "LinkModules" + java.io.File.separator + "GoToCorner.js");
     wait(randomInt(240, 300));
     CMessage(" Get back here.. ");
-	playAudio("/GNMSounds/SpecialSounds/Bell.mp3");
+	playAudio("/Spicy/SpecialSounds/Bell.mp3");
     SmallPartSelect();
     return;
     c();

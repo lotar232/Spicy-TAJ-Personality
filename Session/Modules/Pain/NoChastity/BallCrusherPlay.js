@@ -1,106 +1,45 @@
 {
-    sendMessage("%SlaveName%... " + random("I want to have a bit of fun with your %Balls%", "Lets play a bit with those %Balls%"));
+    if(getCBTLimit() != LIMIT_ASKED_YES || !hasBallCrusher()) {
+        runModuleCategory('Pain');
+    } else if(tryRunModuleFetchId(getDefaultModulesSinceRun(), MODULE_BALL_TORTURE)) {
+        sendMessage("%SlaveName%... " + random("I want to have a bit of fun with your %Balls%", "Lets play a bit with those %Balls%"));
 
-    if (fetchToy("ball crusher")) {
-        sendMessage('Go ahead and attach it...');
-        sendMessage('Tell me when you are done %SlaveName%');
-        waitForDone();
+        if (fetchToy("ball crusher")) {
+            sendMessage('Go ahead and attach it...');
+            sendMessage('Tell me when you are done %SlaveName%');
+            waitForDone();
 
-        setTempVar(VARIABLE_IS_BALL_CRUSHER_ON, true);
+            setTempVar(VARIABLE_IS_BALL_CRUSHER_ON, true);
 
-        sendMessage('Now.. ');
-        sendMessage('I need you to tighten the screws so that it applies pressure to your %Balls%');
-        sendMessage('Stop twisting them right before it would start to hurt');
-        sendMessage('Tell me when you are ready to continue %SlaveName%');
-        waitForDone();
 
-        if (!isVar(VARIABLE_BALL_CRUSHER_MAX_TWISTS)) {
-            sendMessage('Since this is the first we play with your %Balls% like this');
-            sendMessage('We need to determine your threshold ');
-            sendMessage('That point where you can\'t absolutely stand another single twist!');
-            sendMessage('Now for some terms');
-            sendMessage('Half a twist means to tighten all the screws a half round');
-            sendMessage('A full twist means to tighten all the screws a full round!');
-            sendMessage('As simple as that...');
-            sendMessage('Now for this next exercise');
-            sendMessage('You\'re going to twist them 1 full round each 15 seconds');
-            sendMessage('I want you to make me proud! ');
-            sendMessage('Endure the pain!');
-            sendMessage('Say stop when you reach the limit!');
+            applyBallCrusherPressure();
 
-            let stop = false;
-            while (!stop) {
-                sendMessage('Twist it...');
-                showTeaseImage();
-                setVar(VARIABLE_BALL_CRUSHER_MAX_TWISTS, getVar(VARIABLE_BALL_CRUSHER_MAX_TWISTS, 0) + 2);
+            sendMessage('%Now%');
 
-                const answer = createInput(15, 'stop');
-                while (true) {
-                    if (answer.isTimeout()) {
-                        break;
-                    } else if (answer.isLike('stop', 'end')) {
-                        stop = true;
-                        break;
-                    }
-                }
+            decideGag(true);
 
-                answer.clearOptions();
+            switch (randomInteger(0, 2)) {
+                case 0:
+                    ballCrusherSlideshow();
+                    break;
+                case 1:
+                    ballCrusherGame();
+                    break;
+                case 2:
+                    startMissingCardMemory(GAME_BALL_CRUSHER);
+                    break;
             }
 
-            const maxTwists = getVar(VARIABLE_BALL_CRUSHER_MAX_TWISTS);
+            //TODO: More events after first game round
 
-            if (maxTwists > 40) {
-                sendMessage('You did extremely well! %Grin%');
-                changeMeritHigh(false);
-            } else if (maxTwists > 35) {
-                sendMessage('You did great! %Grin%');
-                changeMeritMedium(false);
-            } else if (maxTwists > 30) {
-                sendMessage('You did alright! %Grin%');
-                changeMeritLow(false);
-            } else if (maxTwists > 20) {
-                sendMessage('Well I suppose you wasn\'t terrible... %Grin%');
-            } else if (maxTwists > 15) {
-                sendMessage('Already done?! Bvarh..  %Grin%');
-                changeMeritLow(true);
-            } else if (maxTwists > 10) {
-                sendMessage('OMG you have got to be kidding me... %Grin%');
-                changeMeritMedium(true);
-            } else {
-                sendMessage('Wauv.. that was awful! %Grin%');
-                changeMeritHigh(true);
-            }
+            sendMessage('You can remove the ball crusher now %Grin%');
+            sendMessage(random('I hope they aren\'t dead!', 'I really hope those %Balls% aren\'t dead', 'You should probably take a look at those %Balls% %Lol%'));
+            setTempVar(VARIABLE_IS_BALL_CRUSHER_ON, false);
+        } else {
+            sendMessage("I guess I have to think of something different to play with your balls");
 
-            sendMessage('Well now that we have that part sorted out...');
-            sendMessage('Oh.... I forgot about my %Balls% right? %Lol%');
-            sendMessage('You may relieve the pressure on your %Balls% %Grin%');
-            sendMessage('BUT make sure that tension is still applied');
-            sendMessage('It just shouldn\'t be painful %EmoteHappy%');
-            sendMessage('I hope you enjoy that relief because it will only be short-lived %Grin%');
+            run('Session/Modules/Pain/Dynamic/BallBusting.js');
         }
-
-        //TODO: More than just "now" like Let's see etc. generalize this somewhere as a function
-        sendMessage('Now...');
-
-        switch(randomInteger(0, 2)) {
-            case 0:
-                ballCrusherSlideshow();
-                break;
-            case 1:
-                ballCrusherGame();
-                break;
-            case 2:
-                ballCrusherRubberPlay();
-                break;
-        }
-        //TODO: More events after first game round
-
-        sendMessage('You can remove the ball crusher now %Grin%');
-        sendMessage(random('I hope they aren\'t dead!', 'I really hope those %Balls% aren\'t dead', 'You should probably take a look at those %Balls% %Lol%'));
-    } else {
-        sendMessage("I guess I have to think of something different to play with your balls");
-
-        //TODO: Different cbt thing
     }
 }
 
@@ -162,6 +101,7 @@ function ballCrusherSlideshow() {
     sendMessage('You can relieve the pressure now %Grin%');
 }
 
+
 function ballCrusherGame() {
     sendMessage('I have a small game for us!');
     sendMessage('It\'s a guessing game!');
@@ -169,12 +109,12 @@ function ballCrusherGame() {
     sendMessage('I\'ll then show you a picture');
     sendMessage('Guess wrong and you have to tighten it a full round');
     sendMessage('Guess right and you can loosen it half a round');
-    sendMessage('When you\'ve made 10 right guesses the game is over!');
+    sendMessage('When you\'ve made 15 right guesses the game is over!');
     sendMessage('If you absolutely can\'t take another twist just say stop');
     sendMessage('It\'s a simple game, right? %Grin%');
 
     let right = 0;
-    while (right < 10) {
+    while (right < 15) {
 
         let answerType = 0;
         const answer = sendInput('Boobs, butt or hentai?');
@@ -186,10 +126,13 @@ function ballCrusherGame() {
                 break;
             } else if (answer.isLike('boob', 'breast', 'tit')) {
                 answerType = 0;
+                break;
             } else if (answer.isLike('butt', 'ass')) {
                 answerType = 1;
+                break;
             } else if (answer.isLike('hentai')) {
                 answerType = 2;
+                break;
             } else {
                 sendMessage('Boobs, butt or hentai %SlaveName%?');
                 answer.loop();
@@ -223,7 +166,7 @@ function ballCrusherGame() {
             right++;
             sendMessage(random('Correct', 'Right on!', 'Yes!', 'You got it!', 'You got it right', 'Right...', ' That is correct... %EmoteSad%'));
         } else {
-            sendMessage(random('Not really ' + typeName, 'Nope', 'Not correct...', 'Incorrect', 'Wrong', 'Not right', 'Lol nope', 'Lol no', 'No %Grin%'));
+            sendMessage(random('Not that\'s ' + typeName, 'Nope', 'Not correct...', 'Incorrect', 'Wrong', 'Not right', 'Lol nope', 'Lol no', 'No %Grin%'));
         }
     }
 
@@ -232,12 +175,13 @@ function ballCrusherGame() {
         changeMeritHigh(true);
         sendMessage('Well I\'m not sure what to say right now...');
     } else {
-        sendMessage('You made it! You\'ve guessed right 10 times');
+        sendMessage('You made it! You\'ve guessed right 15 times');
     }
 
     sendMessage('Go ahead and relieve the pressure on your balls now');
 }
 
+//TODO: Rubber doesn't hurt at all
 function ballCrusherRubberPlay() {
     sendMessage('This is going to hurt...');
 
@@ -256,7 +200,7 @@ function ballCrusherRubberPlay() {
     sendMessage('I will continue until we reach your highscore...');
 
     let currentTwists = 0;
-    while (currenTwists < getVar(VARIABLE_BALL_CRUSHER_MAX_TWISTS)) {
+    while (currentTwists < getVar(VARIABLE_BALL_CRUSHER_MAX_TWISTS)) {
         showTeaseImage(random(9, 15));
         currentTwists += 2;
     }
@@ -267,9 +211,9 @@ function ballCrusherRubberPlay() {
     sendMessage('Aim for the center of your %Balls%');
     sendMessage('And release %Grin%');
 
-    const subPain = getVar(VARIABLE_SUB_PAIN_TOLERANCE);
-    const min = Math.min(subPain * 2, 20);
-    const max = Math.min(2, 4242 * subPain + 4, 6667, 30);
+    const subPain = Math.max(1, getVar(VARIABLE_SUB_PAIN_TOLERANCE));
+    const min = Math.max(3, Math.min(subPain));
+    const max = Math.max(3, subPain * 2);
 
     let strikes = randomInteger(min, max);
 

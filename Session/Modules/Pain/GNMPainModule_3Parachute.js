@@ -74,7 +74,7 @@ function main()
     if(getVar("Personality3", false))
     {
         wait(randomInt(700, 1800));
-        --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Goto(End)
+        --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @Goto(End)
         --UNINTERPRETED LINE:(d) \\Squat
     }
     CMessage("I think it\'s time for some exercise! %GNMLol% %DT%");
@@ -103,22 +103,22 @@ function Base()
 }
 function Down()
 {
-    --UNINTERPRETED LINE:@NullResponse @PlayAudio[\GNMSounds\Punishment\Corner\Down\*.mp3] @ChangeVar[Timer]=[Timer]-[1] @If[Timer]<=[0]Then(End3) @Wait(#Random(5,15)) @Goto(Up,Toes)
+    --UNINTERPRETED LINE:@NullResponse @PlayAudio[\Spicy\Punishment\Corner\Down\*.mp3] @ChangeVar[Timer]=[Timer]-[1] @If[Timer]<=[0]Then(End3) @Wait(#Random(5,15)) @Goto(Up,Toes)
     Up();
 }
 function Up()
 {
-    --UNINTERPRETED LINE:@NullResponse @PlayAudio[\GNMSounds\Punishment\Corner\Up\*.mp3] @ChangeVar[Timer]=[Timer]-[1] @If[Timer]<=[0]Then(End3) @Wait(#Random(5,15)) @Goto(Toes,Down)
+    --UNINTERPRETED LINE:@NullResponse @PlayAudio[\Spicy\Punishment\Corner\Up\*.mp3] @ChangeVar[Timer]=[Timer]-[1] @If[Timer]<=[0]Then(End3) @Wait(#Random(5,15)) @Goto(Toes,Down)
     Toes();
 }
 function Toes()
 {
-    --UNINTERPRETED LINE:@NullResponse @PlayAudio[\GNMSounds\Punishment\Corner\OnYourToes.mp3] @ChangeVar[Timer]=[Timer]-[1] @If[Timer]<=[0]Then(End3) @Wait(#Random(5,15)) @Goto(Down)
+    --UNINTERPRETED LINE:@NullResponse @PlayAudio[\Spicy\Punishment\Corner\OnYourToes.mp3] @ChangeVar[Timer]=[Timer]-[1] @If[Timer]<=[0]Then(End3) @Wait(#Random(5,15)) @Goto(Down)
     End3();
 }
 function End3()
 {
-    --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Goto(End)
+    --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @Goto(End)
     --UNINTERPRETED LINE:(e) \\Bottle tilting
     CMessage("Get me a water bottle, preferably " + "5 L one %GNMGrin% %DT%");
     CMessage("Fill it up! %DT%");
@@ -148,7 +148,7 @@ function End3()
     CMessage("Okay.. %DT%");
     CMessage("Begin! %DT%");
     wait(randomInt(130, 360));
-    --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3]
+    --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\Spicy\SpecialSounds\Bell.mp3]
     CMessage("How many times did you manage to tilt the water bottle? %DT%");
     setVar("WaterBottle", createInput().getAnswer());
     --UNINTERPRETED LINE:@Variable[WaterBottle]<[60]Hmm I expected more #DT #MeritChangeNMedium
@@ -166,7 +166,7 @@ function End3()
     CMessage("I want you to stand in this position until you hear my bell %DT%");
     CMessage("Now in 60 seconds you\'ll hear my bell meaning I\'ve started the timer %DT%");
     CMessage("The second time you hear my bell is when I want you back with me %DT%");
-    --UNINTERPRETED LINE:Begin! #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Wait(60)
+    --UNINTERPRETED LINE:Begin! #DT @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @Wait(60)
     if(getVar("Personality1", false))
     {
         wait(randomInt(130, 360));
@@ -178,7 +178,7 @@ function End3()
     if(getVar("Personality3", false))
     {
         wait(randomInt(300, 600));
-        --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Wait(20)
+        --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @Wait(20)
     }
     CMessage("%GNMGrin% %DT%");
     CMessage("This was fantastic! %DT%");
@@ -208,7 +208,7 @@ function End3()
     if(getVar("Personality3", false))
     {
         wait(randomInt(300, 600));
-        --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\GNMSounds\SpecialSounds\Bell.mp3] @Wait(20)
+        --UNINTERPRETED LINE:Get back here.. #DT @PlayAudio[\Spicy\SpecialSounds\Bell.mp3] @Wait(20)
     }
     let answer1 = getInput("Are you with me again? %DT%");
     if (answer1.isLike("yes"))
