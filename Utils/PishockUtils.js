@@ -1,4 +1,6 @@
 /*
+
+below text is from the Pishock developer describing the API used.... it was under development at the time so this may not be the latest:
 Made an API:
 To use the API you need to ask me to enable it first for you.
 This is the format:
@@ -71,7 +73,7 @@ function setupPishock(){
 		sendVirtualAssistantMessage("hi Slave..... I hear you got a new toy",3);
 	}
 	//todo check if a pishock is already registered and confirm overwrite
-	setVar("hasPishock", true);g
+	setVar("hasPishock", true);
 	sendVirtualAssistantMessage("smile",2);
 	sendVirtualAssistantMessage("But we need to do a few things to get it set it up first");	
 	sendVirtualAssistantMessage("First you should charge up the shockers you have and plug in the pishock device");	
@@ -176,7 +178,7 @@ if (operation>2 || operation<0)
 	sendDebugMessage("Pishock operation  should be between 0 and 2 (0 shock, 1 vibrate, 2 beep) not: " +operation);
 	}
 	
-var json = {
+/*var json = {
 "Username":"lotar232",
 "Code":"1701CD3D0FB",
 "Intensity":intensity.toString(10),
@@ -184,6 +186,35 @@ var json = {
 "ApiKey":"8fefff04-abad-4563-bc0b-3fb3ee1508da",
 "Op":operation.toString(10),
 };
+*/
+
+     switch (shocker){
+		
+		 case 1:
+			shockername= getVar("Pishock_1_Code");
+			break;
+		 case 2:
+			shockername= getVar("Pishock_2_Code");
+			break;
+		 case 3:
+			shockername= getVar("Pishock_3_Code");
+			break;
+		 case 4:
+			shockername= getVar("Pishock_4_Code");
+			break;
+			
+	 }
+
+var json = {
+"Username":getVar("Pishock_Username"),
+"Code":shockername,
+"Intensity":intensity.toString(10),
+"Duration":duration.toString(10),
+"ApiKey":getVar("Pishock_APIkey"),
+"Op":operation.toString(10),
+};
+
+
 	
 	try
 	{
@@ -239,9 +270,9 @@ if (operation>2 || operation<0)
 	sendDebugMessage("Pishock operation  should be between 0 and 2 (0 shock, 1 vibrate, 2 beep) not: " +operation);
 	return;
 	}   // todo fixme remove the hardcode below
-		setVar("Pishock_Username", "lotar232");
-		setVar("Pishock_1_Code", "1701CD3D0FB");
-		setVar("Pishock_APIkey","8fefff04-abad-4563-bc0b-3fb3ee1508da" );
+		//setVar("Pishock_Username", "lotar232");
+		//setVar("Pishock_1_Code", "1701CD3D0FB");
+		//setVar("Pishock_APIkey","8fefff04-abad-4563-bc0b-3fb3ee1508da" );
      switch (shocker){
 		
 		 case 1:
