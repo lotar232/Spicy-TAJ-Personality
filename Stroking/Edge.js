@@ -49,6 +49,7 @@ function startEdging(holdSeconds, skipStop = false, endIn = EDGE_END_NORMAL) {
 
     //While in chastity we don't need stroking sounds
     if(!isInChastity()) {
+			sendDebugMessage('about to call startStroking @12413423 ');
         startStroking(Math.floor(randomInteger(150, 200)));
     }
 

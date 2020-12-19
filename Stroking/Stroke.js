@@ -93,7 +93,7 @@ function startStrokeInterval(durationMinutes) {
 		{	sendDebugMessage('determined that BPM is NaN and trying to fix');
 			bpm = randomInteger(30,90);
 			}
-	sendDebugMessage('about to call startStroking with BPM= ' + bpm);
+	sendDebugMessage('546about to call startStroking with BPM= ' + Math.floor(bpm));
 	//fixme  hardcoding this... should be BPM
     startStroking(Math.floor(bpm));
     sendStrokeTaunts(durationMinutes * 60);
@@ -159,7 +159,7 @@ function sendNewStrokeInstruction() {
             break;
         case 7:
             sendMessage('Go ahead and role your %Cock% between your hands. Imagine starting a fire %Grin%');
-            startStroking(Math.floor(getStrokingBPM(0.5)));
+            startStroking(Math.floor(getStrokingBPM()));
             break;
         case 8:
             sendMessage('Try stroking with both hands');
@@ -168,22 +168,23 @@ function sendNewStrokeInstruction() {
                 sendMessage('It\'s probably impossible with such a small %Cock% but this might be even more humiliating then %Lol%');
             }
 
-            startStroking(Math.floor(getStrokingBPM()));
+            startStroking(Math.floor(getStrokingBPM()*0.75));
             break;
         case 9:
             sendMessage('Use one hand to pull back your foreskin and use the other hand to stroke' + random("", ". Tip only %Grin%"));
-            startStroking(Math.floor(getStrokingBPM(0.75)));
+            startStroking(Math.floor(getStrokingBPM()*0.8));
             break;
         case 10:
             sendMessage('Instead of stroking I want you to twist your hand around that shaft for now');
-            startStroking(Math.floor(getStrokingBPM(0.7)));
+            startStroking(Math.floor(getStrokingBPM()*0.7));
             break;
         case 11:
             sendMessage('Start twisting your hand around the tip of your cock while pulling back your foreskin with the other hand %Grin%');
-            startStroking(Math.floor(getStrokingBPM(0.7)));
+            startStroking(Math.floor(getStrokingBPM()*0.7));
             break;
         case 12:
             sendMessage('Only stroke ' + random("up", "down") + " for now %EmoteHappy%");
+			sendDebugMessage('about to call startStroking with BPM= ' +Math.floor(getStrokingBPM()));
             startStroking(Math.floor(getStrokingBPM()));
             break;
     }
