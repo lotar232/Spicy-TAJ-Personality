@@ -374,7 +374,7 @@ function FF1()
 	
 	/*
 	response=sendInput(" ",10);
-	     while(true){
+ while(true){
 		 if (response.isLike("yes")) {
 			 
 		sendMessage("Round "+getVar("M4Round")+" done.. "); //#DT4 @Goto(RipBase)
@@ -391,14 +391,14 @@ function FF1()
 			sleep(3);
 		 break;
 		}
-	*/
+	
 	RipBase();
 	 }
-	
+	*/
 	
 
 
-      //  RipBase();
+        RipBase();
         return;
     
 //    FF2();
@@ -424,7 +424,7 @@ function FF2()
 	  showImage("Images/Spicy/FFriends/2/*");
 	  pishock(0,getVar("pishockintensity"),getVar("pishockduration"),0);
 	  playAudio("Audio/Spicy/Electricity.mp3");
-	
+	/*
 		response=sendInput(" ",10);
 	     while(true){
 		 if (response.isLike("yes")) {
@@ -445,8 +445,8 @@ function FF2()
 		}
 	
 	 }
-	
-       // RipBase();
+	*/
+        RipBase();
         return;
   
  //   FF3();
@@ -470,6 +470,7 @@ function FF3()
 	showImage("Images/Spicy/FFriends/3/*");
 	pishock(0,getVar("pishockintensity"),getVar("pishockduration"),0);
 	playAudio("Audio/Spicy/Electricity.mp3");
+	/*
 	response=sendInput(" ",10);
 	     while(true){
 		 if (response.isLike("yes")) {
@@ -491,8 +492,8 @@ function FF3()
 		}
 	
 	 }
- 
-      //  RipBase();
+ */
+       RipBase();
         return;
 
  //   Thigh();

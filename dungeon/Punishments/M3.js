@@ -132,7 +132,7 @@ switch (choice) {
 	playAudio("Audio/Spicy/SpecialSounds/Bell.mp3");
 	wait(6);
 	//(Success)
-	sendMessage("I know this was rou gh %SlaveName%"); // #DT4
+	sendMessage("I know this was rough %SlaveName%"); // #DT4
 	sendMessage("But it makes me happy knowing you completed it!"); // #DT4
 	changeMeritLow(false);
 	// @Goto(NoFee)
